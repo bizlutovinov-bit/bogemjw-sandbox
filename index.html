@@ -847,6 +847,63 @@ body{font-weight:400}
  .empty-state .btn{font-size:13px;padding-inline:14px}
 }
 
+
+/* A clear, mobile-friendly path from a saved selection to a conversation. */
+.cart{top:var(--cart-top,0px);bottom:auto;height:var(--cart-height,100dvh)}
+.cart-panel{width:min(460px,100%);padding:0;gap:0;overflow:hidden}
+.cart-head{flex:none;margin:0;padding:26px 24px 16px}
+.cart-head h2{font-size:34px}
+#cart-caption{margin:4px 0 0;font-size:13px;color:var(--ink-soft)}
+#cart-caption:empty{display:none}
+.cart-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 20px;scroll-padding-block:16px;display:flex;flex-direction:column;gap:18px}
+.cart-list li{grid-template-columns:88px minmax(0,1fr);align-items:start;gap:16px;padding:20px 0}
+.cart-list img{width:88px;height:118px;object-fit:contain;background:var(--paper-2)}
+.cart-item-no{display:block;margin-bottom:5px;font-size:11px;letter-spacing:.1em;color:var(--ink-soft)}
+.cart-list .t{font-size:21px;line-height:1.25;overflow-wrap:anywhere}
+.cart-list .p{font-family:var(--f-display);font-size:20px;color:var(--ink);margin-top:10px}
+.cart-list .cart-remove{display:flex;align-items:center;gap:7px;min-height:44px;padding:8px 0;font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.cart-remove svg{width:16px;height:16px}
+.cart-remove:hover{color:var(--wine)}
+.cart-details{border-bottom:1px solid var(--rule);padding:0 0 16px}
+.cart-details summary{cursor:pointer;font-size:15px;line-height:1.5}
+.cart-details summary span{display:block;margin-left:18px;color:var(--ink-soft);font-size:12px}
+.cart-help{margin:14px 0;font-size:14px;line-height:1.55;color:var(--ink-soft)}
+.cart input,.cart textarea{width:100%;scroll-margin-block:16px}
+.cart-checkout{flex:none;padding:18px 24px max(18px,env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule);background:var(--paper);box-shadow:0 -6px 22px rgba(0,0,0,.04)}
+.cart-total{border:0;padding:0;gap:8px;align-items:center;font-size:22px}
+.cart-total>strong{font-weight:400;font-size:24px;text-align:right}
+.cart-total small{font-size:12px}
+.cart-checkout .cart-note{font-size:13px;line-height:1.5;margin:8px 0 14px;color:var(--ink-soft)}
+.cart-checkout .send{gap:4px}
+.cart-checkout #copy-order{border:0;padding:8px;min-height:44px;font-size:13px;text-decoration:underline;text-underline-offset:4px}
+#clear-cart{align-self:center;margin:0;padding:8px}
+.cart-body .cart-empty{min-height:300px}
+.pd-help{padding:18px 0;border-block:1px solid var(--rule)}
+.pd-help p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0 0 10px}
+.pd-question{display:flex;align-items:center;gap:10px;width:100%;min-height:48px;padding:8px 0;background:none;border:0;color:var(--wine);font:500 15px/1.5 var(--f-body);text-align:left;cursor:pointer}
+.pd-question svg{width:24px;height:24px;flex:none}.pd-question span{margin-left:auto}
+.message-dialog{width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 40px);padding:24px;background:var(--paper);color:var(--ink);border:1px solid var(--rule);overflow:auto;overscroll-behavior:contain}
+.message-dialog::backdrop{background:rgba(10,8,8,.68)}
+.message-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.message-head h2{font:400 32px/1.1 var(--f-display);margin:0}.message-head button{flex:none}
+.message-dialog>p{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:18px 0}
+.message-dialog label{display:block;margin:20px 0 10px;font-size:14px}.message-dialog label span{display:block;color:var(--ink-soft);font-size:12px;margin-top:4px}
+.message-dialog textarea{display:block;width:100%;min-height:170px;padding:14px;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);font:400 16px/1.55 var(--f-body);resize:vertical}
+.message-dialog #message-status{font-size:13px;min-height:2.8em;color:var(--wine);margin:14px 0}
+.message-actions{display:grid;gap:10px}.message-actions .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:50px;padding:12px;font-size:15px;line-height:1.45;letter-spacing:0;text-transform:none;cursor:pointer}
+.message-actions svg{width:18px;height:18px;flex:none}
+@media(max-width:360px){
+ .cart-head,.cart-body,.cart-checkout{padding-left:16px;padding-right:16px}
+ .cart-list li{grid-template-columns:76px minmax(0,1fr);gap:12px}.cart-list img{width:76px;height:104px}.cart-list .t{font-size:19px}
+ .cart-total>strong{font-size:22px}.message-dialog{width:calc(100% - 20px);padding:18px}.message-head h2{font-size:28px}
+}
+@media(max-height:600px){
+ .cart-head{padding-top:26px;padding-bottom:12px}.cart-head h2{font-size:28px}
+ .cart-checkout{padding-top:10px;padding-bottom:8px}.cart-checkout .cart-note{margin:4px 0 8px}
+ .cart-checkout #copy-order{display:none}.cart-checkout .send button{min-height:44px;padding:10px}
+ .message-dialog{max-height:calc(100dvh - 16px)}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1090,8 +1147,8 @@ body{font-weight:400}
       <div>
       <ol class="steps">
         <li><b>01</b><div><span>Выберите</span>Откройте изделие в «Шопинге»: фото, детали и наличие. Понравилось — отметьте ♡, чтобы не потерять.</div></li>
-        <li><b>02</b><div><span>Добавьте в корзину</span>Можно несколько изделий — сумма посчитается сама. Укажите имя, телефон и город.</div></li>
-        <li><b>03</b><div><span>Отправьте заказ</span>В Telegram или Instagram в одно нажатие. Мастер подтвердит наличие, оплату и доставку: СДЭК, Яндекс Доставка или Ozon — по России и в страны СНГ.</div></li>
+        <li><b>02</b><div><span>Добавьте в корзину</span>Можно выбрать несколько изделий. Контакты, город и пожелания добавьте по желанию.</div></li>
+        <li><b>03</b><div><span>Отправьте заказ</span>В корзине подготовьте сообщение, скопируйте его и отправьте мастеру в Instagram. Наличие, оплату и доставку обсудим в переписке.</div></li>
       </ol>
       <a class="btn howto-cta" href="#catalog">Перейти к украшениям</a>
       </div>
@@ -1113,7 +1170,7 @@ body{font-weight:400}
       <div class="dbl" aria-hidden="true"></div>
       <h2 class="big">Соберём <i>ваш образ</i></h2>
       <p class="lede">Подскажем по размеру, покажем изделие на видео и отправим в любой город.</p>
-      <div class="shops"><a href="https://www.avito.ru/brands/i191903448" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="13" cy="30" r="10" fill="#00aaff"/><circle cx="34" cy="13" r="11" fill="#a169f7"/><circle cx="35" cy="36" r="8" fill="#97cf26"/><circle cx="11" cy="9" r="6" fill="#ff6163"/></svg><small>Каталог бренда</small><span>Авито</span><em>Bogem jw</em></a>
+      <div class="shops">
         <a href="https://www.instagram.com/bogem_twins_jewelry" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".8" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="url(#igg)" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="url(#igg)" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="#d62976"/></svg><small>Новинки и образы</small><span>Instagram</span><em>@bogem_twins_jewelry</em></a>
         <a href="https://t.me/bogem_jw" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#29A9EB"/><path d="M11.5 23.2l20.6-8c1-.4 1.9.2 1.6 1.7l-3.5 16.5c-.3 1.2-1 1.5-2 .9l-5.4-4-2.6 2.5c-.3.3-.5.5-1.1.5l.4-5.5 10-9c.4-.4-.1-.6-.7-.2L16.5 26.4l-5.3-1.7c-1.2-.4-1.2-1.2.3-1.5z" fill="#fff"/></svg><small>Новинки и видео</small><span>Telegram</span><em>@bogem_jw</em></a>
       </div>
@@ -1126,7 +1183,8 @@ body{font-weight:400}
 <button class="cart-fab" id="cart-fab" type="button" aria-label="Открыть корзину">Корзина <b id="cart-count">0</b></button>
 <div class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-label="Корзина">
   <div class="cart-panel">
-    <div class="cart-head"><h2>Корзина</h2><button class="cart-x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-head"><div><h2>Ваш выбор</h2><p id="cart-caption"></p></div><button class="cart-x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-body" id="cart-body">
     <ul class="cart-list" id="cart-list"></ul>
     <div class="cart-empty empty-state" id="cart-empty">
  <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l1.5 14h-17L5 7Z"/><path d="M8.5 9V6a3.5 3.5 0 0 1 7 0v3"/></svg></div>
@@ -1134,21 +1192,28 @@ body{font-weight:400}
  <p>Выберите украшение в коллекции —<br>оно появится здесь.</p>
  <button type="button" class="btn" id="cart-browse">Посмотреть коллекцию <span aria-hidden="true">→</span></button>
 </div>
-    <div class="cart-total" id="cart-total-row"><span>Итого<small id="cart-ask"></small></span><span id="cart-total">0 ₽</span></div>
-    <form id="cart-form" novalidate>
-      <label for="c-name">Имя<input id="c-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
-      <label for="c-phone">Телефон<input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7"></label>
-      <label for="c-note">Комментарий<textarea id="c-note" name="note" placeholder="Город и служба доставки (СДЭК, Яндекс, Ozon), размер"></textarea></label>
-    </form>
-    <div class="send" id="send">
-      <a id="send-wa" href="#" target="_blank" rel="noopener" hidden>Отправить заказ в WhatsApp</a>
-      <a id="send-tg" href="#" target="_blank" rel="noopener" hidden>Отправить заказ в Telegram</a>
-      <button id="send-ig" type="button"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="currentColor"/></svg>Оформить через Instagram</button>
-      <button id="copy-order" class="alt" type="button">Скопировать заказ</button>
-      <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
-    </div>
+    <details class="cart-details" id="cart-details">
+      <summary>Контакты и пожелания <span>по желанию</span></summary>
+      <p class="cart-help">Можно оставить здесь или обсудить в переписке.</p>
+      <form id="cart-form" novalidate>
+        <label for="c-name">Имя<input id="c-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" enterkeyhint="next" maxlength="100"></label>
+        <label for="c-phone">Телефон<input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ваш номер для связи" enterkeyhint="next" maxlength="40"></label>
+        <label for="c-note">Пожелания<textarea id="c-note" name="note" rows="3" maxlength="1500" placeholder="Город доставки, размер или вопрос мастеру"></textarea></label>
+      </form>
+    </details>
+    <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
     <p class="cart-msg" id="cart-msg" aria-live="polite"></p>
-    <p class="cart-note" id="cart-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p>
+    </div>
+    <div class="cart-checkout" id="cart-checkout">
+      <div class="cart-total" id="cart-total-row"><span>Украшения<small id="cart-ask"></small></span><strong id="cart-total">0 ₽</strong></div>
+      <p class="cart-note" id="cart-note">Доставку и окончательную стоимость согласуем в переписке.</p>
+      <div class="send" id="send">
+        <a id="send-wa" href="#" target="_blank" rel="noopener" hidden>Обсудить заказ в WhatsApp</a>
+        <a id="send-tg" href="#" target="_blank" rel="noopener" hidden>Продолжить в Telegram</a>
+        <button id="send-ig" type="button"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="currentColor"/></svg>Оформить через Instagram <span aria-hidden="true">→</span></button>
+        <button id="copy-order" class="alt" type="button">Скопировать заказ</button>
+      </div>
+    </div>
   </div>
 </div>
 <div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-labelledby="pd-title">
@@ -1186,7 +1251,7 @@ body{font-weight:400}
             <div class="pd-section-body"><p>Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p></div>
           </details>
         </div>
-        <p class="pd-note">Нужна помощь с выбором? <a href="https://t.me/bogem_jw" target="_blank" rel="noopener">Спросить мастера в Telegram →</a></p>
+        <div class="pd-help"><p>Подойдёт ли длина? Как смотрится вживую?</p><button class="pd-question" id="pd-question" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 9h8M8 13h5"/></svg>Задать вопрос об украшении <span aria-hidden="true">→</span></button></div>
         <button class="pd-share" id="pd-share" type="button">Поделиться украшением ↗</button>
       </div>
     </div>
@@ -1194,7 +1259,7 @@ body{font-weight:400}
       <div class="pd-buy-summary"><span>Ваш выбор</span><strong id="pd-buy-price"></strong></div>
       <div class="pd-act">
         <button class="pd-add" id="pd-add" type="button">В корзину</button>
-        <a class="pd-add" id="pd-contact" href="https://t.me/bogem_jw" target="_blank" rel="noopener" hidden>Подобрать похожее</a>
+        <button class="pd-add" id="pd-contact" type="button" hidden>Подобрать похожее</button>
         <button class="pd-fav" id="pd-fav" type="button" aria-pressed="false" aria-label="В избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button>
       </div>
       <p class="pd-msg" id="pd-msg" aria-live="polite"></p>
@@ -1326,64 +1391,103 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
 })();
 
 (function(){
-  const CFG={whatsapp:'', telegramUser:'', bot:''  /* песочница: бот заказов отключён */, instagram:'bogem_twins_jewelry'}; // номер WhatsApp: '79990000000'; ник Telegram: 'olya_bogem'
+  const CFG={whatsapp:'', telegramUser:'', bot:'' /* песочница: бот заказов отключён */, instagram:'bogem_twins_jewelry'};
   const KEY='bogem-cart'; let cart=[];
-  try{ const stored=JSON.parse(localStorage.getItem(KEY)||'[]'); cart=Array.isArray(stored)?[...new Set(stored.filter(id=>typeof id==='string'))]:[]; }catch(e){ cart=[]; }
-  let items=[], byId={};
-  // каталог может обновиться из Google-таблицы (bogem:catalog) — тогда пересобираем список и вешаем кнопки на новые карточки
+  try{const stored=JSON.parse(localStorage.getItem(KEY)||'[]');cart=Array.isArray(stored)?[...new Set(stored.filter(id=>typeof id==='string'))]:[];}catch(e){}
+  const $=id=>document.getElementById(id), fmt=n=>n.toLocaleString('ru-RU')+' ₽';
+  let items=[], byId={}, last=null;
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(cart));}catch(e){}}
   function index(){
     items=[...document.querySelectorAll('.item[data-id]')].filter(it=>!it.classList.contains('off'));
     byId=Object.fromEntries(items.map(it=>[it.dataset.id,{id:it.dataset.id,no:it.dataset.no,title:it.dataset.title,price:+it.dataset.price||0,img:it.querySelector('img').src,sold:it.classList.contains('sold'),repeat:it.classList.contains('repeat')}]));
-    cart=cart.filter(id=>byId[id]&&!byId[id].sold);
-    items.forEach(it=>{ if(it.dataset.bound) return; it.dataset.bound='1';
-      it.querySelector('.add').addEventListener('click',()=>{const id=it.dataset.id; if(cart.includes(id)){ $('cart-fab').click(); return; } cart=[...cart,id]; save(); render(); if(cart.includes(id)){ window.bogemGoal&&bogemGoal('add_to_cart'); $('cart-fab').animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:350}); }}); });
-  }
-  const $=id=>document.getElementById(id);
-  const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
-  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(cart)); }catch(e){} }
-  function render(){
-    $('cart-count').textContent=cart.length;
-    items.forEach(it=>{const b=it.querySelector('.add'); const inC=cart.includes(it.dataset.id); b.classList.toggle('in',inC); b.textContent=inC?'В корзине ✓':'В корзину';});
-    const list=$('cart-list'); list.innerHTML='';
-    cart.forEach(id=>{const x=byId[id]; const li=document.createElement('li');
-      li.innerHTML='<img alt=""><div><div class="t"></div><div class="p"></div></div><button type="button">Убрать</button>';
-      li.querySelector('img').src=x.img; li.querySelector('.t').textContent=x.title; li.querySelector('.p').textContent=x.price?fmt(x.price):'цена по запросу';
-      li.querySelector('button').onclick=()=>{cart=cart.filter(i=>i!==id);save();render();}; list.appendChild(li);});
-    const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
-    $('cart-total').textContent=sum?fmt(sum):'Стоимость уточняется'; $('cart-ask').textContent=ask&&sum?('+ '+ask+' по запросу'):'';
-    $('cart-empty').hidden=cart.length>0; $('cart-note').hidden=!cart.length; $('cart-total-row').hidden=!cart.length; $('cart-form').hidden=!cart.length; $('send').hidden=!cart.length;
-    const txt=encodeURIComponent(orderText());
-    if(CFG.whatsapp){$('send-wa').hidden=false;$('send-wa').href='https://wa.me/'+CFG.whatsapp+'?text='+txt;}
-    if(CFG.bot){$('send-tg').hidden=false;$('send-tg').href='https://t.me/'+CFG.bot+'?start=o_'+cart.map(id=>byId[id].no).join('_');}
+    cart=cart.filter(id=>byId[id]&&!byId[id].sold);save();
+    items.forEach(it=>{if(it.dataset.bound)return;it.dataset.bound='1';
+      it.querySelector('.add').addEventListener('click',()=>{
+        const id=it.dataset.id;if(cart.includes(id)){$('cart-fab').click();return;}
+        cart=[...cart,id];save();render();window.bogemGoal&&bogemGoal('add_to_cart');
+      });
+    });
   }
   function orderText(){
     const lines=cart.map((id,i)=>{const x=byId[id];return (i+1)+'. '+x.title+' — '+(x.price?fmt(x.price):'цена по запросу')+' (№ '+x.no+(x.repeat?', повтор':'')+')';});
     const sum=cart.reduce((a,id)=>a+byId[id].price,0);
     const n=$('c-name').value.trim(), p=$('c-phone').value.trim(), c=$('c-note').value.trim();
-    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nИтого: '+(sum?fmt(sum):'стоимость уточняется')+(sum&&cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nКомментарий: '+c:'');
+    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nУкрашения: '+(sum?fmt(sum):'стоимость уточняется')+(sum&&cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+'\nПодскажите, пожалуйста, наличие и стоимость доставки.'+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nПожелания: '+c:'');
   }
-  async function copy(){ const t=orderText(); try{ await navigator.clipboard.writeText(t); return true; }catch(e){
-      const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); let ok=false; try{ok=document.execCommand('copy');}catch(_){} ta.remove(); return ok; } }
-  let last=null;
-  $('cart-fab').onclick=()=>{window.bogemGoal&&bogemGoal('cart_open');last=document.activeElement;$('cart').hidden=false;document.body.style.overflow='hidden';$('cart-x').focus();};
-  const close=()=>{$('cart').hidden=true;document.body.style.overflow='';last&&last.focus&&last.focus();};
-  $('cart-browse').onclick=()=>{
-    close(); $('f-all').click(); $('catalog').scrollIntoView({behavior:'smooth',block:'start'});
-    $('collection-title').focus({preventScroll:true});
+  function updateLinks(){
+    $('send-wa').hidden=!CFG.whatsapp;$('send-tg').hidden=!CFG.bot;
+    if(CFG.whatsapp)$('send-wa').href='https://wa.me/'+CFG.whatsapp+'?text='+encodeURIComponent(orderText());
+    if(CFG.bot)$('send-tg').href='https://t.me/'+CFG.bot+'?start=o_'+cart.map(id=>byId[id].no).join('_');
+  }
+  function render(){
+    $('cart-count').textContent=cart.length;
+    const n=cart.length, mod=n%100, lastDigit=n%10;
+    $('cart-caption').textContent=n?n+' '+(mod>=11&&mod<=14?'украшений':lastDigit===1?'украшение':lastDigit>=2&&lastDigit<=4?'украшения':'украшений'):'';
+    items.forEach(it=>{const b=it.querySelector('.add'), inC=cart.includes(it.dataset.id);b.classList.toggle('in',inC);b.textContent=inC?'В корзине ✓':'В корзину';});
+    const list=$('cart-list');list.innerHTML='';
+    cart.forEach((id,i)=>{
+      const x=byId[id],li=document.createElement('li');
+      li.innerHTML='<img alt=""><div class="cart-item-info"><span class="cart-item-no"></span><div class="t"></div><div class="p"></div><button class="cart-remove" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7"/></svg>Удалить</button></div>';
+      li.querySelector('img').src=x.img;li.querySelector('img').alt=x.title;
+      li.querySelector('.cart-item-no').textContent='№ '+String(x.no).padStart(2,'0')+(x.repeat?' · Под заказ':'');
+      li.querySelector('.t').textContent=x.title;li.querySelector('.p').textContent=x.price?fmt(x.price):'Цена по запросу';
+      const remove=li.querySelector('.cart-remove');remove.setAttribute('aria-label','Удалить: '+x.title);
+      remove.onclick=()=>{
+        cart=cart.filter(j=>j!==id);save();render();$('cart-msg').textContent='Украшение удалено из корзины.';
+        const next=$('cart-list').querySelectorAll('.cart-remove');(next[Math.min(i,next.length-1)]||$('cart-browse')).focus({preventScroll:true});
+      };
+      list.appendChild(li);
+    });
+    const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
+    $('cart-total').textContent=sum?fmt(sum):'Стоимость уточняется';$('cart-ask').textContent=ask&&sum?'Ещё '+ask+' — по запросу':'';
+    $('cart-empty').hidden=n>0;
+    ['cart-list','cart-details','clear-cart','cart-checkout'].forEach(id=>$(id).hidden=!n);
+    $('cart-msg').textContent='';updateLinks();
+  }
+  async function copy(){
+    const text=orderText();
+    try{await navigator.clipboard.writeText(text);return true;}catch(e){
+      const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;top:0;left:0;opacity:0';$('cart').appendChild(ta);ta.select();let ok=false;
+      try{ok=document.execCommand('copy');}catch(_){}ta.remove();return ok;
+    }
+  }
+  function close(){$('cart').hidden=true;document.body.style.overflow='';if(last&&last.isConnected)last.focus({preventScroll:true});}
+  $('cart-fab').onclick=()=>{window.bogemGoal&&bogemGoal('cart_open');last=document.activeElement;render();$('cart').hidden=false;document.body.style.overflow='hidden';$('cart-body').scrollTop=0;$('cart-x').focus({preventScroll:true});};
+  $('cart-x').onclick=close;
+  $('cart').addEventListener('click',e=>{if(e.target.id==='cart')close();});
+  $('cart-browse').onclick=()=>{close();$('f-all').click();$('catalog').scrollIntoView({behavior:'smooth',block:'start'});$('collection-title').focus({preventScroll:true});};
+  document.addEventListener('keydown',e=>{
+    if($('cart').hidden||document.querySelector('dialog[open]'))return;
+    if(e.key==='Escape'){e.preventDefault();close();return;}
+    if(e.key!=='Tab')return;
+    const f=[...$('cart').querySelectorAll('button,a[href],input,textarea,summary')].filter(el=>!el.disabled&&el.getClientRects().length),first=f[0],end=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();end.focus();}
+    else if(!e.shiftKey&&document.activeElement===end){e.preventDefault();first.focus();}
+  });
+  $('cart-form').addEventListener('submit',e=>e.preventDefault());
+  ['c-name','c-phone','c-note'].forEach(id=>$(id).addEventListener('input',updateLinks));
+  $('copy-order').onclick=async()=>{
+    window.bogemGoal&&bogemGoal('order_copy');const ok=await copy();
+    if(ok){$('cart-msg').textContent='Заказ скопирован. Вставьте его в сообщение мастеру.';$('cart-msg').scrollIntoView({block:'nearest'});}
+    else window.bogemMessage({title:'Ваш заказ',text:orderText()});
   };
-  $('cart-x').onclick=close; $('cart').addEventListener('click',e=>{if(e.target.id==='cart')close();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('cart').hidden)close();});
-  ['c-name','c-phone','c-note'].forEach(id=>$(id).addEventListener('input',render));
-  $('copy-order').onclick=async()=>{ window.bogemGoal&&bogemGoal('order_copy'); $('cart-msg').textContent=(await copy())?'Заказ скопирован. Вставьте его в сообщение мастеру.':'Не получилось скопировать — выделите текст заказа вручную.'; };
-  $('send-ig').onclick=async()=>{ window.bogemGoal&&bogemGoal('order_ig'); const ok=await copy(); $('cart-msg').textContent=ok?'Заказ скопирован. Откроется Instagram — вставьте текст в сообщение.':'Откроется Instagram — напишите, какие изделия хотите.'; const a=document.createElement('a'); a.href='https://ig.me/m/'+CFG.instagram; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove();  };
-  function done(msg){ setTimeout(()=>{ cart=[]; save(); render(); $('cart-msg').textContent=msg; },1200); }
-  $('send-tg').addEventListener('click',()=>{ window.bogemGoal&&bogemGoal('order_tg');
-    const who=$('c-name').value.trim()||$('c-phone').value.trim()||$('c-note').value.trim(); if(who) copy();  // имя/телефон в ссылку бота не влезают — копируем, покупатель вставит в чат
-    $('cart-msg').textContent=who?'Откроется Telegram — нажмите «Старт», список изделий уйдёт мастеру. Имя, телефон и комментарий скопированы — вставьте их в чат бота.':'Откроется Telegram — нажмите «Старт», заказ уйдёт мастеру.'; done(who?'Заказ отправлен в Telegram ✓ Не забудьте вставить в чат бота скопированные имя и телефон. Мастер ответит там же.':'Заказ отправлен в Telegram ✓ Корзина очищена. Мастер ответит вам в чате с ботом.'); });
-  $('send-wa').addEventListener('click',()=>done('Заказ отправлен в WhatsApp ✓ Корзина очищена.'));
-  $('clear-cart').onclick=()=>{ cart=[]; save(); render(); $('cart-msg').textContent='Корзина очищена.'; };
-  index(); render();
-  document.addEventListener('bogem:catalog',()=>{ index(); render(); });
+  $('send-ig').onclick=()=>{window.bogemGoal&&bogemGoal('order_ig');window.bogemMessage({title:'Обсудить заказ',text:orderText()});};
+  $('send-tg').addEventListener('click',()=>{
+    window.bogemGoal&&bogemGoal('order_tg');copy().then(ok=>{$('cart-msg').textContent=ok?'Текст заказа скопирован. Продолжите оформление в Telegram.':'Продолжите оформление в Telegram.';});
+  });
+  $('send-wa').addEventListener('click',()=>{$('cart-msg').textContent='Продолжите оформление в WhatsApp. Выбранные украшения сохранены.';});
+  $('clear-cart').onclick=()=>{cart=[];save();render();$('cart-msg').textContent='Корзина очищена.';$('cart-browse').focus();};
+  // Match the visible viewport when the mobile keyboard opens; keep the edited field in view.
+  if(window.visualViewport){
+    const viewport=window.visualViewport;
+    const resize=()=>{
+      document.documentElement.style.setProperty('--cart-height',viewport.height+'px');
+      document.documentElement.style.setProperty('--cart-top',viewport.offsetTop+'px');
+      if(!$('cart').hidden&&$('cart-form').contains(document.activeElement))document.activeElement.scrollIntoView({block:'nearest'});
+    };
+    viewport.addEventListener('resize',resize);viewport.addEventListener('scroll',resize);resize();
+  }
+  index();render();document.addEventListener('bogem:catalog',()=>{index();render();});
 })();
 </script>
 <script>
@@ -1557,6 +1661,14 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
     if(b.classList.contains('in')){ closeItem(); setTimeout(()=>{ const f=$('cart-fab'); f&&f.click(); },60); return; }
     b.click(); syncAdd(); $('pd-msg').textContent='Добавлено в корзину ✓'; });
   $('pd-fav').addEventListener('click',()=>{ if(cur) toggleFav(cur.dataset.no); });
+  function askAboutItem(){
+    if(!cur) return;
+    const title=cur.dataset.title||'Украшение', no=cur.dataset.no;
+    const question=cur.classList.contains('sold')?'Можно ли подобрать похожее украшение?':'Подскажите, пожалуйста, размер и наличие.';
+    window.bogemMessage({title:'Спросить мастера',text:'Здравствуйте! Меня интересует украшение:\n'+title+' (№ '+no+').\n'+question+'\n'+location.origin+location.pathname+'#item-'+no});
+  }
+  $('pd-question').addEventListener('click',askAboutItem);
+  $('pd-contact').addEventListener('click',askAboutItem);
   $('pd-share').addEventListener('click',async()=>{ if(!cur) return; const url=location.origin+location.pathname+'#item-'+cur.dataset.no, title=(cur.dataset.title||'')+' — Bogem jw';
     goal('item_share');
     if(navigator.share){ try{ await navigator.share({title,url}); return; }catch(e){ if(e&&e.name==='AbortError') return; } }
@@ -1571,6 +1683,37 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   function tryHash(){ if(hashDone) return; const it=fromHash(); if(it){ hashDone=true; openItem(it,false); } }
   prep(); tryHash();
   document.addEventListener('bogem:catalog',()=>{ prep(); if(cur&&!pd.hidden) fill(); else tryHash(); });
+})();
+</script>
+
+<dialog id="message-dialog" class="message-dialog" aria-labelledby="message-title" aria-describedby="message-help">
+ <div class="message-head"><h2 id="message-title">Спросить мастера</h2><button class="cart-x" id="message-close" type="button" aria-label="Закрыть сообщение" autofocus>×</button></div>
+ <p id="message-help">Скопируйте текст, откройте Instagram и вставьте его в Direct.</p>
+ <label for="message-text">Ваше сообщение <span>можно дополнить</span></label>
+ <textarea id="message-text" rows="7" spellcheck="true"></textarea>
+ <p id="message-status" role="status" aria-live="polite">Сообщение готово. Отправить его нужно в Instagram.</p>
+ <div class="message-actions"><button class="btn" id="message-copy" type="button">1. Скопировать сообщение</button><a class="btn line" id="message-go" href="https://ig.me/m/bogem_twins_jewelry" data-external-confirmed target="_blank" rel="noopener noreferrer">2. Открыть Instagram <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+</dialog>
+<script>
+(function(){
+ const $=id=>document.getElementById(id), dialog=$('message-dialog'), field=$('message-text'), copy=$('message-copy');
+ window.bogemMessage=({title,text})=>{
+   $('message-title').textContent=title;field.value=text;
+   copy.textContent='1. Скопировать сообщение';
+   $('message-status').textContent='Сообщение готово. Отправить его нужно в Instagram.';
+   dialog.showModal();
+ };
+ $('message-close').onclick=()=>dialog.close();
+ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+ copy.onclick=async()=>{
+   let ok=false;
+   try{await navigator.clipboard.writeText(field.value);ok=true;}catch(e){
+     field.focus();field.select();try{ok=document.execCommand('copy');}catch(_){}
+   }
+   copy.textContent=ok?'Скопировано ✓':'Скопировать ещё раз';
+   $('message-status').textContent=ok?'Теперь откройте Instagram и вставьте текст в сообщение.':'Выделите текст выше и выберите «Скопировать» в меню телефона.';
+ };
+ field.addEventListener('input',()=>{copy.textContent='1. Скопировать сообщение';$('message-status').textContent='Текст изменён. Скопируйте его перед отправкой.';});
 })();
 </script>
 
@@ -1604,9 +1747,9 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
    if(e.target===themePopup){const r=themePopup.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)themePopup.close();}
  });
  const dialog=document.getElementById('external-confirm'), go=document.getElementById('external-go');
- const names={'t.me':'Telegram','instagram.com':'Instagram','www.instagram.com':'Instagram','ig.me':'Instagram','www.avito.ru':'Авито','avito.ru':'Авито'};
+ const names={'t.me':'Telegram','instagram.com':'Instagram','www.instagram.com':'Instagram','ig.me':'Instagram'};
  document.addEventListener('click',e=>{
-   const a=e.target.closest('a[href]');if(!a||a===go)return;
+   const a=e.target.closest('a[href]');if(!a||a===go||a.closest('#cart')||a.hasAttribute('data-external-confirmed'))return;
    const url=new URL(a.href,location.href), name=names[url.hostname];if(!name)return;
    e.preventDefault();e.stopImmediatePropagation();
    document.getElementById('external-title').textContent='Перейти в '+name+'?';
@@ -1620,3 +1763,4 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 
 </body>
 </html>
+
