@@ -24,6 +24,7 @@
 /* Layout: светлый журнальный разворот — обложка с фото и логотипом, лукбук асимметричной сеткой, каталог карточками, отзывы и контакты. Один светлый образ намеренно. */
 :root{
   --paper:#f7f2ea;     /* слоновая кость */
+  --card-paper:transparent;
   --paper-2:#efe7da;   /* подложка */
   --ink:#1c1714;       /* текст */
   --ink-soft:#6b5f55;
@@ -39,10 +40,10 @@
 }
 
 /* темы: системная (по умолчанию), светлая, тёмная — data-bg ставит переключатель */
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-bg="light"]){--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}}
-:root[data-theme="dark"]:not([data-bg="light"]){--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}
-:root[data-bg="dark"]{--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}
-:root[data-bg="light"]{--paper:#f7f2ea;--paper-2:#efe7da;--ink:#1c1714;--ink-soft:#6b5f55;--gold:#a8822b;--wine:#781d32;--rule:rgba(95,69,56,.24);--night:#1c1714;--night-fg:#f7f2ea;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-bg="light"]){--paper:#191617;--paper-2:#282225;--card-paper:#221d1f;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#762d45;color-scheme:dark}}
+:root[data-theme="dark"]:not([data-bg="light"]){--paper:#191617;--paper-2:#282225;--card-paper:#221d1f;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#762d45;color-scheme:dark}
+:root[data-bg="dark"]{--paper:#191617;--paper-2:#282225;--card-paper:#221d1f;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(221,199,182,.24);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#762d45;color-scheme:dark}
+:root[data-bg="light"]{--card-paper:transparent;--paper:#f7f2ea;--paper-2:#efe7da;--ink:#1c1714;--ink-soft:#6b5f55;--gold:#a8822b;--wine:#781d32;--rule:rgba(95,69,56,.24);--night:#1c1714;--night-fg:#f7f2ea;color-scheme:light}
 .logo-dark{display:none!important}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-bg="light"]) .logo-light{display:none!important}:root:not([data-theme="light"]):not([data-bg="light"]) .logo-dark{display:block!important}}
 :root[data-theme="dark"]:not([data-bg="light"]) .logo-light,:root[data-bg="dark"] .logo-light{display:none!important}
@@ -743,6 +744,24 @@ body{font-weight:400}
  .item .add{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.rv{transform:none;transition:none}}
+
+
+/* Read complete product names; preserve the full jewelry photo and lift dark surfaces. */
+.cat .item{background:var(--card-paper);padding-bottom:10px}
+.cat .item h3,.cat .item:first-child h3{
+ display:block;-webkit-line-clamp:unset;overflow:visible;min-height:2.5em;
+ margin-inline:8px;
+}
+.cat .item>p,.cat .item>.row{margin-inline:8px}
+.cat .item>.add{width:calc(100% - 16px);margin-inline:8px}
+.cat .item .ph img{object-fit:contain}
+@media(hover:hover){
+ .cat .item:hover .ph img{transform:none;filter:brightness(1.04) saturate(1.03)}
+}
+@media(max-width:900px){
+ .cat .item h3,.cat .item:first-child h3{min-height:3.75em}
+ .cat .item .row{row-gap:4px}
+}
 
 </style>
 
