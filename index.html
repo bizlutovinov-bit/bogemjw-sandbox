@@ -574,6 +574,24 @@ body{margin:0;padding-top:24px}
  .pd-panel{max-width:100%}.shops{grid-template-columns:1fr}.cookie{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
 }
 
+
+/* Readable mobile typography, based on customer screenshots. */
+@media(max-width:900px){
+ .feat-ph figcaption,.triptych figcaption{font-size:17px;line-height:1.55;font-weight:400;color:var(--ink);letter-spacing:0;margin-top:14px}
+ .triptych figcaption .caption-price{display:block;font-family:var(--f-display);font-size:20px;font-weight:500;margin:6px 0}
+ .triptych figcaption a[data-buy],.credits a[data-buy]{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;margin-top:10px;padding:10px 18px;background:var(--wine-bg);border:1px solid var(--wine);color:#fff6ea;font:500 14px/1.4 var(--f-body);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+ .triptych figcaption a[data-buy]:hover,.credits a[data-buy]:hover{filter:brightness(1.15)}
+ .triptych{row-gap:30px}
+ .cols p,.facts-box,.steps li,.pd-desc,.pd-dl{font-size:17px;line-height:1.65;font-weight:400}
+ #catalog .lede,.pd-note,.cart-note{font-size:16px;line-height:1.6;font-weight:400}
+ .pd-desc,.pd-note,.cart-note{color:var(--ink)}
+ .item .price{font-size:20px;font-weight:500}.item .price.ask{font-size:15px;font-weight:400}
+ .item .st{font-size:12px;letter-spacing:.02em}.item .add{font-size:13px;font-weight:500;letter-spacing:.04em;min-height:46px}
+ .chips button{font-size:12px;font-weight:400}
+ .tabbar a,.tabbar button{font-size:12px;line-height:1.2;font-weight:500;letter-spacing:0;text-transform:none}
+ .looks-grid figcaption small{font-size:12px;letter-spacing:.06em}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -721,9 +739,9 @@ body{margin:0;padding-top:24px}
         <p class="lede">Крупный, ровный, с мягким блеском. Стальной оттенок делает его современнее классического белого жемчуга.</p>
       </div>
       <div class="triptych">
-        <figure><img src="img/9342c7cd66.jpg" alt="Комплект: колье и серьги Майорка"><figcaption><b>I.</b> Комплект: колье и серьги · 2 600 ₽ · <a href="#catalog" data-buy="8377272494">купить</a></figcaption></figure>
-        <figure class="up"><img src="img/662e16bb10.jpg" alt="Серьги из жемчуга Майорка"><figcaption><b>II.</b> Серьги на эластичной нити · 2 100 ₽ · <a href="#catalog" data-buy="8482802230">купить</a></figcaption></figure>
-        <figure><img src="img/ac833657f9.jpg" alt="Колье из майорки бургунди"><figcaption><b>III.</b> Колье «Бургунди» с крестом · 5 400 ₽ · <a href="#catalog" data-buy="8318209944">купить</a></figcaption></figure>
+        <figure><img src="img/9342c7cd66.jpg" alt="Комплект: колье и серьги Майорка"><figcaption><b>I.</b> Комплект: колье и серьги<span class="caption-price">2 600 ₽</span><a href="#catalog" data-buy="8377272494">Купить</a></figcaption></figure>
+        <figure class="up"><img src="img/662e16bb10.jpg" alt="Серьги из жемчуга Майорка"><figcaption><b>II.</b> Серьги на эластичной нити<span class="caption-price">2 100 ₽</span><a href="#catalog" data-buy="8482802230">Купить</a></figcaption></figure>
+        <figure><img src="img/ac833657f9.jpg" alt="Колье из майорки бургунди"><figcaption><b>III.</b> Колье «Бургунди» с крестом<span class="caption-price">5 400 ₽</span><a href="#catalog" data-buy="8318209944">Купить</a></figcaption></figure>
       </div>
       <div class="facts-box">
         <div><b>Что это</b>Жемчуг «Майорка» — искусственный жемчуг с перламутровым покрытием: выглядит как натуральный, но легче и ровнее.</div>
