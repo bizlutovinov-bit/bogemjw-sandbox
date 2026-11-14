@@ -617,6 +617,15 @@ body{margin:0;padding-top:24px}
  .tabbar a:active svg,.tabbar button:active svg{transform:scale(.92)}
  .tabbar b{top:3px;left:calc(50% + 8px)}
 }
+
+/* A dedicated appearance picker, separate from navigation. */
+.theme-popup{position:fixed;inset:96px 16px auto auto;margin:0;width:240px;max-width:calc(100% - 32px);padding:18px;border:1px solid var(--rule);border-radius:14px;background:var(--paper);color:var(--ink);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.theme-popup::backdrop{background:rgba(0,0,0,.14)}
+.theme-popup .theme{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.theme-popup .theme span{font-size:15px;font-weight:500;margin-bottom:4px;opacity:1}
+.theme-popup .theme button{min-height:46px;padding:10px 14px;text-align:left;font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;border:1px solid var(--rule);border-radius:8px;color:var(--ink);background:transparent}
+.theme-popup .theme button[aria-pressed="true"]{background:var(--wine-bg);color:#fff6ea;border-color:var(--wine)}
+.theme-popup .theme button[aria-pressed="true"]::after{content:"✓";float:right}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1270,9 +1279,20 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 </dialog>
 <script>
 (function(){
- const theme=document.querySelector('.theme'), home=theme.parentElement, foot=document.querySelector('.menu-foot'), mq=matchMedia('(max-width:900px)');
- function placeTheme(){(mq.matches?foot:home).prepend(theme);}placeTheme();mq.addEventListener('change',placeTheme);
- document.getElementById('theme-open').onclick=()=>document.getElementById('burger').click();
+ const theme=document.querySelector('.theme'), home=theme.parentElement, mq=matchMedia('(max-width:900px)');
+ const themeTrigger=document.getElementById('theme-open');
+ const themePopup=document.createElement('dialog');
+ themePopup.id='theme-popup';themePopup.className='theme-popup';themePopup.setAttribute('aria-label','Оформление сайта');
+ document.body.appendChild(themePopup);
+ themeTrigger.setAttribute('aria-haspopup','dialog');themeTrigger.setAttribute('aria-controls','theme-popup');themeTrigger.setAttribute('aria-expanded','false');
+ function placeTheme(){if(themePopup.open)themePopup.close();(mq.matches?themePopup:home).prepend(theme);}
+ placeTheme();mq.addEventListener('change',placeTheme);
+ themeTrigger.onclick=()=>{themePopup.showModal();themeTrigger.setAttribute('aria-expanded','true');const chosen=theme.querySelector('[aria-pressed="true"]');if(chosen)chosen.focus();};
+ themePopup.addEventListener('close',()=>themeTrigger.setAttribute('aria-expanded','false'));
+ themePopup.addEventListener('click',e=>{
+   if(e.target.closest('button[data-t]')){themePopup.close();return;}
+   if(e.target===themePopup){const r=themePopup.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)themePopup.close();}
+ });
  const dialog=document.getElementById('external-confirm'), go=document.getElementById('external-go');
  const names={'t.me':'Telegram','instagram.com':'Instagram','www.instagram.com':'Instagram','ig.me':'Instagram','www.avito.ru':'Авито','avito.ru':'Авито'};
  document.addEventListener('click',e=>{
