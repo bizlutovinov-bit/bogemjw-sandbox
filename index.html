@@ -763,6 +763,64 @@ body{font-weight:400}
  .cat .item .row{row-gap:4px}
 }
 
+
+/* Product detail: scrollable editorial content with an always-visible purchase bar. */
+.pd{inset:24px 0 0}
+.pd-panel{display:flex;flex-direction:column;overflow:hidden;max-height:calc(100vh - 72px);max-height:calc(100dvh - 72px)}
+.pd-content{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);overflow-y:auto;min-height:0;overscroll-behavior:contain;scroll-padding-block:20px}
+.pd-media{align-self:start}
+.pd-gal img{object-fit:contain;aspect-ratio:3/4}
+.pd-photo-hint{margin:0;padding:12px 16px;font-size:12px;line-height:1.5;color:var(--ink-soft);text-align:center}
+.pd-dots{bottom:54px}
+.pd-info{gap:18px;padding:36px 32px}
+.pd-top{padding-right:32px;gap:10px}
+.pd-top .no{color:var(--ink-soft);font-size:12px;letter-spacing:.06em}
+.pd-st{font-size:12px;letter-spacing:0;text-transform:none;color:var(--wine);padding:4px 10px}
+.pd-info h2{font-size:clamp(28px,3vw,36px);line-height:1.15;text-wrap:pretty}
+.pd-price{font-size:27px;line-height:1.3}
+.pd-description h3{margin:4px 0 8px;font:500 13px/1.5 var(--f-body);color:var(--ink)}
+.pd-desc{font-size:16px;line-height:1.65;color:var(--ink-soft)}
+.pd-extra{font-size:15px}
+.pd-sections{border-top:1px solid var(--rule)}
+.pd-sections details{border-bottom:1px solid var(--rule)}
+.pd-sections summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:14px 0;font-size:16px;font-weight:500;cursor:pointer;list-style:none}
+.pd-sections summary::-webkit-details-marker{display:none}
+.pd-sections summary::after{content:"+";font-size:22px;line-height:1;color:var(--wine);font-weight:400}
+.pd-sections details[open]>summary::after{content:"−"}
+.pd-sections summary:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.pd-section-body{padding:0 0 18px;font-size:15px;line-height:1.65;color:var(--ink-soft)}
+.pd-section-body p{margin:0}
+.pd-dl{padding:0;border:0;font-size:15px;line-height:1.6;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:8px 14px;overflow-wrap:anywhere}
+.pd-dl dd{color:var(--ink)}
+.pd-note{margin:0;border:0;padding:0;font-size:15px;line-height:1.65}
+.pd-note a{display:block;text-underline-offset:4px}
+.pd-share{font-size:14px;letter-spacing:0;text-transform:none;min-height:44px;text-align:left}
+.pd-actionbar{flex:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px;align-items:center;padding:16px 24px;background:var(--paper);border-top:1px solid var(--rule);box-shadow:0 -6px 24px rgba(0,0,0,.04)}
+.pd-buy-summary{display:flex;flex-direction:column;gap:2px}
+.pd-buy-summary span{font-size:12px;color:var(--ink-soft)}
+.pd-buy-summary strong{font:400 25px/1.3 var(--f-display);color:var(--ink)}
+.pd-act{margin:0;gap:10px}
+.pd-add{display:flex;align-items:center;justify-content:center;min-width:0;min-height:50px;padding:12px;font-size:15px;font-weight:500;line-height:1.4;letter-spacing:0;text-transform:none;background:var(--wine-bg);border-color:var(--wine-bg);color:#fff6ea;text-decoration:none;text-align:center}
+.pd-add:hover{filter:brightness(1.12)}
+.pd-fav{width:50px;min-height:50px;border-color:var(--rule);color:var(--wine)}
+.pd-msg{grid-column:1/-1;margin:8px 0 0;min-height:0;font-size:14px;line-height:1.4}
+.pd-msg:empty{display:none}
+.pd-x{top:12px;right:12px;width:44px;height:44px;background:var(--paper);color:var(--ink);border:1px solid var(--rule);box-shadow:0 2px 12px rgba(0,0,0,.1)}
+@media(max-width:760px){
+ .pd{padding:0}
+ .pd-panel{height:100%;max-height:100%;width:100%}
+ .pd-content{display:block;flex:1}
+ .pd-info{padding:24px 20px 28px;gap:16px}
+ .pd-info h2{font-size:29px}
+ .pd-desc{font-size:16px}
+ .pd-photo-hint{font-size:12px}
+ .pd-actionbar{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+ .pd-buy-summary{flex-direction:row;align-items:baseline;justify-content:space-between;gap:12px}
+ .pd-buy-summary strong{font-size:22px}
+ .pd-msg{margin:0}
+ .pd-x{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1059,19 +1117,51 @@ body{font-weight:400}
 </div>
 <div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-labelledby="pd-title">
   <div class="pd-panel">
-    <button class="pd-x" id="pd-x" type="button" aria-label="Закрыть">×</button>
-    <div class="pd-media"><div class="pd-gal" id="pd-gal"></div><div class="pd-dots" id="pd-dots" aria-hidden="true"></div></div>
-    <div class="pd-info">
-      <div class="pd-top"><span class="no" id="pd-no"></span><span class="pd-st" id="pd-st"></span></div>
-      <h2 id="pd-title"></h2>
-      <div class="pd-price" id="pd-price"></div>
-      <p class="pd-desc" id="pd-desc"></p>
-      <dl class="pd-dl" id="pd-dl" hidden></dl>
-      <p class="pd-extra" id="pd-extra" hidden></p>
-      <div class="pd-act"><button class="pd-add" id="pd-add" type="button">В корзину</button><button class="pd-fav" id="pd-fav" type="button" aria-pressed="false" aria-label="В избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div>
-      <button class="pd-share" id="pd-share" type="button">Поделиться ссылкой</button>
+    <button class="pd-x" id="pd-x" type="button" aria-label="Закрыть карточку">×</button>
+    <div class="pd-content">
+      <div class="pd-media">
+        <div class="pd-gal" id="pd-gal" aria-label="Фотографии украшения"></div>
+        <div class="pd-dots" id="pd-dots" aria-hidden="true"></div>
+        <p class="pd-photo-hint">Нажмите на фото, чтобы рассмотреть детали</p>
+      </div>
+      <div class="pd-info">
+        <div class="pd-top"><span class="no" id="pd-no"></span><span class="pd-st" id="pd-st"></span></div>
+        <h2 id="pd-title"></h2>
+        <div class="pd-price" id="pd-price"></div>
+        <div class="pd-description">
+          <h3>Об украшении</h3>
+          <p class="pd-desc" id="pd-desc"></p>
+        </div>
+        <p class="pd-extra" id="pd-extra" hidden></p>
+        <div class="pd-sections">
+          <details id="pd-specs">
+            <summary>Материалы и размер</summary>
+            <div class="pd-section-body">
+              <dl class="pd-dl" id="pd-dl" hidden></dl>
+              <p id="pd-specs-empty">Уточните у мастера состав, длину и посадку украшения перед заказом.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Как беречь украшение</summary>
+            <div class="pd-section-body"><p>Надевайте украшение после нанесения парфюма и крема. Храните отдельно от других украшений. Особенности ухода за материалами этого изделия можно уточнить у мастера.</p></div>
+          </details>
+          <details>
+            <summary>Доставка и оплата</summary>
+            <div class="pd-section-body"><p>Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p></div>
+          </details>
+        </div>
+        <p class="pd-note">Нужна помощь с выбором? <a href="https://t.me/bogem_jw" target="_blank" rel="noopener">Спросить мастера в Telegram →</a></p>
+        <button class="pd-share" id="pd-share" type="button">Поделиться украшением ↗</button>
+      </div>
+    </div>
+    <div class="pd-actionbar">
+      <div class="pd-buy-summary"><span>Ваш выбор</span><strong id="pd-buy-price"></strong></div>
+      <div class="pd-act">
+        <button class="pd-add" id="pd-add" type="button">В корзину</button>
+        <a class="pd-add" id="pd-contact" href="https://t.me/bogem_jw" target="_blank" rel="noopener" hidden>Подобрать похожее</a>
+        <button class="pd-fav" id="pd-fav" type="button" aria-pressed="false" aria-label="В избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button>
+      </div>
       <p class="pd-msg" id="pd-msg" aria-live="polite"></p>
-      <p class="pd-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Есть вопрос по изделию — <a href="https://t.me/bogem_jw" target="_blank" rel="noopener">спросите мастера в Telegram</a>.</p>
     </div>
   </div>
 </div>
@@ -1358,11 +1448,13 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   function markDot(){ const i=Math.round(gal.scrollLeft/Math.max(1,gal.clientWidth)); [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); }
   gal.addEventListener('scroll',markDot,{passive:true});
   function syncAdd(){ if(!cur) return; const b=cur.querySelector('.add'), pa=$('pd-add');
-    pa.hidden=cur.classList.contains('sold')||!b; const inC=!!(b&&b.classList.contains('in')); pa.classList.toggle('in',inC); pa.textContent=inC?'В корзине ✓ · открыть':'В корзину'; }
+    pa.hidden=cur.classList.contains('sold')||!b; $('pd-contact').hidden=!pa.hidden; const inC=!!(b&&b.classList.contains('in')); pa.classList.toggle('in',inC); pa.textContent=inC?'Открыть корзину ✓':'В корзину'; }
   function fill(){ const it=cur; if(!it) return;
     const ps=photos(it), title=it.dataset.title||'', price=+it.dataset.price||0, sold=it.classList.contains('sold'), rep=it.classList.contains('repeat');
     gal.innerHTML=''; dots.innerHTML='';
     ps.forEach((src,i)=>{ const im=document.createElement('img'); im.src=src.replace('sz=w1000','sz=w1600'); im.alt=title+(ps.length>1?' — фото '+(i+1):'');
+      im.tabIndex=0; im.setAttribute('role','button'); im.setAttribute('aria-label','Увеличить фото '+(i+1)+': '+title);
+      im.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();im.click();}});
       im.addEventListener('click',()=>{ if(window.bogemLB) bogemLB(ps.map(x=>x.replace('sz=w1000','sz=w2000')),i,title); }); gal.appendChild(im);
       if(ps.length>1) dots.appendChild(document.createElement('i')); });
     gal.scrollLeft=0; markDot();
@@ -1370,14 +1462,17 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
     const st=$('pd-st'); st.className='pd-st'+(sold?' sold':rep?' rep':''); st.textContent=sold?'Продано':rep?'Можно повторить':'В наличии';
     $('pd-title').textContent=title;
     $('pd-price').textContent=price?fmt(price):'Цена по запросу';
+    $('pd-buy-price').textContent=sold?'Продано':$('pd-price').textContent;
     const d=it.querySelector('p'); $('pd-desc').textContent=d?d.textContent:'';
-    const dl=$('pd-dl'), ds=details(it); dl.innerHTML=''; ds.forEach(([k,v])=>{ const dt=document.createElement('dt'), dd=document.createElement('dd'); dt.textContent=k||'·'; dd.textContent=v; dl.append(dt,dd); }); dl.hidden=!ds.length;
+    const dl=$('pd-dl'), ds=details(it); dl.innerHTML=''; ds.forEach(([k,v])=>{ const dt=document.createElement('dt'), dd=document.createElement('dd'); dt.textContent=k||'·'; dd.textContent=v; dl.append(dt,dd); }); dl.hidden=!ds.length; $('pd-specs-empty').hidden=!!ds.length;
     const ex=$('pd-extra'); ex.hidden=!(sold||rep);
     ex.textContent=sold?'Это изделие уже нашло хозяйку. Напишите мастеру — подберём похожее или сделаем на заказ.':rep?'Изделие сделано в одном экземпляре, но мастер может повторить его для вас. Сроки и детали уточнит после заказа.':'';
     $('pd-msg').textContent=''; syncAdd(); syncFav(false);
   }
   function openItem(it,push){ if(!it||it.classList.contains('off')) return;
-    if(pd.hidden) last=document.activeElement; cur=it; fill(); pd.hidden=false; document.body.style.overflow='hidden'; $('pd-x').focus({preventScroll:true});
+    const fresh=pd.hidden||cur!==it;
+    if(pd.hidden) last=document.activeElement; cur=it; fill(); pd.hidden=false;
+    if(fresh){ pd.querySelector('.pd-content').scrollTop=0; pd.querySelectorAll('details').forEach(d=>d.open=false); } document.body.style.overflow='hidden'; $('pd-x').focus({preventScroll:true});
     const h='#item-'+it.dataset.no; if(push!==false&&location.hash!==h){ history.pushState({pd:1},'',h); pushed=true; }
     goal('item_view'); }
   function closeItem(fromPop){ if(pd.hidden) return; pd.hidden=true; cur=null; document.body.style.overflow='';
@@ -1388,7 +1483,14 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   window.addEventListener('popstate',()=>{ const it=fromHash(); if(it) openItem(it,false); else if(!pd.hidden){ pushed=false; closeItem(true); } });
   $('pd-x').addEventListener('click',()=>closeItem());
   pd.addEventListener('click',e=>{ if(e.target===pd) closeItem(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!pd.hidden&&!e.defaultPrevented&&$('lb').hidden) closeItem(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!pd.hidden&&!e.defaultPrevented&&$('lb').hidden&&!document.querySelector('dialog[open]')) closeItem(); });
+  pd.addEventListener('keydown',e=>{
+    if(e.key!=='Tab'||!$('lb').hidden||document.querySelector('dialog[open]')) return;
+    const focusable=[...pd.querySelectorAll('button,a[href],summary,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
+    const first=focusable[0], end=focusable[focusable.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();end.focus();}
+    else if(!e.shiftKey&&document.activeElement===end){e.preventDefault();first.focus();}
+  });
   $('pd-add').addEventListener('click',()=>{ const b=cur&&cur.querySelector('.add'); if(!b) return;
     if(b.classList.contains('in')){ closeItem(); setTimeout(()=>{ const f=$('cart-fab'); f&&f.click(); },60); return; }
     b.click(); syncAdd(); $('pd-msg').textContent='Добавлено в корзину ✓'; });
