@@ -626,6 +626,19 @@ body{margin:0;padding-top:24px}
 .theme-popup .theme button{min-height:46px;padding:10px 14px;text-align:left;font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;border:1px solid var(--rule);border-radius:8px;color:var(--ink);background:transparent}
 .theme-popup .theme button[aria-pressed="true"]{background:var(--wine-bg);color:#fff6ea;border-color:var(--wine)}
 .theme-popup .theme button[aria-pressed="true"]::after{content:"✓";float:right}
+
+/* Compact appearance menu: quiet rows and subtle selection. */
+.theme-popup{width:216px;padding:10px;border-radius:16px;border:1px solid var(--rule);box-shadow:0 8px 30px rgba(0,0,0,.16);outline:none}
+.theme-popup::backdrop{background:transparent}
+.theme-popup .theme{gap:2px}
+.theme-popup .theme span{font-size:12px;font-weight:400;color:var(--ink-soft);letter-spacing:.04em;padding:6px 10px 8px;margin:0}
+.theme button svg{display:none}
+.theme-popup .theme button{display:flex;align-items:center;gap:11px;min-height:44px;padding:10px;font-size:15px;line-height:1.4;border:0;border-radius:9px;color:var(--ink);background:transparent}
+.theme-popup .theme button svg{display:block;width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.theme-popup .theme button[aria-pressed="true"]{background:color-mix(in srgb,var(--wine) 12%,var(--paper));color:var(--ink);border:0}
+.theme-popup .theme button[aria-pressed="true"]::after{float:none;margin-left:auto;font-size:16px;color:var(--wine)}
+.theme-popup .theme button:hover{background:var(--paper-2)}
+.theme-popup .theme button:focus-visible{outline:2px solid var(--wine);outline-offset:-2px}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1282,12 +1295,21 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
  const theme=document.querySelector('.theme'), home=theme.parentElement, mq=matchMedia('(max-width:900px)');
  const themeTrigger=document.getElementById('theme-open');
  const themePopup=document.createElement('dialog');
- themePopup.id='theme-popup';themePopup.className='theme-popup';themePopup.setAttribute('aria-label','Оформление сайта');
+ themePopup.id='theme-popup';themePopup.className='theme-popup';themePopup.setAttribute('aria-label','Оформление сайта');themePopup.tabIndex=-1;
  document.body.appendChild(themePopup);
+ const themeIcons={
+ light:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/>',
+ dark:'<path d="M20 14A8.5 8.5 0 0 1 10 4a8.5 8.5 0 1 0 10 10Z"/>',
+ system:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'
+ };
+ theme.querySelectorAll('button[data-t]').forEach(b=>{
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');svg.innerHTML=themeIcons[b.dataset.t];b.prepend(svg);
+ });
+
  themeTrigger.setAttribute('aria-haspopup','dialog');themeTrigger.setAttribute('aria-controls','theme-popup');themeTrigger.setAttribute('aria-expanded','false');
  function placeTheme(){if(themePopup.open)themePopup.close();(mq.matches?themePopup:home).prepend(theme);}
  placeTheme();mq.addEventListener('change',placeTheme);
- themeTrigger.onclick=()=>{themePopup.showModal();themeTrigger.setAttribute('aria-expanded','true');const chosen=theme.querySelector('[aria-pressed="true"]');if(chosen)chosen.focus();};
+ themeTrigger.onclick=()=>{themePopup.showModal();themeTrigger.setAttribute('aria-expanded','true');const chosen=theme.querySelector('[aria-pressed="true"]');themePopup.focus();};
  themePopup.addEventListener('close',()=>themeTrigger.setAttribute('aria-expanded','false'));
  themePopup.addEventListener('click',e=>{
    if(e.target.closest('button[data-t]')){themePopup.close();return;}
