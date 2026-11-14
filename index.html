@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Колье, серьги, браслеты и комплекты из натуральных камней и жемчуга. Ручная работа, доставка по России и СНГ. Соберите заказ в корзине — мастер ответит лично.">
+<link rel="canonical" href="https://bogemjw.ru/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f7f2ea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bogem jw">
+<meta property="og:title" content="Bogem jw — украшения ручной работы">
+<meta property="og:description" content="Колье, серьги, браслеты и комплекты из натуральных камней и жемчуга. Ручная работа, доставка по России и СНГ. Соберите заказ в корзине — мастер ответит лично.">
+<meta property="og:url" content="https://bogemjw.ru/">
+<meta property="og:image" content="https://bogemjw.ru/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<title>Bogem jw — украшения ручной работы</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: светлый журнальный разворот — обложка с фото и логотипом, лукбук асимметричной сеткой, каталог карточками, отзывы и контакты. Один светлый образ намеренно. */
+:root{
+  --paper:#f7f2ea;     /* слоновая кость */
+  --paper-2:#efe7da;   /* подложка */
+  --ink:#1c1714;       /* текст */
+  --ink-soft:#6b5f55;
+  --gold:#a8822b;      /* золото, приглушённое для светлого фона */
+  --wine:#940e32;      /* бордо из логотипа */
+  --rule:rgba(168,130,43,.35);
+  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body:"Jost", "Futura", "Segoe UI", system-ui, sans-serif;
+  --wine-bg:#940e32;   /* бордовые плашки — одинаковые в обеих темах */
+  --night:#1c1714;      /* тёмные развороты — тёмные в обеих темах */
+  --night-fg:#f7f2ea;
+  color-scheme:light;
+}
+
+/* темы: системная (по умолчанию), светлая, тёмная — data-bg ставит переключатель */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-bg="light"]){--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(214,176,76,.28);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}}
+:root[data-theme="dark"]:not([data-bg="light"]){--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(214,176,76,.28);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}
+:root[data-bg="dark"]{--paper:#131112;--paper-2:#1b1819;--ink:#f1e8da;--ink-soft:#b3a493;--gold:#d6b04c;--wine:#d98a9f;--rule:rgba(214,176,76,.28);--night:#0c0a0b;--night-fg:#f1e8da;--wine-bg:#411b28;color-scheme:dark}
+:root[data-bg="light"]{--paper:#f7f2ea;--paper-2:#efe7da;--ink:#1c1714;--ink-soft:#6b5f55;--gold:#a8822b;--wine:#940e32;--rule:rgba(168,130,43,.35);--night:#1c1714;--night-fg:#f7f2ea;color-scheme:light}
+.logo-dark{display:none!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-bg="light"]) .logo-light{display:none!important}:root:not([data-theme="light"]):not([data-bg="light"]) .logo-dark{display:block!important}}
+:root[data-theme="dark"]:not([data-bg="light"]) .logo-light,:root[data-bg="dark"] .logo-light{display:none!important}
+:root[data-theme="dark"]:not([data-bg="light"]) .logo-dark,:root[data-bg="dark"] .logo-dark{display:block!important}
+:root[data-bg="light"] .logo-light{display:block!important}:root[data-bg="light"] .logo-dark{display:none!important}
+.theme{display:inline-flex;align-items:center;gap:8px}
+.theme span{opacity:.8}
+.theme button{font:inherit;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;border:1px solid rgba(233,220,192,.35);background:transparent;color:#e9dcc0;cursor:pointer}
+.theme button[aria-pressed="true"]{background:#e9dcc0;color:#1c1714;border-color:#e9dcc0}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:16px;line-height:1.65}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
+
+/* шапка */
+.announce{background:var(--night);color:#e9dcc0;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase}
+.announce .wrap{display:flex;justify-content:center;column-gap:18px;row-gap:6px;align-items:center;gap:18px;padding-block:9px;flex-wrap:wrap;text-align:center}
+.announce b{color:#e3be1d;font-weight:400}
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;flex-direction:column;align-items:center;gap:0;padding-block:14px 0}
+.issue-row{width:100%;display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.issue-row span:last-child{text-align:right}
+.issue-row .mid{font-family:var(--f-display);font-style:italic;text-transform:none;letter-spacing:.02em;font-size:15px;color:var(--ink)}
+.top .brand{display:block;padding-block:clamp(14px,2.4vw,30px) clamp(10px,1.6vw,20px)}
+.top .brand img{height:clamp(84px,13vw,190px);width:auto;display:block}
+.dbl{width:100%;height:6px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.top nav{display:flex;justify-content:center;gap:clamp(18px,5vw,64px);padding-block:14px;width:100%}
+.top nav a{text-decoration:none;font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.top nav a:hover{color:var(--wine);border-bottom-color:var(--wine)}
+/* анонсы на обложке */
+.coverlines{position:absolute;left:28px;top:28px;right:28px;display:flex;flex-direction:column;gap:14px;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.45);z-index:1}
+.coverlines div{font-family:var(--f-display);font-size:clamp(17px,1.7vw,24px);line-height:1.15;max-width:15ch}
+.coverlines small{display:block;font-family:var(--f-body);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#f3d24a;margin-bottom:4px}
+
+/* обложка */
+.cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,5vw,72px);align-items:center;padding-block:40px 64px}
+.cover .text{display:flex;flex-direction:column;gap:26px;min-width:0}
+.cover h1{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,6.4vw,92px);line-height:1.04;margin:0;letter-spacing:-.02em}
+.cover h1 i{color:var(--wine)}
+.cover p{margin:0;color:var(--ink-soft);max-width:42ch}
+.cover figure{margin:0;position:relative;aspect-ratio:4/5;max-width:100%;overflow:hidden;box-shadow:24px 24px 0 -1px var(--paper-2),24px 24px 0 0 var(--rule)}
+.cover figure img{width:100%;height:118%;object-fit:cover;object-position:50% 0;display:block}
+.cover figure::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.6);pointer-events:none}
+.cover figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 28px 24px;color:#fff;font-family:var(--f-display);font-size:20px;background:linear-gradient(transparent,rgba(20,10,8,.65));display:flex;gap:14px;align-items:baseline}
+.cover figcaption span{font-family:var(--f-body);font-size:11px;letter-spacing:.24em;color:#e3be1d}
+.facts{display:flex;gap:28px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--rule)}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-family:var(--f-display);font-weight:400;font-size:28px;font-variant-numeric:tabular-nums}
+.btn{display:inline-block;padding:14px 26px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;border:1px solid var(--ink);transition:background .2s,color .2s}
+.btn:hover{background:var(--wine);border-color:var(--wine)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* лукбук */
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4vw,48px);margin:6px 0 0;line-height:1.05;text-wrap:balance}
+h2 i{color:var(--wine)}
+.look{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.look figure{margin:0;position:relative;overflow:hidden;max-width:100%}
+.look img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.look figure:hover img{transform:scale(1.04)}
+.look .a{grid-column:span 3;grid-row:span 2;aspect-ratio:3/4}
+.look .b{grid-column:span 3;aspect-ratio:3/2}
+.look .c{grid-column:span 2;aspect-ratio:3/4}
+.look .d{grid-column:span 2;aspect-ratio:3/4}
+.look .e{grid-column:span 2;aspect-ratio:3/4}
+section{padding-block:56px}
+
+/* каталог */
+.cat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 20px}
+.item{display:flex;flex-direction:column;gap:10px;min-width:0}
+.item .ph{aspect-ratio:3/4;max-width:100%;overflow:hidden;background:var(--paper-2)}
+.item .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.item:hover .ph img{transform:scale(1.04)}
+.item h3{font-family:var(--f-display);font-weight:400;font-size:19px;line-height:1.2;margin:4px 0 0}
+.item p{margin:0;font-size:14px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.item .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--rule);padding-top:10px;margin-top:auto}
+.price{font-family:var(--f-display);font-size:20px;font-variant-numeric:tabular-nums}
+.price.ask{font-family:var(--f-body);font-size:13px;color:var(--ink-soft)}
+.item .row a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--wine)}
+.item .row a:hover{text-decoration:underline}
+
+/* о бренде */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.about blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-size:clamp(22px,2.6vw,32px);line-height:1.3;text-wrap:balance}
+.about ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.about li{border-top:1px solid var(--rule);padding-top:14px}
+.about li b{display:block;font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+
+/* контакты */
+.contacts{background:var(--ink);color:var(--paper)}
+.contacts .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:64px}
+.contacts h2{color:var(--paper)}
+.contacts h2 i{color:#e3be1d}
+.contacts .label{color:#cbb994}
+.ch{display:grid;gap:0}
+.ch a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(227,190,29,.3);text-decoration:none;color:var(--paper)}
+.ch a span:first-child{font-family:var(--f-display);font-size:24px}
+.ch a span:last-child{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#cbb994}
+.ch a:hover span:first-child{color:#e3be1d}
+footer{background:var(--ink);color:#9c8f80;font-size:12px;letter-spacing:.12em;text-align:center;padding-block:18px 28px;border-top:1px solid rgba(227,190,29,.2)}
+
+/* === стиль: обложка-разворот === */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.06;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.vert{position:absolute;right:clamp(10px,2vw,22px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.issue{display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--rule);padding-bottom:10px}
+/* бегущая строка */
+body{overflow-x:hidden}
+.marquee{border-block:1px solid var(--rule);overflow:hidden;white-space:nowrap;padding-block:14px;background:var(--paper)}
+.marquee div{display:inline-flex;gap:42px;padding-right:42px;font-family:var(--f-display);font-style:italic;font-size:clamp(20px,2.4vw,30px);animation:run 38s linear infinite}
+.marquee b{color:var(--gold);font-style:normal;font-weight:400}
+@keyframes run{to{transform:translateX(-50%)}}
+/* фильтр */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chips button{font:inherit;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;border-radius:999px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips button:hover{border-color:var(--ink)}
+/* рамка карточек */
+.item .ph{position:relative}
+.item .ph::after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,0);transition:border-color .4s}
+.item:hover .ph::after{border-color:rgba(255,255,255,.7)}
+.item .no{font-size:11px;letter-spacing:.2em;color:var(--gold);font-variant-numeric:tabular-nums}
+.lips{display:block;width:34px;height:auto;margin:0 auto 18px;opacity:.85}
+
+@media (max-width:900px){
+  .cat{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about,.contacts .wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:700px){
+  .cover{grid-template-columns:minmax(0,1fr);padding-block:24px 40px}
+  .cover figure{order:-1;box-shadow:none}
+  .top nav{gap:14px;flex-wrap:wrap}
+  .issue-row{grid-template-columns:1fr 1fr}
+  .issue-row .mid{display:none}
+  .coverlines{left:20px;top:20px}
+  .top nav a{font-size:10px;letter-spacing:.2em}
+  .announce b,.announce span:nth-child(5){display:none}
+  .look{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .look .a,.look .b,.look .c,.look .d,.look .e{grid-column:span 1;grid-row:auto;aspect-ratio:3/4}
+  .look .a{grid-column:span 2}
+  .spread{grid-template-columns:minmax(0,1fr)}
+  .vert{display:none}
+}
+/* меню (Андрей 14.11): полоса при прокрутке + ☰ на весь экран */
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:64px}
+.bar{position:fixed;top:0;left:0;right:0;z-index:70;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);transform:translateY(-102%);transition:transform .3s ease}
+.bar.on{transform:none}
+.bar .wrap{display:flex;align-items:center;gap:18px;height:56px}
+.bar-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:500;font-size:24px;letter-spacing:-.02em;line-height:1;margin-right:auto}
+.bar-brand img{height:26px;width:auto}
+.bar nav{display:flex;gap:clamp(14px,2.4vw,30px)}
+.bar nav a{text-decoration:none;font-size:11px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid transparent;padding-bottom:2px}
+.bar nav a:hover{color:var(--wine);border-bottom-color:var(--wine)}
+.bar-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:44px;padding:0 6px;border:none;background:transparent;color:var(--ink);font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.bar-btn svg{width:24px;height:24px}
+.bar-btn b{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--wine-bg);color:#fff6ea;font-size:11px;letter-spacing:0;font-weight:400}
+.bar-btn b[data-n="0"]{display:none}
+.burger{display:none}
+.menu{position:fixed;inset:0;z-index:90;background:var(--paper);color:var(--ink);overflow-y:auto;display:flex;flex-direction:column;opacity:0;transition:opacity .25s ease}
+.menu.show{opacity:1}
+.menu-top{display:flex;align-items:center;justify-content:space-between;height:56px;flex:none;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--rule)}
+.menu-top .bar-brand{margin:0}
+.menu-x{font-size:32px;line-height:1;font-weight:300}
+.menu-list{list-style:none;margin:0;padding:clamp(24px,6vh,56px) 16px 24px;display:flex;flex-direction:column;align-items:center;gap:clamp(4px,1.4vh,12px);text-align:center}
+.menu-list>li>a,.menu-list>li>button{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:400;font-size:clamp(26px,7vw,40px);line-height:1.2;text-decoration:none;color:var(--ink);background:none;border:none;cursor:pointer;padding:4px 8px}
+.menu-list>li>a:hover,.menu-list>li>button:hover{color:var(--wine)}
+.menu-list .caret{font-family:var(--f-body);font-size:14px;transition:transform .2s}
+.menu-list button[aria-expanded="true"] .caret{transform:rotate(180deg)}
+.menu-sub{list-style:none;margin:4px 0 10px;padding:0;display:flex;flex-direction:column;gap:2px}
+.menu-sub a{display:block;padding:8px 10px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+.menu-sub a:hover{color:var(--wine)}
+.menu-foot{margin-top:auto;padding:20px 16px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:14px;border-top:1px solid var(--rule)}
+.menu-foot .label{margin:0;text-align:center}
+.menu-soc{display:flex;gap:12px}
+.menu-soc a{display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid var(--rule);border-radius:50%}
+.menu-soc svg{width:24px;height:24px}
+@media (max-width:900px){
+  .bar{transform:none}
+  .bar nav{display:none}
+  .burger{display:inline-flex}
+  .top nav{display:none}
+  body{padding-top:56px}
+  .bar-btn .t{display:none}
+}
+/* нижняя панель на телефоне + поиск (Андрей 14.11: «внизу меню каталог поиск корзина — удобно») */
+.tabbar{display:none}
+.search{position:fixed;inset:0;z-index:95;background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+.search-top{display:flex;align-items:center;gap:8px;height:60px;flex:none;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(8px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--rule)}
+.search-top input{flex:1;min-width:0;height:44px;border:none;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);font-family:var(--f-display);font-size:22px;padding:0 2px;outline:none;border-radius:0}
+.search-top input::placeholder{color:var(--ink-soft);font-style:italic}
+.search-body{overflow-y:auto;padding:16px max(16px,env(safe-area-inset-left,0px)) calc(90px + env(safe-area-inset-bottom,0px))}
+.search-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.search-tags button{font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
+.search-res{list-style:none;margin:0;padding:0}
+.search-res a{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.search-res img{width:64px;height:84px;object-fit:cover;display:block;background:var(--paper-2)}
+.search-res span{font-family:var(--f-display);font-size:18px;line-height:1.2}
+.search-res b{font-family:var(--f-display);font-weight:400;font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.search-none{color:var(--ink-soft);font-style:italic;font-family:var(--f-display);font-size:19px}
+.item.hl{animation:hl 1.6s ease}
+@keyframes hl{0%,60%{outline:2px solid var(--wine);outline-offset:6px}100%{outline:2px solid transparent;outline-offset:6px}}
+@media (max-width:900px){
+  .tabbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:80;background:color-mix(in srgb,var(--paper) 96%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .tabbar a,.tabbar button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:58px;border:none;background:none;color:var(--ink);font:inherit;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:0}
+  .tabbar svg{width:23px;height:23px}
+  .tabbar .cur{color:var(--wine)}
+  .tabbar b{position:absolute;top:6px;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;background:var(--wine-bg);color:#fff6ea;font-size:10.5px;letter-spacing:0;font-weight:400}
+  .tabbar b[data-n="0"]{display:none}
+  .cart-fab,#bar-cart{display:none!important}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+  .cookie{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+}
+/* карточка изделия, избранное, статусы (Андрей 14.11 «давай все делаем») */
+.item .ph,.item h3{cursor:pointer}
+.item .fav{position:absolute;top:8px;right:8px;z-index:3;width:40px;height:40px;border-radius:50%;border:none;background:color-mix(in srgb,var(--paper) 86%,transparent);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.fav svg,.pd-fav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
+.fav[aria-pressed="true"],.pd-fav[aria-pressed="true"]{color:var(--wine)}
+.fav[aria-pressed="true"] svg,.pd-fav[aria-pressed="true"] svg{fill:currentColor}
+.item .st{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+.item.repeat .st{color:var(--wine)}
+.chips #f-fav b{font-weight:400;margin-left:4px}
+.fav-empty{font-family:var(--f-display);font-style:italic;font-size:20px;color:var(--ink-soft);margin:8px 0 0}
+.pd{position:fixed;inset:0;z-index:96;background:rgba(10,8,8,.6);display:flex;align-items:center;justify-content:center;padding:24px}
+.pd-panel{position:relative;background:var(--paper);color:var(--ink);width:100%;max-width:1000px;max-height:calc(100vh - 48px);overflow:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.pd-media{position:relative;min-width:0;background:var(--paper-2)}
+.pd-gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.pd-gal::-webkit-scrollbar{display:none}
+.pd-gal img{flex:0 0 100%;width:100%;aspect-ratio:3/4;object-fit:cover;scroll-snap-align:start;cursor:zoom-in;display:block}
+.pd-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px;pointer-events:none}
+.pd-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.pd-dots i.on{background:#fff}
+.pd-info{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.pd-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pd-top .no{font-size:12px;letter-spacing:.2em;color:var(--gold)}
+.pd-st{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;border:1px solid currentColor;border-radius:999px;color:var(--gold)}
+.pd-st.sold{color:var(--ink-soft)}.pd-st.rep{color:var(--wine)}
+.pd-info h2{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.4vw,38px);line-height:1.12;margin:0}
+.pd-price{font-family:var(--f-display);font-size:26px;font-variant-numeric:tabular-nums}
+.pd-desc{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6}
+.pd-dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;font-size:14px;border-top:1px solid var(--rule);padding-top:12px}
+.pd-dl dt{color:var(--ink-soft)}.pd-dl dd{margin:0}
+.pd-extra{margin:0;font-size:14px;line-height:1.55;color:var(--wine)}
+.pd-act{display:flex;gap:10px;margin-top:4px}
+.pd-add{flex:1;font:inherit;font-size:12px;letter-spacing:.22em;text-transform:uppercase;padding:15px 12px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+.pd-add.in{background:var(--wine-bg);border-color:var(--wine-bg);color:#fff6ea}
+.pd-fav{width:54px;flex:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0}
+.pd-share{align-self:flex-start;font:inherit;font-size:11px;letter-spacing:.22em;text-transform:uppercase;background:none;border:none;border-bottom:1px solid var(--rule);color:var(--ink);padding:4px 0;cursor:pointer}
+.pd-msg{font-size:13px;color:var(--wine);min-height:1.2em;margin:0}
+.pd-note{font-size:13px;color:var(--ink-soft);margin:auto 0 0;line-height:1.55;border-top:1px solid var(--rule);padding-top:12px}
+.pd-note a{color:var(--wine)}
+.pd-x{position:absolute;top:10px;right:10px;z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(243,210,74,.8);background:rgba(20,14,12,.6);color:#f1e8da;font-size:28px;font-weight:300;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+@media (max-width:760px){
+  .pd{padding:0;align-items:stretch}
+  .pd-panel{grid-template-columns:minmax(0,1fr);max-height:none;height:100%;box-shadow:none}
+  .pd-info{padding:20px 16px calc(28px + env(safe-area-inset-bottom,0px))}
+  .pd-gal img{aspect-ratio:4/5}
+  .pd-x{top:calc(10px + env(safe-area-inset-top,0px))}
+}
+.howto-cta{margin-top:22px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar,.menu{transition:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.marquee div{animation:none}}
+/* === журнал === */
+.page{padding-block:clamp(40px,6vw,88px);border-bottom:1px solid var(--ink)}
+.page.tint{background:var(--paper-2)}
+.folio{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:clamp(28px,4vw,56px)}
+.folio span:nth-child(2){font-family:var(--f-display);font-style:italic;text-transform:none;letter-spacing:.02em;font-size:15px;color:var(--ink)}
+.folio span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.folio.dark{color:#cbb994;border-color:rgba(227,190,29,.3)}
+.folio.dark span:nth-child(2){color:var(--night-fg)}
+.rubric{display:inline-block;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--wine);border-bottom:1px solid var(--wine);padding-bottom:4px}
+.rubric.light{color:#f3d24a;border-color:#f3d24a}
+.big{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;text-wrap:balance}
+.big i{color:var(--wine)}
+.big.light{color:var(--night-fg)}.big.light i{color:#f3d24a}
+.lede{font-family:var(--f-display);font-style:italic;font-size:clamp(18px,1.8vw,23px);line-height:1.4;color:var(--ink);max-width:40ch;margin:0}
+.lede.light{color:#e9dcc0}
+.cols{columns:2 260px;column-gap:36px;margin-top:26px}
+.cols p{margin:0 0 14px;break-inside:avoid-column}
+.cols.two{columns:2 240px}
+.drop::first-letter{float:left;font-family:var(--f-display);font-size:4.4em;line-height:.8;padding:.06em .1em 0 0;color:var(--wine)}
+.pull{margin:8px 0 18px;padding:14px 0;border-block:1px solid var(--ink);font-family:var(--f-display);font-style:italic;font-size:26px;line-height:1.2;break-inside:avoid;text-align:center}
+
+/* содержание */
+.toc-head .big{font-size:clamp(40px,5vw,72px)}
+.toc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:start}
+.toc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.toc-list a{display:grid;grid-template-columns:72px minmax(0,1fr) 84px;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.toc-list b{font-family:var(--f-display);font-weight:400;font-size:44px;line-height:1;color:var(--wine);font-variant-numeric:tabular-nums}
+.toc-list span{font-family:var(--f-display);font-size:clamp(20px,2vw,26px);line-height:1.15}
+.toc-list small{display:block;font-family:var(--f-body);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+.toc-list img{width:84px;height:84px;object-fit:cover;border-radius:50%;filter:grayscale(.15)}
+.toc-list a:hover span{color:var(--wine)}
+
+/* тренд */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.feat-ph{margin:0;position:sticky;top:20px}
+.feat-ph img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.feat-ph figcaption,.triptych figcaption{font-size:12px;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
+.feat-ph figcaption a,.triptych figcaption a{color:var(--wine)}
+.credits{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid var(--ink)}
+.credits li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.credits b{font-family:var(--f-display);font-weight:400;font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.credits a{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);text-decoration:none}
+
+/* материал */
+.mat-head{text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:40px}
+.mat-head .lede{text-align:center}
+.triptych{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px);align-items:start}
+.triptych figure{margin:0}
+.triptych figure.up{margin-top:-28px}
+.triptych img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.triptych b{font-family:var(--f-display);font-weight:400;color:var(--wine);margin-right:4px}
+.facts-box{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:44px;border-top:3px solid var(--ink);padding-top:20px}
+.facts-box b{display:block;font-family:var(--f-display);font-weight:400;font-style:italic;font-size:22px;margin-bottom:6px}
+.facts-box div{font-size:14.5px}
+
+/* образ недели */
+.spread{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--night);color:var(--night-fg)}
+.spread figure{margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden}
+.spread img{width:100%;height:100%;object-fit:cover;display:block}
+.spread .q{padding:clamp(28px,5vw,72px);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.spread .folio{margin-bottom:auto;grid-template-columns:1fr auto}
+.spread-title{margin:0;font-family:var(--f-display);font-style:italic;font-size:clamp(34px,4.6vw,64px);line-height:1.02}
+.spread-text{margin:0;color:#e0d3bd;max-width:44ch}
+.spread-buy{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(227,190,29,.3);padding-top:18px;font-size:13px;color:#cbb994;margin-bottom:auto}
+.btn.line.light{color:var(--night-fg);border-color:var(--night-fg)}
+.btn.line.light:hover{background:var(--night-fg);color:var(--night)}
+
+/* шопинг */
+.cat .item:first-child{grid-column:span 2;grid-row:span 2}
+.cat .item:first-child .ph{aspect-ratio:auto;flex:1;min-height:320px}
+.cat .item:first-child h3{font-size:30px}
+.cat .item:first-child .no{font-size:13px}
+.cat .item:first-child p{-webkit-line-clamp:4;font-size:15px}
+.shop-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+.shop-head .big{margin-bottom:0}
+
+/* письмо редактора */
+.letter{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,5vw,72px);align-items:center}
+.letter figure{margin:0}
+.letter img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border:10px solid var(--paper);box-shadow:0 0 0 1px var(--rule)}
+.sign{font-family:var(--f-display);font-size:24px;margin:18px 0 0}
+.sign i{color:var(--wine)}
+
+/* === объединение с ChatGPT-версией === */
+.top .brand{display:flex;flex-direction:column;align-items:center;text-decoration:none;padding-block:clamp(10px,2vw,22px) clamp(8px,1.4vw,16px)}
+.top .brand img.mini{height:clamp(30px,4vw,44px);width:auto;margin-bottom:-2px}
+.mast{font-family:var(--f-display);font-weight:500;font-size:clamp(64px,15vw,210px);line-height:.86;letter-spacing:-.03em;color:var(--ink)}
+.mast-sub{font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px;text-align:center}
+.soc{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding-bottom:16px}
+.soc a{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--rule);text-decoration:none;font-size:12px;letter-spacing:.06em;background:var(--paper)}
+.soc a:hover{border-color:var(--ink)}
+.soc .ico{width:18px;height:18px}
+.wine-cover{gap:0!important;padding-block:28px 64px}
+.wine-cover .text{background:var(--wine-bg);color:#fff6ea;padding:clamp(28px,5vw,64px);align-self:stretch;justify-content:center}
+.wine-cover h1{color:#fff6ea}.wine-cover h1 i{color:#f3d24a}
+.wine-cover p{color:#f1dccf}
+.wine-cover .facts{border-color:rgba(255,246,234,.3)}.wine-cover .facts b{color:#fff6ea}.wine-cover .label{color:#e9c9b8}
+.wine-cover .btn{background:#fff6ea;color:#940e32;border-color:#fff6ea}.wine-cover .btn:hover{background:#f3d24a;border-color:#f3d24a;color:var(--ink)}
+.wine-cover .btn.line{background:transparent;color:#fff6ea;border-color:#fff6ea}
+.wine-cover figure{box-shadow:none}
+.looks{background:var(--night);color:var(--night-fg);padding-block:clamp(40px,6vw,88px)}
+.looks-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.looks-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.looks-grid figure{margin:0}
+.looks-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.looks-grid figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:10px}
+.looks-grid figcaption span{font-family:var(--f-display);font-size:20px}
+.looks-grid figcaption small{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#cbb994}
+.howto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.steps li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--rule);font-size:14.5px;color:var(--ink-soft)}
+.steps b{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:30px;color:var(--wine);line-height:1}
+.steps span{display:block;font-family:var(--f-display);font-size:22px;color:var(--ink);margin-bottom:4px}
+.wine-band{background:var(--wine-bg);color:#fff6ea;text-align:center;padding-block:clamp(48px,7vw,96px)}
+.band-title{font-family:var(--f-display);font-size:clamp(36px,6vw,80px);line-height:1.02;margin:18px 0 0}
+.band-title i{color:#f3d24a}
+@media (max-width:860px){.looks-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.howto-grid{grid-template-columns:minmax(0,1fr)}}
+.lb[hidden]{display:none!important}
+/* корзина */
+.item .add{font:inherit;font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:11px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.item .add:hover{background:var(--ink);color:var(--paper)}
+.item .add.in{background:var(--wine-bg);border-color:var(--wine-bg);color:#fff6ea}
+.cart-fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;padding:13px 18px;border:none;background:var(--wine-bg);color:#fff6ea;font:inherit;font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.cart-fab b{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:11px;background:#fff6ea;color:#1c1714;font-size:12px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.cart{position:fixed;inset:0;z-index:90;display:flex;justify-content:flex-end;background:rgba(10,8,8,.55)}
+.cart[hidden]{display:none!important}
+.cart-panel{width:min(440px,100%);height:100%;overflow:auto;background:var(--paper);color:var(--ink);padding:calc(env(safe-area-inset-top,0px) + 22px) max(20px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 24px) 22px;display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--rule)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:3px double var(--ink);padding-bottom:12px}
+.cart-head h2{font-family:var(--f-display);font-weight:400;font-size:34px;margin:0}
+.cart-x{font:inherit;font-size:22px;width:40px;height:40px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;border-radius:50%}
+.cart-list{list-style:none;margin:0;padding:0}
+.cart-list li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
+.cart-list img{width:56px;height:72px;object-fit:cover}
+.cart-list .t{font-family:var(--f-display);font-size:17px;line-height:1.2}
+.cart-list .p{font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.cart-list button{font:inherit;font-size:11px;border:none;background:transparent;color:var(--wine);cursor:pointer;letter-spacing:.12em;text-transform:uppercase}
+.cart-empty{color:var(--ink-soft);font-style:italic;font-family:var(--f-display);font-size:20px}
+.cart-total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-display);font-size:24px;border-top:1px solid var(--ink);padding-top:12px}
+.cart-total small{display:block;font-family:var(--f-body);font-size:12px;color:var(--ink-soft)}
+.cart form{display:grid;gap:10px}
+.cart label{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);display:grid;gap:4px}
+.cart input,.cart textarea{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);text-transform:none;letter-spacing:0}
+.cart textarea{min-height:64px;resize:vertical}
+.send{display:grid;gap:8px}
+.send button,.send a{display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:14px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none}
+.send .alt{background:transparent;color:var(--ink)}
+.send .ico{width:18px;height:18px}
+.send [hidden],.cart [hidden]{display:none!important}
+.cart-note{font-size:12.5px;color:var(--ink-soft);margin:0}
+.cart-msg{font-size:13px;color:var(--wine);min-height:1em;margin:0}
+/* лайтбокс */
+.zoomable{cursor:zoom-in;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s,filter .7s}
+/* 14.11 Андрей: «при наведении картинка как бы оживала» — подъём, тень, чуть ярче; в каталоге — наезд камеры */
+@media (hover:hover){
+  .zoomable:not(.item .zoomable):hover{transform:translateY(-6px) scale(1.015);box-shadow:0 22px 44px rgba(28,23,20,.22);filter:saturate(1.1) contrast(1.04)}
+  .item .ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .7s}
+  .item:hover .ph img{transform:scale(1.08) rotate(-.4deg);filter:saturate(1.12) contrast(1.04)}
+}
+.zoomable:active{transform:scale(.985)}
+/* появление при прокрутке — «оживает» и на телефоне */
+.rv{opacity:0;transform:translateY(26px) scale(.985);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.zoomable,.item .ph img{transition:none!important;transform:none!important}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(11,8,7,.95);display:grid;grid-template-rows:auto 1fr auto;padding:calc(env(safe-area-inset-top,0px) + 12px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px));color:#f1e8da}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#cbb994}
+.lb-stage{display:flex;align-items:center;justify-content:center;min-height:0;position:relative}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 80px rgba(0,0,0,.5);transform-origin:0 0;transition:transform .25s ease;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+.lb-stage{overflow:hidden;touch-action:none}
+.lb.zoomed .lb-stage img{cursor:grab;transition:none}
+.lb.zoomed .lb-nav{opacity:0;pointer-events:none}
+.lb-hint{display:block;margin-top:6px;font-family:var(--f-body);font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8f826f}
+.lb-zoom{position:absolute;right:8px;bottom:8px;width:44px;height:44px;border-radius:50%;font-size:20px;line-height:1;background:rgba(20,14,12,.5)!important;z-index:2}
+.lb-cap{text-align:center;font-family:var(--f-display);font-style:italic;font-size:clamp(17px,2vw,22px);padding-top:12px}
+.lb button{font:inherit;background:transparent;border:1px solid rgba(243,210,74,.5);color:#f1e8da;cursor:pointer}
+.lb-close{width:48px;height:48px;border-radius:50%;font-size:30px;line-height:1;font-weight:300;background:rgba(20,14,12,.6)!important;border-color:rgba(243,210,74,.8)!important;display:grid;place-items:center;padding:0 0 3px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;font-size:22px;background:rgba(20,14,12,.5)!important}
+.lb-prev{left:0}.lb-next{right:0}
+.lb button:hover{border-color:#f3d24a;color:#f3d24a}
+/* задняя обложка */
+.back{background:var(--paper);padding-block:clamp(40px,6vw,88px) clamp(28px,4vw,48px)}
+.back-in{display:flex;flex-direction:column;align-items:center;text-align:center}
+.back-logo{width:min(380px,78%);height:auto;display:block;margin-bottom:18px}
+.back .dbl{width:min(560px,100%);margin-bottom:10px}
+.back .lede{text-align:center}
+.shops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;max-width:660px;margin-top:40px}
+.shops a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 16px;border:1px solid var(--ink);text-decoration:none;background:var(--paper);transition:background .25s,color .25s}
+.shops .ico{width:44px;height:44px;margin-bottom:6px;transition:transform .25s}
+.shops a:hover .ico{transform:scale(1.08)}
+.shops small{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+.shops span{font-family:var(--f-display);font-size:30px;line-height:1.1}
+.shops em{font-style:normal;font-size:12.5px;color:var(--wine);letter-spacing:.04em}
+.shops a:hover{background:var(--ink);color:var(--paper)}
+.shops a:hover small,.shops a:hover em{color:#e3be1d}
+.barcode{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.barcode i{display:block;width:150px;height:46px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px,var(--ink) 12px 13px,transparent 13px 16px)}
+.barcode span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+footer{background:var(--paper)!important;color:var(--ink-soft)!important;border-top:1px solid var(--ink)!important}
+@media (max-width:860px){
+  .toc,.feature,.letter,.spread{grid-template-columns:minmax(0,1fr)}
+  .feat-ph{position:static}
+  .facts-box{grid-template-columns:minmax(0,1fr)}
+  .triptych figure.up{margin-top:0}
+}
+@media (max-width:600px){
+  .folio{grid-template-columns:1fr auto}
+  .folio span:first-child{display:none}
+  .triptych{grid-template-columns:minmax(0,1fr)}
+  .toc-list a{grid-template-columns:52px minmax(0,1fr) 60px;gap:12px}
+  .toc-list b{font-size:32px}
+  .toc-list img{width:60px;height:60px}
+  .credits li{grid-template-columns:minmax(0,1fr) auto}
+  .credits a{grid-column:1/-1}
+  .shops{grid-template-columns:minmax(0,1fr)}
+}
+
+[hidden]{display:none!important}  /* 14.11: .item{display:flex} перебивал hidden — фильтр по видам не работал */
+.item .ph::after,.item .ph::before{pointer-events:none}  /* рамка поверх фото перехватывала нажатие — фото не увеличивались */
+.item.off{display:none!important}
+.item.sold .add{display:none}
+.item.sold .ph::before{content:"Продано";position:absolute;z-index:2;top:12px;left:12px;padding:6px 10px;background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.item.sold .ph img{filter:grayscale(.6) opacity(.75)}
+.foot-link{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.cookie{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;max-width:560px;display:flex;gap:14px;align-items:center;padding:14px 16px;background:var(--paper);color:var(--ink);border:1px solid var(--rule);box-shadow:0 12px 34px rgba(0,0,0,.22);font-size:13px;line-height:1.5}
+.cookie[hidden]{display:none}
+.cookie p{margin:0}
+.cookie a{color:var(--wine)}
+.cookie button{flex:none;font:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px;border:none;background:var(--wine-bg);color:#fff6ea;cursor:pointer}
+@media (max-width:520px){.cookie{flex-direction:column;align-items:stretch}}
+</style>
+
+<div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
+<nav class="tabbar" id="tabbar" aria-label="Быстрое меню">
+  <a href="#" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Главная</a>
+  <a href="#catalog" data-tab="catalog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16M15 4l-3 16"/></svg>Каталог</a>
+  <button type="button" id="tab-search" aria-controls="search"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Поиск</button>
+  <a href="#order" data-tab="order"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Написать</a>
+  <button type="button" id="tab-cart" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Корзина<b id="tab-count" data-n="0"></b></button>
+</nav>
+<div class="search" id="search" hidden role="dialog" aria-modal="true" aria-label="Поиск украшений">
+  <div class="search-top"><input id="search-q" type="search" placeholder="Колье, жемчуг, коралл…" autocomplete="off" aria-label="Что ищем"><button class="bar-btn menu-x" id="search-x" type="button" aria-label="Закрыть поиск">×</button></div>
+  <div class="search-body">
+    <div class="search-tags" id="search-tags"><button type="button">Колье</button><button type="button">Серьги</button><button type="button">Браслет</button><button type="button">Жемчуг</button><button type="button">Коралл</button><button type="button">Агат</button><button type="button">Крест</button></div>
+    <ul class="search-res" id="search-res"></ul>
+  </div>
+</div>
+<div class="bar" id="bar">
+  <div class="wrap">
+    <a href="#" class="bar-brand" aria-label="Bogem jw — наверх"><img class="logo-light" src="img/1911f40e2a.png" alt=""><img class="logo-dark" src="img/48a76b12a8.png" alt="">BOGEM</a>
+    <nav aria-label="Меню"><a href="#catalog">Шопинг</a><a href="#trend">Тренд</a><a href="#looks">В кадре</a><a href="#about">О нас</a><a href="#howto">Как заказать</a><a href="#order">Контакты</a></nav>
+    <button class="bar-btn" id="bar-cart" type="button" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="t">Корзина</span><b id="bar-count" data-n="0"></b></button>
+    <button class="bar-btn burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</div>
+<div class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-label="Меню">
+  <div class="menu-top"><a href="#" class="bar-brand"><img class="logo-light" src="img/1911f40e2a.png" alt=""><img class="logo-dark" src="img/48a76b12a8.png" alt="">BOGEM</a><button class="bar-btn menu-x" id="menu-x" type="button" aria-label="Закрыть меню">×</button></div>
+  <ul class="menu-list">
+    <li><button type="button" id="menu-shop" aria-expanded="false" aria-controls="menu-sub">Шопинг <span class="caret">▾</span></button>
+      <ul class="menu-sub" id="menu-sub" hidden>
+        <li><a href="#catalog" data-f="all">Все украшения</a></li>
+        <li><a href="#catalog" data-f="kolye">Колье и чокеры</a></li>
+        <li><a href="#catalog" data-f="sergi">Серьги</a></li>
+        <li><a href="#catalog" data-f="braslet">Браслеты</a></li>
+        <li><a href="#catalog" data-f="komplekt">Комплекты</a></li>
+        <li><a href="#catalog" data-f="brosh">Броши</a></li>
+        <li><a href="#catalog" data-f="fav">Избранное ♡</a></li>
+      </ul></li>
+    <li><a href="#trend">Тренд <i>сезона</i></a></li>
+    <li><a href="#looks">В кадре</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#howto">Как заказать</a></li>
+    <li><a href="#order">Контакты</a></li>
+  </ul>
+  <div class="menu-foot">
+    <p class="label">Доставка по России и СНГ · СДЭК · Яндекс · Ozon</p>
+    <div class="menu-soc"><a href="https://www.instagram.com/bogem_twins_jewelry" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="#d62976" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="#d62976" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="#d62976"/></svg></a><a href="https://t.me/bogem_jw" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#29A9EB"/><path d="M11.5 23.2l20.6-8c1-.4 1.9.2 1.6 1.7l-3.5 16.5c-.3 1.2-1 1.5-2 .9l-5.4-4-2.6 2.5c-.3.3-.5.5-1.1.5l.4-5.5 10-9c.4-.4-.1-.6-.7-.2L16.5 26.4l-5.3-1.7c-1.2-.4-1.2-1.2.3-1.5z" fill="#fff"/></svg></a></div>
+  </div>
+</div>
+<div style="position:fixed;left:0;right:0;top:0;z-index:999;background:#c00;color:#fff;font:12px/1.6 system-ui;text-align:center;padding:2px 8px;pointer-events:none">ПЕСОЧНИЦА — тестовая копия, настоящий сайт: bogemjw.ru</div>
+<header class="top">
+  <div class="wrap">
+    <div class="issue-row"><span>№ 12 · Ноябрь 2026</span><span class="mid">Журнал украшений ручной работы</span><span>Россия · СНГ</span></div>
+    <a href="#" class="brand" aria-label="Bogem jw — на главную"><img class="mini logo-light" src="img/1911f40e2a.png" alt=""><img class="mini logo-dark" src="img/48a76b12a8.png" alt=""><span class="mast">BOGEM</span><span class="mast-sub">Twins jewelry · украшения ручной работы</span></a>
+    <div class="dbl" aria-hidden="true"></div>
+    <nav aria-label="Разделы">
+      <a href="#contents">Содержание</a>
+      <a href="#trend">Тренд</a>
+      <a href="#catalog">Шопинг</a>
+      <a href="#looks">В кадре</a>
+      <a href="#order">Заказать</a>
+    </nav>
+    <div class="soc"><a href="https://www.instagram.com/bogem_twins_jewelry" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="#d62976" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="#d62976" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="#d62976"/></svg>Instagram</a><a href="https://t.me/bogem_jw" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#29A9EB"/><path d="M11.5 23.2l20.6-8c1-.4 1.9.2 1.6 1.7l-3.5 16.5c-.3 1.2-1 1.5-2 .9l-5.4-4-2.6 2.5c-.3.3-.5.5-1.1.5l.4-5.5 10-9c.4-.4-.1-.6-.7-.2L16.5 26.4l-5.3-1.7c-1.2-.4-1.2-1.2.3-1.5z" fill="#fff"/></svg>Telegram</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap cover wine-cover">
+    <div class="text">
+      <h1>Украшения,<br>в которых<br><i>вас запомнят</i></h1>
+      <p>Колье, чокеры, серьги и браслеты из натуральных камней, коралла и жемчуга. Каждое изделие собрано вручную, многие в единственном экземпляре.</p>
+      <div class="btns">
+        <a class="btn" href="#catalog">Смотреть каталог</a>
+        <a class="btn line" href="#order">Заказать</a>
+      </div>
+      <div class="facts">
+        <div><b>100%</b><span class="label">ручная работа</span></div>
+        <div><b>1 из 1</b><span class="label">многие изделия</span></div>
+        <div><b>2020</b><span class="label">продаём с</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="img/ac833657f9.jpg" alt="Колье из майорки цвета бургунди с крестом">
+      <div class="coverlines"><div><small>Тренд сезона</small>Красный — новый чёрный</div><div><small>Материал месяца</small>Жемчуг «Майорка»</div></div>
+      <figcaption><span>№ 01</span>Колье «Бургунди» · 5 400 ₽</figcaption>
+    </figure>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div><span>Агат</span><b>✦</b><span>Коралл</span><b>✦</b><span>Жемчуг «Майорка»</span><b>✦</b><span>Розовый кварц</span><b>✦</b><span>Бирюза</span><b>✦</b><span>Барочный жемчуг</span><b>✦</b><span>Гематит</span><b>✦</b><span>Ручная работа</span><b>✦</b><span>Агат</span><b>✦</b><span>Коралл</span><b>✦</b><span>Жемчуг «Майорка»</span><b>✦</b><span>Розовый кварц</span><b>✦</b><span>Бирюза</span><b>✦</b><span>Барочный жемчуг</span><b>✦</b><span>Гематит</span><b>✦</b><span>Ручная работа</span><b>✦</b></div></div>
+
+  <!-- СОДЕРЖАНИЕ -->
+  <section id="contents" class="page">
+    <div class="wrap">
+      <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Содержание</span><span>стр. 3</span></div>
+      <div class="toc">
+        <div class="toc-head">
+          <h2 class="big">Содержание</h2>
+          <p class="lede">В этом номере: красный цвет как главный тренд сезона, жемчуг «Майорка», образ недели и всё, что можно купить прямо сейчас.</p>
+        </div>
+        <ol class="toc-list">
+          <li><a href="#trend"><b>06</b><span><small>Тренд</small>Красный — новый чёрный</span><img src="img/98d4bd1234.jpg" alt=""></a></li>
+          <li><a href="#material"><b>12</b><span><small>Материал месяца</small>Жемчуг «Майорка»</span><img src="img/9342c7cd66.jpg" alt=""></a></li>
+          <li><a href="#looks"><b>16</b><span><small>В кадре</small>Жизнь крупным планом</span><img src="img/4e00ad0c17.jpg" alt=""></a></li>
+          <li><a href="#look"><b>18</b><span><small>Образ недели</small>Чёрный агат и сетка</span><img src="img/78db82d46a.jpg" alt=""></a></li>
+          <li><a href="#catalog"><b>24</b><span><small>Шопинг</small>13 изделий в наличии</span><img src="img/ebacc4b893.jpg" alt=""></a></li>
+          <li><a href="#about"><b>32</b><span><small>Письмо редактора</small>Почему Bogem</span><img src="img/4bd62e6d1f.jpg" alt=""></a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТРЕНД -->
+  <section id="trend" class="page">
+    <div class="wrap">
+      <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Тренд</span><span>стр. 6</span></div>
+      <div class="feature">
+        <figure class="feat-ph"><img src="img/98d4bd1234.jpg" alt="Колье из красного коралла и жемчуга"><figcaption>На фото: колье из коралла и жемчуга, <a href="#catalog" data-buy="7796946167">цена по запросу</a></figcaption></figure>
+        <div class="feat-text">
+          <span class="rubric">Тренд</span>
+          <h2 class="big">Красный<br><i>новый чёрный</i></h2>
+          <p class="lede">Коралл, бургунди и гранатовые оттенки этой осенью заменяют привычную классику.</p>
+          <div class="cols">
+            <p class="drop">Красный на шее работает как помада: одно украшение собирает весь образ. Под белую рубашку, чёрную водолазку или простое трикотажное платье больше ничего не нужно.</p>
+            <p>В коллекции Bogem jw красный звучит по-разному. Матовый коралл с натуральным жемчугом выглядит тепло и по-летнему, крупная майорка цвета бургунди с крестом — торжественно и немного по-барочному.</p>
+            <blockquote class="pull">«Одно красное колье — и образ готов»</blockquote>
+            <p>Совет стилиста: держите остальной образ в спокойной гамме — молочный, чёрный, серый. Металл в образе лучше подобрать под фурнитуру: золотистый к золотистому.</p>
+          </div>
+          <ul class="credits">
+            <li><span>Колье из майорки «Бургунди» с крестом</span><b>5 400 ₽</b><a href="#catalog" data-buy="8318209944">Купить</a></li>
+            <li><span>Комплект из коралла: серьги, браслет, колье</span><b>1 500 ₽</b><a href="#catalog" data-buy="8511111998">Купить</a></li>
+            <li><span>Колье из коралла и жемчуга</span><b>по запросу</b><a href="#catalog" data-buy="7796946167">Купить</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- МАТЕРИАЛ МЕСЯЦА -->
+  <section id="material" class="page tint">
+    <div class="wrap">
+      <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Материал месяца</span><span>стр. 12</span></div>
+      <div class="mat-head">
+        <span class="rubric">Материал месяца</span>
+        <h2 class="big">Жемчуг <i>«Майорка»</i></h2>
+        <p class="lede">Крупный, ровный, с мягким блеском. Стальной оттенок делает его современнее классического белого жемчуга.</p>
+      </div>
+      <div class="triptych">
+        <figure><img src="img/9342c7cd66.jpg" alt="Комплект: колье и серьги Майорка"><figcaption><b>I.</b> Комплект: колье и серьги · 2 600 ₽ · <a href="#catalog" data-buy="8377272494">купить</a></figcaption></figure>
+        <figure class="up"><img src="img/662e16bb10.jpg" alt="Серьги из жемчуга Майорка"><figcaption><b>II.</b> Серьги на эластичной нити · 2 100 ₽ · <a href="#catalog" data-buy="8482802230">купить</a></figcaption></figure>
+        <figure><img src="img/ac833657f9.jpg" alt="Колье из майорки бургунди"><figcaption><b>III.</b> Колье «Бургунди» с крестом · 5 400 ₽ · <a href="#catalog" data-buy="8318209944">купить</a></figcaption></figure>
+      </div>
+      <div class="facts-box">
+        <div><b>Что это</b>Жемчуг «Майорка» — искусственный жемчуг с перламутровым покрытием: выглядит как натуральный, но легче и ровнее.</div>
+        <div><b>С чем носить</b>С кашемиром, белой рубашкой, жакетом-оверсайз. Длинные серьги — с собранными волосами.</div>
+        <div><b>Уход</b>Надевать после парфюма и крема, хранить отдельно от других украшений.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- В КАДРЕ -->
+  <section id="looks" class="looks">
+    <div class="wrap">
+      <div class="folio dark"><span>Bogem jw · Ноябрь 2026</span><span>В кадре</span><span>стр. 16</span></div>
+      <div class="looks-head"><h2 class="big light">Жизнь<br><i>крупным планом</i></h2><p class="lede light">Не нужен особый повод. Четыре образа, четыре способа заявить о себе.</p></div>
+      <div class="looks-grid">
+        <figure><img src="img/4e00ad0c17.jpg" alt="Образ «Красный акцент»"><figcaption><span>Красный акцент</span><small>01 / образ</small></figcaption></figure>
+        <figure><img src="img/612dd7957d.jpg" alt="Образ «Выход в свет»"><figcaption><span>Выход в свет</span><small>02 / образ</small></figcaption></figure>
+        <figure><img src="img/519ffe3b8f.jpg" alt="Образ «Городская история»"><figcaption><span>Городская история</span><small>03 / образ</small></figcaption></figure>
+        <figure><img src="img/89bfdd8d63.jpg" alt="Образ «Дерзко»"><figcaption><span>Дерзко</span><small>04 / образ</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБРАЗ НЕДЕЛИ -->
+  <section id="look" class="spread">
+    <figure><img src="img/78db82d46a.jpg" alt="Колье из чёрного агата с крестом"></figure>
+    <div class="q">
+      <div class="folio dark"><span>Образ недели</span><span>стр. 18</span></div>
+      <span class="rubric light">Образ недели</span>
+      <p class="spread-title">Чёрный агат, крест и сетка</p>
+      <p class="spread-text">Графичное колье из чёрного агата с крупным крестом — для тех, кто не боится внимания. Носить с чёрной водолазкой, кожей и тонкими колготками в сетку.</p>
+      <div class="spread-buy"><span>Колье из чёрного агата с крестом · цена по запросу</span><a class="btn line light" href="#catalog" data-buy="7797733033">Купить</a></div>
+    </div>
+  </section>
+
+  <!-- ШОПИНГ -->
+  <section id="catalog" class="page">
+    <div class="wrap">
+      <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Шопинг</span><span>стр. 24</span></div>
+      <div class="shop-head">
+        <div><span class="rubric">Шопинг</span><h2 class="big">Всё, что <i>можно купить</i></h2></div>
+        <p class="lede">Изделия в наличии. Отправим СДЭК, Яндекс Доставкой или Ozon — по России и в страны СНГ.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Фильтр по видам">
+        <button id="f-all" type="button" data-f="all" aria-pressed="true">Все</button>
+        <button id="f-kolye" type="button" data-f="kolye" aria-pressed="false">Колье и чокеры</button>
+        <button id="f-sergi" type="button" data-f="sergi" aria-pressed="false">Серьги</button>
+        <button id="f-braslet" type="button" data-f="braslet" aria-pressed="false">Браслеты</button>
+        <button id="f-komplekt" type="button" data-f="komplekt" aria-pressed="false">Комплекты</button>
+        <button id="f-brosh" type="button" data-f="brosh" aria-pressed="false">Броши</button>
+        <button id="f-fav" type="button" data-f="fav" aria-pressed="false">♡ Избранное<b id="fav-count"></b></button>
+      </div>
+      <div class="cat"><article class="item" data-cat="kolye" data-no="1" data-id="8318209944" data-title="Колье из майорки «Бургунди» с крестом" data-price="5400"><div class="ph"><img loading="lazy" src="img/ac833657f9.jpg" alt="Колье из майорки «Бургунди» с крестом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 01</span><h3>Колье из майорки «Бургунди» с крестом</h3><p>Насыщенный бургунди и крест в золоте. Акцент для белой рубашки или чёрного платья.</p><div class="row"><span class="price">5 400 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8318209944">В корзину</button></article><article class="item" data-cat="kolye" data-no="2" data-id="8283063928" data-title="Сотуар из натуральных камней" data-price="5900"><div class="ph"><img loading="lazy" src="img/5d9784fa17.jpg" alt="Сотуар из натуральных камней"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 02</span><h3>Сотуар из натуральных камней</h3><p>Длинная цепь с камнями и подвеской: смелый образ на день и на вечер.</p><div class="row"><span class="price">5 900 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8283063928">В корзину</button></article><article class="item" data-cat="kolye" data-no="3" data-id="8335956365" data-title="Колье из агата, жемчуга и гематита" data-price="4200"><div class="ph"><img loading="lazy" src="img/b378eac939.jpg" alt="Колье из агата, жемчуга и гематита"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 03</span><h3>Колье из агата, жемчуга и гематита</h3><p>Сюрреалистичное колье с подвеской-брошью и жемчужной бахромой.</p><div class="row"><span class="price">4 200 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8335956365">В корзину</button></article><article class="item" data-cat="kolye" data-no="4" data-id="7573461792" data-title="Чокер из тонированного жемчуга" data-price="3600"><div class="ph"><img loading="lazy" src="img/c29c97f3a0.jpg" alt="Чокер из тонированного жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 04</span><h3>Чокер из тонированного жемчуга</h3><p>Жемчужный чокер с цветком из перламутра.</p><div class="row"><span class="price">3 600 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7573461792">В корзину</button></article><article class="item" data-cat="komplekt kolye sergi" data-no="5" data-id="8377272494" data-title="Комплект: колье и серьги «Майорка»" data-price="2600"><div class="ph"><img loading="lazy" src="img/9342c7cd66.jpg" alt="Комплект: колье и серьги «Майорка»"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 05</span><h3>Комплект: колье и серьги «Майорка»</h3><p>Крупный стальной жемчуг «Майорка» и длинные серьги-подвески.</p><div class="row"><span class="price">2 600 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8377272494">В корзину</button></article><article class="item" data-cat="sergi" data-no="6" data-id="8413748775" data-title="Серьги из розового кварца" data-price="2200"><div class="ph"><img loading="lazy" src="img/c13e291fa4.jpg" alt="Серьги из розового кварца"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 06</span><h3>Серьги из розового кварца</h3><p>Женственные серьги-каскад из нежно-розового кварца.</p><div class="row"><span class="price">2 200 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8413748775">В корзину</button></article><article class="item" data-cat="sergi" data-no="7" data-id="8482802230" data-title="Серьги из жемчуга «Майорка»" data-price="2100"><div class="ph"><img loading="lazy" src="img/662e16bb10.jpg" alt="Серьги из жемчуга «Майорка»"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 07</span><h3>Серьги из жемчуга «Майорка»</h3><p>Подвижные серьги на эластичной нити, швензы с позолотой, очень лёгкие.</p><div class="row"><span class="price">2 100 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8482802230">В корзину</button></article><article class="item" data-cat="braslet" data-no="8" data-id="8315374322" data-title="Браслеты-цепи" data-price="1500"><div class="ph"><img loading="lazy" src="img/8423520f9b.jpg" alt="Браслеты-цепи"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 08</span><h3>Браслеты-цепи</h3><p>Лаконичные браслеты в двух оттенках, длина регулируется.</p><div class="row"><span class="price">1 500 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8315374322">В корзину</button></article><article class="item" data-cat="komplekt braslet sergi kolye" data-no="9" data-id="8511111998" data-title="Комплект из коралла" data-price="1500"><div class="ph"><img loading="lazy" src="img/ebacc4b893.jpg" alt="Комплект из коралла"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 09</span><h3>Комплект из коралла</h3><p>Серьги, браслет и колье из яркого коралла, гипоаллергенная фурнитура.</p><div class="row"><span class="price">1 500 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8511111998">В корзину</button></article><article class="item" data-cat="kolye" data-no="10" data-id="7797733033" data-title="Колье из чёрного агата с крестом" data-price="0"><div class="ph"><img loading="lazy" src="img/78db82d46a.jpg" alt="Колье из чёрного агата с крестом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 10</span><h3>Колье из чёрного агата с крестом</h3><p>Чёрный агат и крупный крест: графично и дерзко.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7797733033">В корзину</button></article><article class="item" data-cat="kolye" data-no="11" data-id="7796946167" data-title="Колье из коралла и жемчуга" data-price="0"><div class="ph"><img loading="lazy" src="img/98d4bd1234.jpg" alt="Колье из коралла и жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 11</span><h3>Колье из коралла и жемчуга</h3><p>Красный коралл и натуральный жемчуг с подвеской-сердцем.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7796946167">В корзину</button></article><article class="item" data-cat="komplekt kolye sergi" data-no="12" data-id="8312803506" data-title="Колье и серьги из бирюзы и барочного жемчуга" data-price="0"><div class="ph"><img loading="lazy" src="img/8ae384b4d2.jpg" alt="Колье и серьги из бирюзы и барочного жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 12</span><h3>Колье и серьги из бирюзы и барочного жемчуга</h3><p>Яркая бирюза и крупный барочный жемчуг, серьги в комплект.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8312803506">В корзину</button></article><article class="item" data-cat="brosh" data-no="13" data-id="7797205685" data-title="Брошь-булавка с жемчугом" data-price="0"><div class="ph"><img loading="lazy" src="img/4bd62e6d1f.jpg" alt="Брошь-булавка с жемчугом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 13</span><h3>Брошь-булавка с жемчугом</h3><p>Трендовая брошь-булавка с цепочками и натуральным жемчугом.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7797205685">В корзину</button></article></div>
+      <p class="fav-empty" id="fav-empty" hidden>Пока пусто — нажмите ♡ на понравившемся украшении, и оно сохранится здесь.</p>
+    </div>
+  </section>
+
+  <!-- ПИСЬМО РЕДАКТОРА -->
+  <section id="about" class="page tint">
+    <div class="wrap">
+      <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Письмо редактора</span><span>стр. 32</span></div>
+      <div class="letter">
+        <figure><img src="img/0f5cce7139.jpg" alt="Создательницы Bogem jw"></figure>
+        <div>
+          <span class="rubric">Письмо редактора</span>
+          <h2 class="big">Почему <i>Bogem</i></h2>
+          <div class="cols two">
+            <p class="drop">Богема — это свобода носить то, что нравится, а не то, что принято. Мы собираем украшения вручную из агата, коралла, кварца, бирюзы и жемчуга, и почти каждое существует в одном экземпляре.</p>
+            <p>Нам нравятся крупные формы, кресты, барочный жемчуг и смелые сочетания цвета. К любому колье подберём серьги или браслет, а упакуем в фирменную коробку Bogem jw — подарок готов.</p>
+          </div>
+          <p class="sign">С любовью, <i>Bogem jw</i></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- КАК ЗАКАЗАТЬ -->
+<section id="howto" class="page howto">
+  <div class="wrap">
+    <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Как заказать</span><span>стр. 34</span></div>
+    <div class="howto-grid">
+      <h2 class="big">Из подборки<br><i>в вашу историю</i></h2>
+      <div>
+      <ol class="steps">
+        <li><b>01</b><div><span>Выберите</span>Откройте изделие в «Шопинге»: фото, детали и наличие. Понравилось — отметьте ♡, чтобы не потерять.</div></li>
+        <li><b>02</b><div><span>Добавьте в корзину</span>Можно несколько изделий — сумма посчитается сама. Укажите имя, телефон и город.</div></li>
+        <li><b>03</b><div><span>Отправьте заказ</span>В Telegram или Instagram в одно нажатие. Мастер подтвердит наличие, оплату и доставку: СДЭК, Яндекс Доставка или Ozon — по России и в страны СНГ.</div></li>
+      </ol>
+      <a class="btn howto-cta" href="#catalog">Перейти к украшениям</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wine-band">
+  <div class="wrap">
+    <span class="rubric light">Продолжение следует</span>
+    <p class="band-title">Ваша следующая<br><i>любимая деталь</i></p>
+  </div>
+</section>
+<!-- ЗАДНЯЯ ОБЛОЖКА -->
+<section id="order" class="back">
+  <div class="wrap">
+    <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Где купить</span><span>стр. 36</span></div>
+    <div class="back-in">
+      <img class="back-logo logo-light" src="img/1911f40e2a.png" alt="Bogem jw"><img class="back-logo logo-dark" src="img/48a76b12a8.png" alt="Bogem jw">
+      <div class="dbl" aria-hidden="true"></div>
+      <h2 class="big">Соберём <i>ваш образ</i></h2>
+      <p class="lede">Подскажем по размеру, покажем изделие на видео и отправим в любой город.</p>
+      <div class="shops">
+        <a href="https://www.instagram.com/bogem_twins_jewelry" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/><stop offset=".6" stop-color="#d62976"/><stop offset=".8" stop-color="#962fbf"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="url(#igg)" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="url(#igg)" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="#d62976"/></svg><small>Новинки и образы</small><span>Instagram</span><em>@bogem_twins_jewelry</em></a>
+        <a href="https://t.me/bogem_jw" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#29A9EB"/><path d="M11.5 23.2l20.6-8c1-.4 1.9.2 1.6 1.7l-3.5 16.5c-.3 1.2-1 1.5-2 .9l-5.4-4-2.6 2.5c-.3.3-.5.5-1.1.5l.4-5.5 10-9c.4-.4-.1-.6-.7-.2L16.5 26.4l-5.3-1.7c-1.2-.4-1.2-1.2.3-1.5z" fill="#fff"/></svg><small>Новинки и видео</small><span>Telegram</span><em>@bogem_jw</em></a>
+      </div>
+      <div class="barcode" aria-hidden="true"><i></i><span>№ 12 · 2026 · Bogem jw</span></div>
+    </div>
+  </div>
+</section>
+<footer>© Bogem jw · журнал украшений ручной работы · <a href="privacy.html" class="foot-link">Политика конфиденциальности</a></footer>
+<div class="cookie" id="cookie" hidden role="region" aria-label="Уведомление о cookies"><p>Сайт использует cookies и сервис Яндекс Метрика, чтобы понимать, что вам нравится. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p><button type="button" id="cookie-ok">Хорошо</button></div>
+<button class="cart-fab" id="cart-fab" type="button" aria-label="Открыть корзину">Корзина <b id="cart-count">0</b></button>
+<div class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-label="Корзина">
+  <div class="cart-panel">
+    <div class="cart-head"><h2>Корзина</h2><button class="cart-x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
+    <ul class="cart-list" id="cart-list"></ul>
+    <p class="cart-empty" id="cart-empty">Пока пусто. Добавьте украшение из раздела «Шопинг».</p>
+    <div class="cart-total" id="cart-total-row"><span>Итого<small id="cart-ask"></small></span><span id="cart-total">0 ₽</span></div>
+    <form id="cart-form" novalidate>
+      <label for="c-name">Имя<input id="c-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+      <label for="c-phone">Телефон<input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7"></label>
+      <label for="c-note">Комментарий<textarea id="c-note" name="note" placeholder="Город и служба доставки (СДЭК, Яндекс, Ozon), размер"></textarea></label>
+    </form>
+    <div class="send" id="send">
+      <a id="send-wa" href="#" target="_blank" rel="noopener" hidden>Отправить заказ в WhatsApp</a>
+      <a id="send-tg" href="#" target="_blank" rel="noopener" hidden>Отправить заказ в Telegram</a>
+      <button id="send-ig" type="button"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="currentColor"/></svg>Оформить через Instagram</button>
+      <button id="copy-order" class="alt" type="button">Скопировать заказ</button>
+      <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
+    </div>
+    <p class="cart-msg" id="cart-msg" aria-live="polite"></p>
+    <p class="cart-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p>
+  </div>
+</div>
+<div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-labelledby="pd-title">
+  <div class="pd-panel">
+    <button class="pd-x" id="pd-x" type="button" aria-label="Закрыть">×</button>
+    <div class="pd-media"><div class="pd-gal" id="pd-gal"></div><div class="pd-dots" id="pd-dots" aria-hidden="true"></div></div>
+    <div class="pd-info">
+      <div class="pd-top"><span class="no" id="pd-no"></span><span class="pd-st" id="pd-st"></span></div>
+      <h2 id="pd-title"></h2>
+      <div class="pd-price" id="pd-price"></div>
+      <p class="pd-desc" id="pd-desc"></p>
+      <dl class="pd-dl" id="pd-dl" hidden></dl>
+      <p class="pd-extra" id="pd-extra" hidden></p>
+      <div class="pd-act"><button class="pd-add" id="pd-add" type="button">В корзину</button><button class="pd-fav" id="pd-fav" type="button" aria-pressed="false" aria-label="В избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div>
+      <button class="pd-share" id="pd-share" type="button">Поделиться ссылкой</button>
+      <p class="pd-msg" id="pd-msg" aria-live="polite"></p>
+      <p class="pd-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Есть вопрос по изделию — <a href="https://t.me/bogem_jw" target="_blank" rel="noopener">спросите мастера в Telegram</a>.</p>
+    </div>
+  </div>
+</div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Фото изделия">
+  <div class="lb-top"><span id="lb-count"></span><button class="lb-close" id="lb-close" type="button" aria-label="Закрыть">×</button></div>
+  <div class="lb-stage"><button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Предыдущее фото">‹</button><img id="lb-img" alt=""><button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Следующее фото">›</button></div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+<script>
+document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.f;
+  document.querySelectorAll('.chips button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  const favs=window.bogemFav?bogemFav.list():[];
+  document.querySelectorAll('.item').forEach(it=>{it.hidden=!(f==='all'||(f==='fav'?favs.includes(it.dataset.no):it.dataset.cat.split(' ').includes(f)));});
+  const fe=document.getElementById('fav-empty'); if(fe) fe.hidden=!(f==='fav'&&![...document.querySelectorAll('#catalog .item')].some(it=>!it.hidden&&!it.classList.contains('off')));  // скрытые таблицей — класс .off
+}));
+
+(function(){
+  const isPic=i=>!i.closest('.item')&&i.src.startsWith('data:image/jpeg');  // 14.11: фото каталога открывают карточку изделия
+  let pics=[], list=[];
+  function collect(){ pics=[...document.querySelectorAll('main img, .cover img')].filter(i=>isPic(i)&&!i.closest('.item.off'));
+    const seen=new Set(); list=pics.filter(i=>{const k=i.src.slice(-60);if(seen.has(k))return false;seen.add(k);return true;}); }
+  collect();
+  const lb=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cnt=document.getElementById('lb-count');
+  let cur=0,last=null;
+  function show(n){cur=(n+list.length)%list.length;const p=list[cur];im.src=p.src.replace('sz=w1000','sz=w2000');im.alt=p.alt||'';cap.textContent=p.alt||'';const h=document.createElement('span');h.className='lb-hint';h.textContent=matchMedia('(hover:hover)').matches?'Колёсико или двойной клик — увеличить, тянуть — двигать':'Двойное касание или два пальца — увеличить';cap.appendChild(h);cnt.textContent=(cur+1)+' / '+list.length;resetZoom();}
+  function open(p){collect();const k=p.src.slice(-60);const n=list.findIndex(x=>x.src.slice(-60)===k);last=document.activeElement;show(n<0?0:n);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lb-close').focus();}
+  function close(){lb.hidden=true;const pd=document.getElementById('pd');document.body.style.overflow=(pd&&!pd.hidden)?'hidden':'';if(last)last.focus&&last.focus();}
+  function bind(){ pics.forEach(p=>{ if(p.dataset.zoom) return; p.dataset.zoom='1'; p.classList.add('zoomable');p.tabIndex=0;p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(p);});p.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();open(p);}});}); }
+  bind(); document.addEventListener('bogem:catalog',()=>{collect();bind();});
+  // плавное появление фото при прокрутке
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{rootMargin:'0px 0px -8% 0px'});
+    const watch=()=>document.querySelectorAll('.item, main figure').forEach(el=>{ if(el.dataset.rv) return; el.dataset.rv='1'; const r=el.getBoundingClientRect(); if(r.top<innerHeight) return; el.classList.add('rv'); io.observe(el); });
+    watch(); document.addEventListener('bogem:catalog',watch);
+  }
+  document.getElementById('lb-close').onclick=close;
+  window.bogemLB=(srcs,i,alt)=>{list=srcs.map(src=>({src,alt:alt||''}));last=document.activeElement;show(i||0);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lb-close').focus();};
+  document.getElementById('lb-prev').onclick=()=>show(cur-1);
+  document.getElementById('lb-next').onclick=()=>show(cur+1);
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-stage'))close();});
+  document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape'){close();e.preventDefault();}if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+    // увеличение в просмотре: двойное касание/клик, два пальца, колёсико; когда увеличено — тянуть
+  const stage=im.parentElement, Z={s:1,x:0,y:0,pinch:null,drag:null,lastTap:0};
+  const zb=document.createElement('button'); zb.type='button'; zb.className='lb-zoom'; zb.setAttribute('aria-label','Увеличить'); zb.textContent='+'; stage.appendChild(zb);
+  function base(){ const st=stage.getBoundingClientRect(); return {w:im.offsetWidth,h:im.offsetHeight,l:st.left+im.offsetLeft,t:st.top+im.offsetTop}; }  // без учёта transform
+  function clamp(){ if(Z.s<=1){Z.s=1;Z.x=0;Z.y=0;return;} const b=base(), st=stage.getBoundingClientRect();
+    const W=b.w*Z.s, H=b.h*Z.s;
+    // шире окна — края фото не отходят от краёв окна; уже — по центру
+    Z.x = W>st.width ? Math.min(st.left-b.l, Math.max(st.right-b.l-W, Z.x)) : (st.left+st.right)/2-b.l-W/2;
+    Z.y = H>st.height ? Math.min(st.top-b.t, Math.max(st.bottom-b.t-H, Z.y)) : (st.top+st.bottom)/2-b.t-H/2; }
+  function apply(){ clamp(); im.style.transform=Z.s===1?'':'translate('+Z.x+'px,'+Z.y+'px) scale('+Z.s+')'; lb.classList.toggle('zoomed',Z.s>1); zb.textContent=Z.s>1?'−':'+'; zb.setAttribute('aria-label',Z.s>1?'Уменьшить':'Увеличить'); }
+  function zoomAt(ns,cx,cy){ ns=Math.max(1,Math.min(4,ns)); const b=base(); const px=(cx-b.l-Z.x)/Z.s, py=(cy-b.t-Z.y)/Z.s; Z.x=cx-b.l-px*ns; Z.y=cy-b.t-py*ns; Z.s=ns; apply(); }
+  function resetZoom(){ Z.s=1;Z.x=0;Z.y=0;Z.pinch=null;Z.drag=null; im.style.transform=''; lb.classList.remove('zoomed'); zb.textContent='+'; }
+  function toggleAt(cx,cy){ if(Z.s>1){resetZoom();} else { zoomAt(2.5,cx,cy); } }
+  zb.addEventListener('click',e=>{ e.stopPropagation(); const r=im.getBoundingClientRect(); toggleAt(r.left+r.width/2,r.top+r.height/2); });
+  im.addEventListener('dblclick',e=>{ e.preventDefault(); toggleAt(e.clientX,e.clientY); });
+  stage.addEventListener('wheel',e=>{ if(lb.hidden) return; e.preventDefault(); zoomAt(Z.s*(e.deltaY<0?1.15:1/1.15),e.clientX,e.clientY); },{passive:false});
+  const dist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);
+  stage.addEventListener('touchstart',e=>{
+    if(e.touches.length===2){ Z.pinch={d:dist(e.touches),s:Z.s}; Z.drag=null; }
+    else if(e.touches.length===1){ const t=e.touches[0], now=Date.now();
+      if(now-Z.lastTap<300){ toggleAt(t.clientX,t.clientY); Z.lastTap=0; e.preventDefault(); return; }
+      Z.lastTap=now; if(Z.s>1) Z.drag={x:t.clientX-Z.x,y:t.clientY-Z.y}; }
+  },{passive:false});
+  stage.addEventListener('touchmove',e=>{
+    if(Z.pinch&&e.touches.length===2){ e.preventDefault(); const t=e.touches, cx=(t[0].clientX+t[1].clientX)/2, cy=(t[0].clientY+t[1].clientY)/2; zoomAt(Z.pinch.s*dist(t)/Z.pinch.d,cx,cy); }
+    else if(Z.drag&&e.touches.length===1){ e.preventDefault(); Z.x=e.touches[0].clientX-Z.drag.x; Z.y=e.touches[0].clientY-Z.drag.y; apply(); }
+  },{passive:false});
+  stage.addEventListener('touchend',e=>{ if(e.touches.length<2) setTimeout(()=>{Z.pinch=null;},0); if(!e.touches.length) Z.drag=null; });
+  im.addEventListener('mousedown',e=>{ if(Z.s===1) return; e.preventDefault(); Z.drag={x:e.clientX-Z.x,y:e.clientY-Z.y}; lb.style.cursor='grabbing'; });
+  window.addEventListener('mousemove',e=>{ if(!Z.drag||lb.hidden) return; Z.x=e.clientX-Z.drag.x; Z.y=e.clientY-Z.drag.y; apply(); });
+  window.addEventListener('mouseup',()=>{ if(Z.drag){Z.drag=null; lb.style.cursor='';} });
+  let x0=null;lb.addEventListener('touchstart',e=>{x0=(e.touches.length===1&&Z.s===1)?e.touches[0].clientX:null},{passive:true});
+  lb.addEventListener('touchend',e=>{if(x0===null||Z.s>1||Z.pinch){x0=null;return;}const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null;});
+})();
+
+(function(){
+  const root=document.documentElement, btns=[...document.querySelectorAll('.theme button')];
+  function apply(t){ if(t==='light'||t==='dark') root.setAttribute('data-bg',t); else root.removeAttribute('data-bg');
+    btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===t))); }
+  let saved='system'; try{ saved=localStorage.getItem('bogem-theme')||'system'; }catch(e){}
+  apply(saved);
+  btns.forEach(b=>b.addEventListener('click',()=>{ apply(b.dataset.t); try{ localStorage.setItem('bogem-theme',b.dataset.t); }catch(e){} }));
+})();
+
+// Каталог из Google-таблицы «Каталог Bogem» (Андрей 14.11: Оля правит сама, без нас). Нет связи — остаётся каталог, вшитый в страницу.
+(function(){
+  const SHEET='16E8gUN-hT-Lk_szOz3xzkwDmDL1g1dmVXTLccoJQP8c';
+  const CAT={'колье':'kolye','чокер':'kolye','сотуар':'kolye','серьги':'sergi','браслет':'braslet','браслеты':'braslet','комплект':'komplekt','брошь':'brosh','броши':'brosh'};
+  const grid=document.querySelector('.cat'); if(!grid) return; const tpl=grid.querySelector('.item');
+  const drive=u=>{u=String(u||'').trim(); const m=u.match(/(?:\/d\/|[?&]id=)([\w-]{20,})/); return m?'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000':(/^https:\/\//.test(u)?u:'');};
+  const val=x=>x?(x.f!=null&&typeof x.v!=='number'?x.f:(x.v==null?'':x.v)):'';
+  window.bogemCatalog=function(res){ try{
+    const rows=(res&&res.table&&res.table.rows)||[]; if(!rows.length) return;
+    const seen=new Set();
+    rows.forEach(r=>{ const c=(r.c||[]).map(val); const no=parseInt(c[0],10); const title=String(c[1]||'').trim(); if(!no||!title) return; seen.add(no);
+      const price=parseInt(String(c[3]).replace(/[^\d]/g,''),10)||0;
+      const cats=String(c[4]||'').toLowerCase().split(/[,;]\s*/).map(x=>CAT[x.trim()]).filter(Boolean);
+      const phs=String(c[5]||'').split(/[\s,;]+/).map(drive).filter(Boolean), photo=phs[0]||'', st=String(c[6]||'').toLowerCase().trim(), avito=String(c[7]||'').replace(/[^\d]/g,''), det=String(c[8]||'').trim();
+      let it=grid.querySelector('.item[data-no="'+no+'"]');
+      if(!it){ it=tpl.cloneNode(true); delete it.dataset.bound; it.querySelectorAll('[data-zoom]').forEach(x=>{delete x.dataset.zoom;}); it.classList.remove('sold','off'); grid.appendChild(it); }
+      it.dataset.no=no; it.dataset.id=avito||('b'+no); it.dataset.title=title; it.dataset.price=price; if(cats.length) it.dataset.cat=cats.join(' ');
+      it.querySelector('h3').textContent=title; it.querySelector('p').textContent=String(c[2]||'').trim(); it.querySelector('.no').textContent='№ '+String(no).padStart(2,'0');
+      const pr=it.querySelector('.price'); pr.className='price'+(price?'':' ask'); pr.textContent=price?price.toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽':'цена по запросу';
+      const a=it.querySelector('.row a'); if(a) a.remove();
+      const img=it.querySelector('img'); if(photo){img.src=photo;} img.alt=title;
+      if(phs.length) it.dataset.photos=phs.join('|'); else delete it.dataset.photos;
+      if(det) it.dataset.details=det; else delete it.dataset.details;
+      it.querySelector('.add').id='add-'+it.dataset.id;
+      it.classList.toggle('off', st.indexOf('скры')===0); it.classList.toggle('sold', st.indexOf('прод')===0); it.classList.toggle('repeat', st.indexOf('повтор')>=0&&st.indexOf('прод')!==0);
+      const sl=it.querySelector('.st'); if(sl) sl.textContent=it.classList.contains('sold')?'Продано':it.classList.contains('repeat')?'Можно повторить':'В наличии';
+    });
+    grid.querySelectorAll('.item').forEach(it=>{ if(!seen.has(+it.dataset.no)) it.classList.add('off'); });
+    document.dispatchEvent(new Event('bogem:catalog'));
+  }catch(e){ console.warn('каталог', e); } };
+  const s=document.createElement('script'); s.async=true;
+  s.src='https://docs.google.com/spreadsheets/d/'+SHEET+'/gviz/tq?sheet='+encodeURIComponent('Каталог')+'&headers=1&tqx=responseHandler:bogemCatalog';
+  document.head.appendChild(s);
+})();
+
+(function(){
+  const CFG={whatsapp:'', telegramUser:'', bot:''  /* песочница: бот заказов отключён */, instagram:'bogem_twins_jewelry'}; // номер WhatsApp: '79990000000'; ник Telegram: 'olya_bogem'
+  const KEY='bogem-cart'; let cart=[];
+  try{ cart=JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ cart=[]; }
+  let items=[], byId={};
+  // каталог может обновиться из Google-таблицы (bogem:catalog) — тогда пересобираем список и вешаем кнопки на новые карточки
+  function index(){
+    items=[...document.querySelectorAll('.item[data-id]')].filter(it=>!it.classList.contains('off'));
+    byId=Object.fromEntries(items.map(it=>[it.dataset.id,{id:it.dataset.id,no:it.dataset.no,title:it.dataset.title,price:+it.dataset.price||0,img:it.querySelector('img').src,sold:it.classList.contains('sold'),repeat:it.classList.contains('repeat')}]));
+    cart=cart.filter(id=>byId[id]&&!byId[id].sold);
+    items.forEach(it=>{ if(it.dataset.bound) return; it.dataset.bound='1';
+      it.querySelector('.add').addEventListener('click',()=>{const id=it.dataset.id; cart=cart.includes(id)?cart.filter(i=>i!==id):[...cart,id]; save(); render(); if(cart.includes(id)){ window.bogemGoal&&bogemGoal('add_to_cart'); $('cart-fab').animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:350}); }}); });
+  }
+  const $=id=>document.getElementById(id);
+  const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(cart)); }catch(e){} }
+  function render(){
+    $('cart-count').textContent=cart.length;
+    items.forEach(it=>{const b=it.querySelector('.add'); const inC=cart.includes(it.dataset.id); b.classList.toggle('in',inC); b.textContent=inC?'В корзине ✓':'В корзину';});
+    const list=$('cart-list'); list.innerHTML='';
+    cart.forEach(id=>{const x=byId[id]; const li=document.createElement('li');
+      li.innerHTML='<img alt=""><div><div class="t"></div><div class="p"></div></div><button type="button">Убрать</button>';
+      li.querySelector('img').src=x.img; li.querySelector('.t').textContent=x.title; li.querySelector('.p').textContent=x.price?fmt(x.price):'цена по запросу';
+      li.querySelector('button').onclick=()=>{cart=cart.filter(i=>i!==id);save();render();}; list.appendChild(li);});
+    const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
+    $('cart-total').textContent=fmt(sum); $('cart-ask').textContent=ask?('+ '+ask+' по запросу'):'';
+    $('cart-empty').hidden=cart.length>0; $('cart-total-row').hidden=!cart.length; $('cart-form').hidden=!cart.length; $('send').hidden=!cart.length;
+    const txt=encodeURIComponent(orderText());
+    if(CFG.whatsapp){$('send-wa').hidden=false;$('send-wa').href='https://wa.me/'+CFG.whatsapp+'?text='+txt;}
+    if(CFG.bot){$('send-tg').hidden=false;$('send-tg').href='https://t.me/'+CFG.bot+'?start=o_'+cart.map(id=>byId[id].no).join('_');}
+  }
+  function orderText(){
+    const lines=cart.map((id,i)=>{const x=byId[id];return (i+1)+'. '+x.title+' — '+(x.price?fmt(x.price):'цена по запросу')+' (№ '+x.no+(x.repeat?', повтор':'')+')';});
+    const sum=cart.reduce((a,id)=>a+byId[id].price,0);
+    const n=$('c-name').value.trim(), p=$('c-phone').value.trim(), c=$('c-note').value.trim();
+    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nИтого: '+fmt(sum)+(cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nКомментарий: '+c:'');
+  }
+  async function copy(){ const t=orderText(); try{ await navigator.clipboard.writeText(t); return true; }catch(e){
+      const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); let ok=false; try{ok=document.execCommand('copy');}catch(_){} ta.remove(); return ok; } }
+  let last=null;
+  $('cart-fab').onclick=()=>{window.bogemGoal&&bogemGoal('cart_open');last=document.activeElement;$('cart').hidden=false;document.body.style.overflow='hidden';$('cart-x').focus();};
+  const close=()=>{$('cart').hidden=true;document.body.style.overflow='';last&&last.focus&&last.focus();};
+  $('cart-x').onclick=close; $('cart').addEventListener('click',e=>{if(e.target.id==='cart')close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('cart').hidden)close();});
+  ['c-name','c-phone','c-note'].forEach(id=>$(id).addEventListener('input',render));
+  $('copy-order').onclick=async()=>{ window.bogemGoal&&bogemGoal('order_copy'); $('cart-msg').textContent=(await copy())?'Заказ скопирован. Вставьте его в сообщение мастеру.':'Не получилось скопировать — выделите текст заказа вручную.'; };
+  $('send-ig').onclick=async()=>{ window.bogemGoal&&bogemGoal('order_ig'); const ok=await copy(); $('cart-msg').textContent=ok?'Заказ скопирован. Откроется Instagram — вставьте текст в сообщение.':'Откроется Instagram — напишите, какие изделия хотите.'; const a=document.createElement('a'); a.href='https://ig.me/m/'+CFG.instagram; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); if(ok) done('Заказ скопирован ✓ Вставьте его в Instagram. Корзина очищена.'); };
+  function done(msg){ setTimeout(()=>{ cart=[]; save(); render(); $('cart-msg').textContent=msg; },1200); }
+  $('send-tg').addEventListener('click',()=>{ window.bogemGoal&&bogemGoal('order_tg');
+    const who=$('c-name').value.trim()||$('c-phone').value.trim()||$('c-note').value.trim(); if(who) copy();  // имя/телефон в ссылку бота не влезают — копируем, покупатель вставит в чат
+    $('cart-msg').textContent=who?'Откроется Telegram — нажмите «Старт», список изделий уйдёт мастеру. Имя, телефон и комментарий скопированы — вставьте их в чат бота.':'Откроется Telegram — нажмите «Старт», заказ уйдёт мастеру.'; done(who?'Заказ отправлен в Telegram ✓ Не забудьте вставить в чат бота скопированные имя и телефон. Мастер ответит там же.':'Заказ отправлен в Telegram ✓ Корзина очищена. Мастер ответит вам в чате с ботом.'); });
+  $('send-wa').addEventListener('click',()=>done('Заказ отправлен в WhatsApp ✓ Корзина очищена.'));
+  $('clear-cart').onclick=()=>{ cart=[]; save(); render(); $('cart-msg').textContent='Корзина очищена.'; };
+  index(); render();
+  document.addEventListener('bogem:catalog',()=>{ index(); render(); });
+})();
+</script>
+<script>
+(function(){ var k='bogem-cookie-ok', b=document.getElementById('cookie'); var ok=false; try{ ok=localStorage.getItem(k)==='1'; }catch(e){}
+  if(!ok) b.hidden=false;
+  document.getElementById('cookie-ok').addEventListener('click',function(){ b.hidden=true; try{ localStorage.setItem(k,'1'); }catch(e){} });
+})();
+</script>
+<script>
+(function(){
+  const bar=document.getElementById('bar'), menu=document.getElementById('menu'), burger=document.getElementById('burger'), top=document.querySelector('header.top');
+  if(!bar||!menu) return;
+  // полоса: на компьютере — когда большая шапка ушла из вида; на телефоне видна всегда (CSS)
+  if('IntersectionObserver' in window && top){ new IntersectionObserver(es=>es.forEach(e=>bar.classList.toggle('on',!e.isIntersecting)),{rootMargin:'-40px 0px 0px 0px'}).observe(top); }
+  // корзина в полосе = та же корзина
+  const fab=document.getElementById('cart-fab'), cnt=document.getElementById('cart-count'), bc=document.getElementById('bar-count');
+  const sync=()=>{ if(!cnt) return; const n=cnt.textContent.trim()||'0'; bc.textContent=n; bc.dataset.n=n; };
+  if(cnt){ sync(); new MutationObserver(sync).observe(cnt,{childList:true,characterData:true,subtree:true}); }
+  let last=null;
+  function openMenu(){ last=document.activeElement; menu.hidden=false; requestAnimationFrame(()=>menu.classList.add('show')); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; document.getElementById('menu-x').focus(); }
+  function closeMenu(){ if(menu.hidden) return; menu.classList.remove('show'); menu.hidden=true; burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  document.getElementById('bar-cart').addEventListener('click',()=>{ closeMenu(); fab&&fab.click(); });
+  burger.addEventListener('click',openMenu);
+  document.getElementById('menu-x').addEventListener('click',()=>{ closeMenu(); if(last&&last.focus) last.focus({preventScroll:true}); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+  const shop=document.getElementById('menu-shop'), sub=document.getElementById('menu-sub');
+  shop.addEventListener('click',()=>{ const o=shop.getAttribute('aria-expanded')!=='true'; shop.setAttribute('aria-expanded',String(o)); sub.hidden=!o; });
+  menu.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{ const f=a.dataset.f; if(f){ const b=document.getElementById('f-'+f); b&&b.click(); } closeMenu(); }));
+})();
+</script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const tb=$('tabbar'); if(!tb) return;
+  // счётчик корзины
+  const cnt=$('cart-count'), tc=$('tab-count');
+  const sync=()=>{ if(!cnt) return; const n=cnt.textContent.trim()||'0'; tc.textContent=n; tc.dataset.n=n; };
+  if(cnt){ sync(); new MutationObserver(sync).observe(cnt,{childList:true,characterData:true,subtree:true}); }
+  $('tab-cart').addEventListener('click',()=>{ const f=$('cart-fab'); f&&f.click(); });
+  // подсветка текущего раздела
+  const tabs={home:tb.querySelector('[data-tab=home]'),catalog:tb.querySelector('[data-tab=catalog]'),order:tb.querySelector('[data-tab=order]')};
+  const mark=k=>Object.entries(tabs).forEach(([n,a])=>a.classList.toggle('cur',n===k));
+  if('IntersectionObserver' in window){
+    const vis=new Map();
+    const io=new IntersectionObserver(es=>{ es.forEach(e=>vis.set(e.target.id,e.isIntersecting)); mark(vis.get('order')?'order':vis.get('catalog')?'catalog':'home'); },{rootMargin:'-45% 0px -45% 0px'});
+    ['catalog','order'].forEach(id=>{ const el=$(id); el&&io.observe(el); });
+  }
+  mark('home');
+  // поиск по изделиям (название + описание + категория)
+  const sh=$('search'), q=$('search-q'), res=$('search-res');
+  const norm=t=>(t||'').toLowerCase().replace(/ё/g,'е');
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function items(){ return [...document.querySelectorAll('#catalog .item')].filter(it=>!it.classList.contains('off')); }
+  function run(){
+    const v=norm(q.value.trim()); res.innerHTML='';
+    if(!v){ return; }
+    const words=v.split(/\s+/).map(w=>w.length>4?w.slice(0,-1):w);
+    const hit=items().filter(it=>{ const t=norm(it.textContent+' '+(it.dataset.title||'')); return words.every(w=>t.includes(w)); });
+    if(!hit.length){ res.innerHTML='<li class="search-none">Ничего не нашли — напишите нам, подберём 🙂</li>'; return; }
+    hit.forEach(it=>{ const img=it.querySelector('.ph img'), h=it.querySelector('h3'), pr=it.querySelector('.price');
+      const li=document.createElement('li'); li.innerHTML='<a href="#"><img alt=""><span></span><b></b></a>';
+      const im=li.querySelector('img'); if(img) im.src=img.currentSrc||img.src;
+      li.querySelector('span').textContent=h?h.textContent:(it.dataset.title||'');
+      li.querySelector('b').textContent=it.classList.contains('sold')?'продано':(pr?pr.textContent.trim():'');
+      li.querySelector('a').addEventListener('click',e=>{ e.preventDefault(); close(); const all=$('f-all'); if(all&&all.getAttribute('aria-pressed')!=='true') all.click();
+        setTimeout(()=>{ if(window.bogemOpenItem){ bogemOpenItem(it); return; } it.scrollIntoView({behavior:'smooth',block:'center'}); it.classList.remove('hl'); void it.offsetWidth; it.classList.add('hl'); },60); });
+      res.appendChild(li); });
+  }
+  let last=null;
+  function open(){ last=document.activeElement; sh.hidden=false; document.body.style.overflow='hidden'; setTimeout(()=>q.focus(),30); run(); }
+  function close(){ if(sh.hidden) return; sh.hidden=true; document.body.style.overflow=''; }
+  $('tab-search').addEventListener('click',open);
+  $('search-x').addEventListener('click',()=>{ close(); last&&last.focus&&last.focus({preventScroll:true}); });
+  q.addEventListener('input',run);
+  $('search-tags').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; q.value=b.textContent; run(); q.focus(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+})();
+</script>
+<script>
+document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e=>{
+  const it=document.querySelector('#catalog .item[data-id="'+a.dataset.buy+'"]'); if(!it||it.classList.contains('off')||!window.bogemOpenItem) return;
+  e.preventDefault(); bogemOpenItem(it);  // 14.11: «Купить» в статье → карточка этого изделия
+}));
+</script>
+<script>
+// Карточка изделия, ссылки #item-N, избранное, цели Метрики (Андрей 14.11)
+(function(){
+  const $=id=>document.getElementById(id);
+  const pd=$('pd'), grid=document.querySelector('#catalog .cat'); if(!pd||!grid) return;
+  const goal=window.bogemGoal=g=>{ try{ if(window.ym) ym(114248719,'reachGoal',g); }catch(e){} };
+  const fmt=n=>n.toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽';
+  // избранное (храним номера изделий в браузере покупателя)
+  const FK='bogem-fav'; let fav=[]; try{ fav=JSON.parse(localStorage.getItem(FK)||'[]').map(String); }catch(e){ fav=[]; }
+  window.bogemFav={list:()=>fav.slice()};
+  function toggleFav(no){ no=String(no); const on=!fav.includes(no); fav=on?[...fav,no]:fav.filter(x=>x!==no); try{ localStorage.setItem(FK,JSON.stringify(fav)); }catch(e){} if(on) goal('fav_add'); syncFav(true); }
+  function syncFav(refilter){
+    grid.querySelectorAll('.item').forEach(it=>{ const b=it.querySelector('.fav'); if(!b) return; const on=fav.includes(it.dataset.no); b.setAttribute('aria-pressed',String(on)); b.setAttribute('aria-label',on?'Убрать из избранного':'В избранное'); });
+    const n=fav.filter(no=>{ const it=grid.querySelector('.item[data-no="'+no+'"]'); return it&&!it.classList.contains('off'); }).length;
+    const c=$('fav-count'); if(c) c.textContent=n?' '+n:'';
+    if(cur){ const on=fav.includes(cur.dataset.no); $('pd-fav').setAttribute('aria-pressed',String(on)); $('pd-fav').setAttribute('aria-label',on?'Убрать из избранного':'В избранное'); }
+    const f=$('f-fav'); if(refilter&&f&&f.getAttribute('aria-pressed')==='true') f.click();
+  }
+  // карточка
+  let cur=null, pushed=false, last=null, hashDone=false;
+  function photos(it){ const p=(it.dataset.photos||'').split('|').filter(Boolean); if(p.length) return p; const im=it.querySelector('.ph img'); return im?[im.currentSrc||im.src]:[]; }
+  function details(it){ return String(it.dataset.details||'').split(/\n|;/).map(x=>x.trim()).filter(Boolean).map(x=>{ const i=x.indexOf(':'); return i>0?[x.slice(0,i).trim(),x.slice(i+1).trim()]:['',x]; }); }
+  const gal=$('pd-gal'), dots=$('pd-dots');
+  function markDot(){ const i=Math.round(gal.scrollLeft/Math.max(1,gal.clientWidth)); [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); }
+  gal.addEventListener('scroll',markDot,{passive:true});
+  function syncAdd(){ if(!cur) return; const b=cur.querySelector('.add'), pa=$('pd-add');
+    pa.hidden=cur.classList.contains('sold')||!b; const inC=!!(b&&b.classList.contains('in')); pa.classList.toggle('in',inC); pa.textContent=inC?'В корзине ✓ · открыть':'В корзину'; }
+  function fill(){ const it=cur; if(!it) return;
+    const ps=photos(it), title=it.dataset.title||'', price=+it.dataset.price||0, sold=it.classList.contains('sold'), rep=it.classList.contains('repeat');
+    gal.innerHTML=''; dots.innerHTML='';
+    ps.forEach((src,i)=>{ const im=document.createElement('img'); im.src=src.replace('sz=w1000','sz=w1600'); im.alt=title+(ps.length>1?' — фото '+(i+1):'');
+      im.addEventListener('click',()=>{ if(window.bogemLB) bogemLB(ps.map(x=>x.replace('sz=w1000','sz=w2000')),i,title); }); gal.appendChild(im);
+      if(ps.length>1) dots.appendChild(document.createElement('i')); });
+    gal.scrollLeft=0; markDot();
+    $('pd-no').textContent='№ '+String(it.dataset.no).padStart(2,'0');
+    const st=$('pd-st'); st.className='pd-st'+(sold?' sold':rep?' rep':''); st.textContent=sold?'Продано':rep?'Можно повторить':'В наличии';
+    $('pd-title').textContent=title;
+    $('pd-price').textContent=price?fmt(price):'Цена по запросу';
+    const d=it.querySelector('p'); $('pd-desc').textContent=d?d.textContent:'';
+    const dl=$('pd-dl'), ds=details(it); dl.innerHTML=''; ds.forEach(([k,v])=>{ const dt=document.createElement('dt'), dd=document.createElement('dd'); dt.textContent=k||'·'; dd.textContent=v; dl.append(dt,dd); }); dl.hidden=!ds.length;
+    const ex=$('pd-extra'); ex.hidden=!(sold||rep);
+    ex.textContent=sold?'Это изделие уже нашло хозяйку. Напишите мастеру — подберём похожее или сделаем на заказ.':rep?'Изделие сделано в одном экземпляре, но мастер может повторить его для вас. Сроки и детали уточнит после заказа.':'';
+    $('pd-msg').textContent=''; syncAdd(); syncFav(false);
+  }
+  function openItem(it,push){ if(!it||it.classList.contains('off')) return;
+    if(pd.hidden) last=document.activeElement; cur=it; fill(); pd.hidden=false; document.body.style.overflow='hidden'; $('pd-x').focus({preventScroll:true});
+    const h='#item-'+it.dataset.no; if(push!==false&&location.hash!==h){ history.pushState({pd:1},'',h); pushed=true; }
+    goal('item_view'); }
+  function closeItem(fromPop){ if(pd.hidden) return; pd.hidden=true; cur=null; document.body.style.overflow='';
+    if(!fromPop){ if(pushed){ pushed=false; history.back(); } else if(/^#item-/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search); }
+    if(last&&last.focus) last.focus({preventScroll:true}); }
+  window.bogemOpenItem=it=>openItem(it,true);
+  const fromHash=()=>{ const m=location.hash.match(/^#item-(\d+)$/); return m?grid.querySelector('.item[data-no="'+m[1]+'"]'):null; };
+  window.addEventListener('popstate',()=>{ const it=fromHash(); if(it) openItem(it,false); else if(!pd.hidden){ pushed=false; closeItem(true); } });
+  $('pd-x').addEventListener('click',()=>closeItem());
+  pd.addEventListener('click',e=>{ if(e.target===pd) closeItem(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!pd.hidden&&!e.defaultPrevented&&$('lb').hidden) closeItem(); });
+  $('pd-add').addEventListener('click',()=>{ const b=cur&&cur.querySelector('.add'); if(!b) return;
+    if(b.classList.contains('in')){ closeItem(); setTimeout(()=>{ const f=$('cart-fab'); f&&f.click(); },60); return; }
+    b.click(); syncAdd(); $('pd-msg').textContent='Добавлено в корзину ✓'; });
+  $('pd-fav').addEventListener('click',()=>{ if(cur) toggleFav(cur.dataset.no); });
+  $('pd-share').addEventListener('click',async()=>{ if(!cur) return; const url=location.origin+location.pathname+'#item-'+cur.dataset.no, title=(cur.dataset.title||'')+' — Bogem jw';
+    goal('item_share');
+    if(navigator.share){ try{ await navigator.share({title,url}); return; }catch(e){ if(e&&e.name==='AbortError') return; } }
+    try{ await navigator.clipboard.writeText(url); $('pd-msg').textContent='Ссылка скопирована ✓'; }catch(e){ $('pd-msg').textContent=url; } });
+  // каталог: нажатие на фото или название → карточка; ♡ → избранное
+  grid.addEventListener('click',e=>{
+    const fb=e.target.closest('.fav'); if(fb){ e.preventDefault(); e.stopPropagation(); toggleFav(fb.closest('.item').dataset.no); return; }
+    if(e.target.closest('.add')) return;
+    const it=e.target.closest('.item'); if(it&&e.target.closest('.ph, h3, p, .no')) openItem(it,true); });
+  grid.addEventListener('keydown',e=>{ if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('ph')){ e.preventDefault(); openItem(e.target.closest('.item'),true); } });
+  function prep(){ grid.querySelectorAll('.item .ph').forEach(ph=>{ ph.tabIndex=0; ph.setAttribute('role','button'); ph.setAttribute('aria-label','Подробнее: '+(ph.closest('.item').dataset.title||'')); }); syncFav(true); }
+  function tryHash(){ if(hashDone) return; const it=fromHash(); if(it){ hashDone=true; openItem(it,false); } }
+  prep(); tryHash();
+  document.addEventListener('bogem:catalog',()=>{ prep(); if(cur&&!pd.hidden) fill(); else tryHash(); });
+})();
+</script>
