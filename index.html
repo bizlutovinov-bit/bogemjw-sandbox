@@ -1072,7 +1072,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
 (function(){
   const CFG={whatsapp:'', telegramUser:'', bot:''  /* песочница: бот заказов отключён */, instagram:'bogem_twins_jewelry'}; // номер WhatsApp: '79990000000'; ник Telegram: 'olya_bogem'
   const KEY='bogem-cart'; let cart=[];
-  try{ cart=JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ cart=[]; }
+  try{ const stored=JSON.parse(localStorage.getItem(KEY)||'[]'); cart=Array.isArray(stored)?[...new Set(stored.filter(id=>typeof id==='string'))]:[]; }catch(e){ cart=[]; }
   let items=[], byId={};
   // каталог может обновиться из Google-таблицы (bogem:catalog) — тогда пересобираем список и вешаем кнопки на новые карточки
   function index(){
@@ -1080,7 +1080,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
     byId=Object.fromEntries(items.map(it=>[it.dataset.id,{id:it.dataset.id,no:it.dataset.no,title:it.dataset.title,price:+it.dataset.price||0,img:it.querySelector('img').src,sold:it.classList.contains('sold'),repeat:it.classList.contains('repeat')}]));
     cart=cart.filter(id=>byId[id]&&!byId[id].sold);
     items.forEach(it=>{ if(it.dataset.bound) return; it.dataset.bound='1';
-      it.querySelector('.add').addEventListener('click',()=>{const id=it.dataset.id; cart=cart.includes(id)?cart.filter(i=>i!==id):[...cart,id]; save(); render(); if(cart.includes(id)){ window.bogemGoal&&bogemGoal('add_to_cart'); $('cart-fab').animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:350}); }}); });
+      it.querySelector('.add').addEventListener('click',()=>{const id=it.dataset.id; if(cart.includes(id)){ $('cart-fab').click(); return; } cart=[...cart,id]; save(); render(); if(cart.includes(id)){ window.bogemGoal&&bogemGoal('add_to_cart'); $('cart-fab').animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:350}); }}); });
   }
   const $=id=>document.getElementById(id);
   const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
@@ -1094,7 +1094,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
       li.querySelector('img').src=x.img; li.querySelector('.t').textContent=x.title; li.querySelector('.p').textContent=x.price?fmt(x.price):'цена по запросу';
       li.querySelector('button').onclick=()=>{cart=cart.filter(i=>i!==id);save();render();}; list.appendChild(li);});
     const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
-    $('cart-total').textContent=fmt(sum); $('cart-ask').textContent=ask?('+ '+ask+' по запросу'):'';
+    $('cart-total').textContent=sum?fmt(sum):'Стоимость уточняется'; $('cart-ask').textContent=ask&&sum?('+ '+ask+' по запросу'):'';
     $('cart-empty').hidden=cart.length>0; $('cart-total-row').hidden=!cart.length; $('cart-form').hidden=!cart.length; $('send').hidden=!cart.length;
     const txt=encodeURIComponent(orderText());
     if(CFG.whatsapp){$('send-wa').hidden=false;$('send-wa').href='https://wa.me/'+CFG.whatsapp+'?text='+txt;}
@@ -1104,7 +1104,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
     const lines=cart.map((id,i)=>{const x=byId[id];return (i+1)+'. '+x.title+' — '+(x.price?fmt(x.price):'цена по запросу')+' (№ '+x.no+(x.repeat?', повтор':'')+')';});
     const sum=cart.reduce((a,id)=>a+byId[id].price,0);
     const n=$('c-name').value.trim(), p=$('c-phone').value.trim(), c=$('c-note').value.trim();
-    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nИтого: '+fmt(sum)+(cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nКомментарий: '+c:'');
+    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nИтого: '+(sum?fmt(sum):'стоимость уточняется')+(sum&&cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nКомментарий: '+c:'');
   }
   async function copy(){ const t=orderText(); try{ await navigator.clipboard.writeText(t); return true; }catch(e){
       const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); let ok=false; try{ok=document.execCommand('copy');}catch(_){} ta.remove(); return ok; } }
