@@ -605,15 +605,27 @@ body{margin:0;padding-top:24px}
  #bar-count{position:absolute;top:0;right:0;min-width:18px;height:18px;font-size:10px}
 }
 @media(max-width:359px){.bar .bar-brand{font-size:23px}.bar .bar-brand img{max-width:42px}}
+
+/* Editorial bottom navigation: clear, coordinated icons. */
+@media(max-width:900px){
+ .tabbar{border-top:1px solid var(--wine);background:var(--paper)}
+ .tabbar a,.tabbar button{gap:5px}
+ .tabbar svg{width:27px;height:27px}
+ .tabbar .cur{color:var(--wine)}
+ .tabbar .cur .home-shape{fill:currentColor;stroke-width:1.2}
+ .tabbar [data-tab="catalog"].cur rect{fill:currentColor;fill-opacity:.14}
+ .tabbar a:active svg,.tabbar button:active svg{transform:scale(.92)}
+ .tabbar b{top:3px;left:calc(50% + 8px)}
+}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
 <nav class="tabbar" id="tabbar" aria-label="Быстрое меню">
-  <a href="#" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Главная</a>
-  <a href="#catalog" data-tab="catalog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16M15 4l-3 16"/></svg>Каталог</a>
-  <button type="button" id="tab-search" aria-controls="search"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Поиск</button>
-  <a href="#order" data-tab="order"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Написать</a>
-  <button type="button" id="tab-cart" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Корзина<b id="tab-count" data-n="0"></b></button>
+  <a href="#" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path class="home-shape" d="M3 10.5 12 3l9 7.5-2 2V21h-5v-6h-4v6H5v-8.5z"/></svg>Главная</a>
+  <a href="#catalog" data-tab="catalog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Каталог</a>
+  <button type="button" id="tab-search" aria-controls="search"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg>Поиск</button>
+  <a href="#order" data-tab="order"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l-3 2 1.4-5.3A8.5 8.5 0 1 1 21 11.5Z"/><path d="M7 10h10M7 14h6"/></svg>Написать</a>
+  <button type="button" id="tab-cart" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l1.5 14h-17L5 7Z"/><path d="M8.5 9V6a3.5 3.5 0 0 1 7 0v3"/></svg>Корзина<b id="tab-count" data-n="0"></b></button>
 </nav>
 <div class="search" id="search" hidden role="dialog" aria-modal="true" aria-label="Поиск украшений">
   <div class="search-top"><input id="search-q" type="search" placeholder="Колье, жемчуг, коралл…" autocomplete="off" aria-label="Что ищем"><button class="bar-btn menu-x" id="search-x" type="button" aria-label="Закрыть поиск">×</button></div>
