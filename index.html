@@ -566,6 +566,8 @@ body{margin:0;padding-top:24px}
  #catalog{padding:24px 0 36px;border-top:1px solid var(--rule)}#catalog .folio{display:none}
  #catalog h2{font-size:34px}#catalog .head{margin-bottom:18px}#catalog .lede{font-family:var(--f-body);font-size:14px;line-height:1.5}
  .cat{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}
+ .cat .item:first-child{grid-column:auto;grid-row:auto}.cat .item:first-child .ph{aspect-ratio:3/4;flex:none;min-height:0}.cat .item:first-child h3{font-size:18px}
+ .chips{scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
  .item h3{font-size:18px}.item p,.item .no{display:none}.item .row{flex-wrap:wrap;gap:6px}.item .price{font-size:18px}.item .add{width:100%;min-height:42px;letter-spacing:.08em;font-size:10px}
  .chips{flex-wrap:nowrap;overflow:auto;padding-bottom:8px;gap:7px;margin-bottom:16px}.chips button{flex:none;min-height:40px;padding:8px 14px;letter-spacing:.08em}
  .item .fav{width:36px;height:36px}.tabbar a,.tabbar button{letter-spacing:.02em;font-size:10px}
@@ -1060,7 +1062,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
 </script>
 <script>
 (function(){ var k='bogem-cookie-ok', b=document.getElementById('cookie'); var ok=false; try{ ok=localStorage.getItem(k)==='1'; }catch(e){}
-  if(!ok) b.hidden=false;
+  /* No analytics in this sandbox; no consent banner needed. */ b.hidden=true;
   document.getElementById('cookie-ok').addEventListener('click',function(){ b.hidden=true; try{ localStorage.setItem(k,'1'); }catch(e){} });
 })();
 </script>
