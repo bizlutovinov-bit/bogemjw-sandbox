@@ -1287,7 +1287,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
 }));
 
 (function(){
-  const isPic=i=>!i.closest('.item')&&i.src.startsWith('data:image/jpeg');  // 14.11: фото каталога открывают карточку изделия
+  const isPic=i=>!i.closest('.item')&&!!i.getAttribute('src')&&!!i.alt.trim(); // Editorial photos also use regular image files; catalogue photos open their product card.
   let pics=[], list=[];
   function collect(){ pics=[...document.querySelectorAll('main img, .cover img')].filter(i=>isPic(i)&&!i.closest('.item.off'));
     const seen=new Set(); list=pics.filter(i=>{const k=i.src.slice(-60);if(seen.has(k))return false;seen.add(k);return true;}); }
@@ -1297,7 +1297,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   function show(n){cur=(n+list.length)%list.length;const p=list[cur];im.src=p.src.replace('sz=w1000','sz=w2000');im.alt=p.alt||'';cap.textContent=p.alt||'';const h=document.createElement('span');h.className='lb-hint';h.textContent=matchMedia('(hover:hover)').matches?'Колёсико или двойной клик — увеличить, тянуть — двигать':'Двойное касание или два пальца — увеличить';cap.appendChild(h);cnt.textContent=(cur+1)+' / '+list.length;resetZoom();}
   function open(p){collect();const k=p.src.slice(-60);const n=list.findIndex(x=>x.src.slice(-60)===k);last=document.activeElement;show(n<0?0:n);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lb-close').focus();}
   function close(){lb.hidden=true;const pd=document.getElementById('pd');document.body.style.overflow=(pd&&!pd.hidden)?'hidden':'';if(last)last.focus&&last.focus();}
-  function bind(){ pics.forEach(p=>{ if(p.dataset.zoom) return; p.dataset.zoom='1'; p.classList.add('zoomable');p.tabIndex=0;p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(p);});p.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();open(p);}});}); }
+  function bind(){ pics.forEach(p=>{ if(p.dataset.zoom) return; p.dataset.zoom='1'; p.classList.add('zoomable');p.tabIndex=0;p.setAttribute('role','button');p.setAttribute('aria-label','Увеличить фото: '+p.alt);p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(p);});p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(p);}});}); }
   bind(); document.addEventListener('bogem:catalog',()=>{collect();bind();});
   // плавное появление фото при прокрутке
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -1512,7 +1512,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   document.getElementById('bar-cart').addEventListener('click',()=>{ closeMenu(); fab&&fab.click(); });
   burger.addEventListener('click',openMenu);
   document.getElementById('menu-x').addEventListener('click',()=>{ closeMenu(); if(last&&last.focus) last.focus({preventScroll:true}); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!menu.hidden&&!e.defaultPrevented&&!document.querySelector('dialog[open]')){e.preventDefault();closeMenu();if(last&&last.focus)last.focus({preventScroll:true});} });
   const shop=document.getElementById('menu-shop'), sub=document.getElementById('menu-sub');
   shop.addEventListener('click',()=>{ const o=shop.getAttribute('aria-expanded')!=='true'; shop.setAttribute('aria-expanded',String(o)); sub.hidden=!o; });
   menu.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{ const f=a.dataset.f; if(f){ const b=document.getElementById('f-'+f); b&&b.click(); } closeMenu(); }));
@@ -1558,7 +1558,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   function run(){
     const v=norm(q.value.trim()); res.innerHTML='';
     if(!v){ return; }
-    const words=v.split(/\s+/).map(w=>w.length>4?w.slice(0,-1):w);
+    const words=v.split(/\s+/).map(w=>w.length>4?w.replace(/(иями|ями|ами|ого|его|ому|ему|ыми|ими|ая|яя|ое|ее|ые|ие|ый|ий|ой|ую|юю|ых|их|ах|ях|ов|ев|ом|ем|а|я|ы|и|у|ю|е|о)$/,''):w);
     const hit=items().filter(it=>{ const t=norm(it.textContent+' '+(it.dataset.title||'')); return words.every(w=>t.includes(w)); });
     if(!hit.length){ res.innerHTML='<li class="search-none">Ничего не нашли — напишите нам, подберём 🙂</li>'; return; }
     hit.forEach(it=>{ const img=it.querySelector('.ph img'), h=it.querySelector('h3'), pr=it.querySelector('.price');
@@ -1566,18 +1566,18 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
       const im=li.querySelector('img'); if(img) im.src=img.currentSrc||img.src;
       li.querySelector('span').textContent=h?h.textContent:(it.dataset.title||'');
       li.querySelector('b').textContent=it.classList.contains('sold')?'продано':(pr?pr.textContent.trim():'');
-      li.querySelector('a').addEventListener('click',e=>{ e.preventDefault(); close(); const all=$('f-all'); if(all&&all.getAttribute('aria-pressed')!=='true') all.click();
+      li.querySelector('a').addEventListener('click',e=>{ e.preventDefault(); close(false); const all=$('f-all'); if(all&&all.getAttribute('aria-pressed')!=='true') all.click();
         setTimeout(()=>{ if(window.bogemOpenItem){ bogemOpenItem(it); return; } it.scrollIntoView({behavior:'smooth',block:'center'}); it.classList.remove('hl'); void it.offsetWidth; it.classList.add('hl'); },60); });
       res.appendChild(li); });
   }
   let last=null;
   function open(){ last=document.activeElement; sh.hidden=false; document.body.style.overflow='hidden'; setTimeout(()=>q.focus(),30); run(); }
-  function close(){ if(sh.hidden) return; sh.hidden=true; document.body.style.overflow=''; }
+  function close(restore=true){ if(sh.hidden) return; sh.hidden=true; document.body.style.overflow='';if(restore&&last&&last.focus)last.focus({preventScroll:true}); }
   $('tab-search').addEventListener('click',open);
-  $('search-x').addEventListener('click',()=>{ close(); last&&last.focus&&last.focus({preventScroll:true}); });
+  $('search-x').addEventListener('click',()=>close());
   q.addEventListener('input',run);
   $('search-tags').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; q.value=b.textContent; run(); q.focus(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!sh.hidden&&!e.defaultPrevented&&!document.querySelector('dialog[open]')){e.preventDefault();close();} });
 })();
 </script>
 <script>
@@ -1761,6 +1761,22 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 })();
 </script>
 
+<script>
+(function(){
+ document.querySelectorAll('a[href="#catalog"]:not([data-f]):not([data-buy]):not([data-tab])').forEach(a=>a.addEventListener('click',()=>document.getElementById('f-all').click()));
+ // Keep keyboard navigation inside the active custom dialog. Native dialogs handle their own focus.
+ document.addEventListener('keydown',e=>{
+   if(e.key!=='Tab'||e.defaultPrevented||document.querySelector('dialog[open]'))return;
+   const panel=['lb','search','menu'].map(id=>document.getElementById(id)).find(el=>el&&!el.hidden);
+   if(!panel)return;
+   const controls=[...panel.querySelectorAll('button,a[href],input,textarea,summary,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
+   const first=controls[0],last=controls[controls.length-1];if(!first)return;
+   if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+   else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+ });
+})();
+</script>
 </body>
 </html>
+
 
