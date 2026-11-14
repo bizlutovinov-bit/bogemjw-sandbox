@@ -821,6 +821,32 @@ body{font-weight:400}
  .pd-x{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
 }
 
+
+/* A direct Favorites destination and useful empty states. */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;margin:0;padding:44px 20px;font-family:var(--f-body);font-style:normal;color:var(--ink)}
+.empty-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;color:var(--wine);background:color-mix(in srgb,var(--wine) 8%,var(--paper))}
+.empty-icon svg{width:34px;height:34px}
+.empty-state h3{font:400 clamp(28px,4vw,36px)/1.15 var(--f-display);letter-spacing:-.015em;margin:0}
+.empty-state h3 i{color:var(--wine)}
+.empty-state p{font-size:16px;line-height:1.65;color:var(--ink-soft);margin:0;max-width:32ch}
+.empty-state .btn{display:flex;align-items:center;justify-content:center;gap:16px;min-height:48px;max-width:100%;padding:14px 20px;background:var(--wine-bg);color:#fff6ea;border-color:var(--wine-bg);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;cursor:pointer}
+.empty-state .btn:hover{filter:brightness(1.12)}
+.fav-empty{min-height:360px;background:var(--card-paper);border-block:1px solid var(--rule)}
+.cart-empty{flex:1;min-height:360px;padding-inline:0}
+.showing-favorites .shop-head{margin-bottom:24px}
+#collection-title:focus{outline:none}
+.tabbar [data-tab="favorites"].cur svg path{fill:currentColor;fill-opacity:.2}
+@media(max-width:900px){
+ .fav-empty{padding:32px 16px;gap:20px;min-height:360px}
+ .empty-state h3{font-size:30px}
+ .empty-state p{font-size:15px}
+ .showing-favorites .shop-head .lede{max-width:28ch}
+}
+@media(max-width:360px){
+ .tabbar a,.tabbar button{font-size:11px}
+ .empty-state .btn{font-size:13px;padding-inline:14px}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -828,7 +854,7 @@ body{font-weight:400}
   <a href="#" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path class="home-shape" d="M3 10.5 12 3l9 7.5-2 2V21h-5v-6h-4v6H5v-8.5z"/></svg>Главная</a>
   <a href="#catalog" data-tab="catalog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Каталог</a>
   <button type="button" id="tab-search" aria-controls="search"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg>Поиск</button>
-  <a href="#order" data-tab="order"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l-3 2 1.4-5.3A8.5 8.5 0 1 1 21 11.5Z"/><path d="M7 10h10M7 14h6"/></svg>Написать</a>
+  <button type="button" id="tab-fav" data-tab="favorites" aria-controls="catalog" aria-label="Избранное"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg>Избранное<b id="tab-fav-count" data-n="0" aria-hidden="true"></b></button>
   <button type="button" id="tab-cart" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l1.5 14h-17L5 7Z"/><path d="M8.5 9V6a3.5 3.5 0 0 1 7 0v3"/></svg>Корзина<b id="tab-count" data-n="0"></b></button>
 </nav>
 <div class="search" id="search" hidden role="dialog" aria-modal="true" aria-label="Поиск украшений">
@@ -1013,7 +1039,7 @@ body{font-weight:400}
     <div class="wrap">
       <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Шопинг</span><span>стр. 24</span></div>
       <div class="shop-head">
-        <div><span class="rubric">Шопинг</span><h2 class="big">Коллекция <i>Bogem</i></h2></div>
+        <div><span class="rubric">Шопинг</span><h2 class="big" id="collection-title" tabindex="-1">Коллекция <i>Bogem</i></h2></div>
         <p class="lede">Украшения с характером.<br>Выберите свою деталь.</p>
       </div>
       <div class="chips" role="group" aria-label="Фильтр по видам">
@@ -1026,7 +1052,12 @@ body{font-weight:400}
         <button id="f-fav" type="button" data-f="fav" aria-pressed="false">♡ Избранное<b id="fav-count"></b></button>
       </div>
       <div class="cat"><article class="item" data-cat="kolye" data-no="1" data-id="8318209944" data-title="Колье из майорки «Бургунди» с крестом" data-price="5400"><div class="ph"><img loading="lazy" src="img/ac833657f9.jpg" alt="Колье из майорки «Бургунди» с крестом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 01</span><h3>Колье из майорки «Бургунди» с крестом</h3><p>Насыщенный бургунди и крест в золоте. Акцент для белой рубашки или чёрного платья.</p><div class="row"><span class="price">5 400 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8318209944">В корзину</button></article><article class="item" data-cat="kolye" data-no="2" data-id="8283063928" data-title="Сотуар из натуральных камней" data-price="5900"><div class="ph"><img loading="lazy" src="img/5d9784fa17.jpg" alt="Сотуар из натуральных камней"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 02</span><h3>Сотуар из натуральных камней</h3><p>Длинная цепь с камнями и подвеской: смелый образ на день и на вечер.</p><div class="row"><span class="price">5 900 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8283063928">В корзину</button></article><article class="item" data-cat="kolye" data-no="3" data-id="8335956365" data-title="Колье из агата, жемчуга и гематита" data-price="4200"><div class="ph"><img loading="lazy" src="img/b378eac939.jpg" alt="Колье из агата, жемчуга и гематита"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 03</span><h3>Колье из агата, жемчуга и гематита</h3><p>Сюрреалистичное колье с подвеской-брошью и жемчужной бахромой.</p><div class="row"><span class="price">4 200 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8335956365">В корзину</button></article><article class="item" data-cat="kolye" data-no="4" data-id="7573461792" data-title="Чокер из тонированного жемчуга" data-price="3600"><div class="ph"><img loading="lazy" src="img/c29c97f3a0.jpg" alt="Чокер из тонированного жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 04</span><h3>Чокер из тонированного жемчуга</h3><p>Жемчужный чокер с цветком из перламутра.</p><div class="row"><span class="price">3 600 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7573461792">В корзину</button></article><article class="item" data-cat="komplekt kolye sergi" data-no="5" data-id="8377272494" data-title="Комплект: колье и серьги «Майорка»" data-price="2600"><div class="ph"><img loading="lazy" src="img/9342c7cd66.jpg" alt="Комплект: колье и серьги «Майорка»"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 05</span><h3>Комплект: колье и серьги «Майорка»</h3><p>Крупный стальной жемчуг «Майорка» и длинные серьги-подвески.</p><div class="row"><span class="price">2 600 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8377272494">В корзину</button></article><article class="item" data-cat="sergi" data-no="6" data-id="8413748775" data-title="Серьги из розового кварца" data-price="2200"><div class="ph"><img loading="lazy" src="img/c13e291fa4.jpg" alt="Серьги из розового кварца"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 06</span><h3>Серьги из розового кварца</h3><p>Женственные серьги-каскад из нежно-розового кварца.</p><div class="row"><span class="price">2 200 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8413748775">В корзину</button></article><article class="item" data-cat="sergi" data-no="7" data-id="8482802230" data-title="Серьги из жемчуга «Майорка»" data-price="2100"><div class="ph"><img loading="lazy" src="img/662e16bb10.jpg" alt="Серьги из жемчуга «Майорка»"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 07</span><h3>Серьги из жемчуга «Майорка»</h3><p>Подвижные серьги на эластичной нити, швензы с позолотой, очень лёгкие.</p><div class="row"><span class="price">2 100 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8482802230">В корзину</button></article><article class="item" data-cat="braslet" data-no="8" data-id="8315374322" data-title="Браслеты-цепи" data-price="1500"><div class="ph"><img loading="lazy" src="img/8423520f9b.jpg" alt="Браслеты-цепи"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 08</span><h3>Браслеты-цепи</h3><p>Лаконичные браслеты в двух оттенках, длина регулируется.</p><div class="row"><span class="price">1 500 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8315374322">В корзину</button></article><article class="item" data-cat="komplekt braslet sergi kolye" data-no="9" data-id="8511111998" data-title="Комплект из коралла" data-price="1500"><div class="ph"><img loading="lazy" src="img/ebacc4b893.jpg" alt="Комплект из коралла"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 09</span><h3>Комплект из коралла</h3><p>Серьги, браслет и колье из яркого коралла, гипоаллергенная фурнитура.</p><div class="row"><span class="price">1 500 ₽</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8511111998">В корзину</button></article><article class="item" data-cat="kolye" data-no="10" data-id="7797733033" data-title="Колье из чёрного агата с крестом" data-price="0"><div class="ph"><img loading="lazy" src="img/78db82d46a.jpg" alt="Колье из чёрного агата с крестом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 10</span><h3>Колье из чёрного агата с крестом</h3><p>Чёрный агат и крупный крест: графично и дерзко.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7797733033">В корзину</button></article><article class="item" data-cat="kolye" data-no="11" data-id="7796946167" data-title="Колье из коралла и жемчуга" data-price="0"><div class="ph"><img loading="lazy" src="img/98d4bd1234.jpg" alt="Колье из коралла и жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 11</span><h3>Колье из коралла и жемчуга</h3><p>Красный коралл и натуральный жемчуг с подвеской-сердцем.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7796946167">В корзину</button></article><article class="item" data-cat="komplekt kolye sergi" data-no="12" data-id="8312803506" data-title="Колье и серьги из бирюзы и барочного жемчуга" data-price="0"><div class="ph"><img loading="lazy" src="img/8ae384b4d2.jpg" alt="Колье и серьги из бирюзы и барочного жемчуга"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 12</span><h3>Колье и серьги из бирюзы и барочного жемчуга</h3><p>Яркая бирюза и крупный барочный жемчуг, серьги в комплект.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-8312803506">В корзину</button></article><article class="item" data-cat="brosh" data-no="13" data-id="7797205685" data-title="Брошь-булавка с жемчугом" data-price="0"><div class="ph"><img loading="lazy" src="img/4bd62e6d1f.jpg" alt="Брошь-булавка с жемчугом"><button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></button></div><span class="no">№ 13</span><h3>Брошь-булавка с жемчугом</h3><p>Трендовая брошь-булавка с цепочками и натуральным жемчугом.</p><div class="row"><span class="price ask">цена по запросу</span><span class="st">В наличии</span></div><button class="add" type="button" id="add-7797205685">В корзину</button></article></div>
-      <p class="fav-empty" id="fav-empty" hidden>Пока пусто — нажмите ♡ на понравившемся украшении, и оно сохранится здесь.</p>
+      <div class="fav-empty empty-state" id="fav-empty" hidden>
+ <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.4A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.7c0 5.8-7.5 10.4-7.5 10.4z"/></svg></div>
+ <h3>Сохраните то,<br><i>что откликается</i></h3>
+ <p>Нажмите на сердечко у украшения.<br>Ваша подборка появится здесь.</p>
+ <button type="button" class="btn" id="fav-browse">Посмотреть коллекцию <span aria-hidden="true">→</span></button>
+</div>
     </div>
   </section>
 
@@ -1097,7 +1128,12 @@ body{font-weight:400}
   <div class="cart-panel">
     <div class="cart-head"><h2>Корзина</h2><button class="cart-x" id="cart-x" type="button" aria-label="Закрыть корзину">×</button></div>
     <ul class="cart-list" id="cart-list"></ul>
-    <p class="cart-empty" id="cart-empty">Пока пусто. Добавьте украшение из раздела «Шопинг».</p>
+    <div class="cart-empty empty-state" id="cart-empty">
+ <div class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l1.5 14h-17L5 7Z"/><path d="M8.5 9V6a3.5 3.5 0 0 1 7 0v3"/></svg></div>
+ <h3>Корзина<br><i>пока пуста</i></h3>
+ <p>Выберите украшение в коллекции —<br>оно появится здесь.</p>
+ <button type="button" class="btn" id="cart-browse">Посмотреть коллекцию <span aria-hidden="true">→</span></button>
+</div>
     <div class="cart-total" id="cart-total-row"><span>Итого<small id="cart-ask"></small></span><span id="cart-total">0 ₽</span></div>
     <form id="cart-form" novalidate>
       <label for="c-name">Имя<input id="c-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
@@ -1112,7 +1148,7 @@ body{font-weight:400}
       <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
     </div>
     <p class="cart-msg" id="cart-msg" aria-live="polite"></p>
-    <p class="cart-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p>
+    <p class="cart-note" id="cart-note">Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p>
   </div>
 </div>
 <div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-labelledby="pd-title">
@@ -1177,6 +1213,12 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   const favs=window.bogemFav?bogemFav.list():[];
   document.querySelectorAll('.item').forEach(it=>{it.hidden=!(f==='all'||(f==='fav'?favs.includes(it.dataset.no):it.dataset.cat.split(' ').includes(f)));});
   const fe=document.getElementById('fav-empty'); if(fe) fe.hidden=!(f==='fav'&&![...document.querySelectorAll('#catalog .item')].some(it=>!it.hidden&&!it.classList.contains('off')));  // скрытые таблицей — класс .off
+  const favoriteView=f==='fav', catalog=document.getElementById('catalog');
+  catalog.classList.toggle('showing-favorites',favoriteView);
+  document.getElementById('collection-title').innerHTML=favoriteView?'Ваше <i>избранное</i>':'Коллекция <i>Bogem</i>';
+  catalog.querySelector('.shop-head .rubric').textContent=favoriteView?'Личная подборка':'Шопинг';
+  catalog.querySelector('.shop-head .lede').innerHTML=favoriteView?'Украшения, к которым хочется вернуться.':'Украшения с характером.<br>Выберите свою деталь.';
+  document.dispatchEvent(new CustomEvent('bogem:filter',{detail:{filter:f}}));
 }));
 
 (function(){
@@ -1309,7 +1351,7 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
       li.querySelector('button').onclick=()=>{cart=cart.filter(i=>i!==id);save();render();}; list.appendChild(li);});
     const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
     $('cart-total').textContent=sum?fmt(sum):'Стоимость уточняется'; $('cart-ask').textContent=ask&&sum?('+ '+ask+' по запросу'):'';
-    $('cart-empty').hidden=cart.length>0; $('cart-total-row').hidden=!cart.length; $('cart-form').hidden=!cart.length; $('send').hidden=!cart.length;
+    $('cart-empty').hidden=cart.length>0; $('cart-note').hidden=!cart.length; $('cart-total-row').hidden=!cart.length; $('cart-form').hidden=!cart.length; $('send').hidden=!cart.length;
     const txt=encodeURIComponent(orderText());
     if(CFG.whatsapp){$('send-wa').hidden=false;$('send-wa').href='https://wa.me/'+CFG.whatsapp+'?text='+txt;}
     if(CFG.bot){$('send-tg').hidden=false;$('send-tg').href='https://t.me/'+CFG.bot+'?start=o_'+cart.map(id=>byId[id].no).join('_');}
@@ -1325,6 +1367,10 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   let last=null;
   $('cart-fab').onclick=()=>{window.bogemGoal&&bogemGoal('cart_open');last=document.activeElement;$('cart').hidden=false;document.body.style.overflow='hidden';$('cart-x').focus();};
   const close=()=>{$('cart').hidden=true;document.body.style.overflow='';last&&last.focus&&last.focus();};
+  $('cart-browse').onclick=()=>{
+    close(); $('f-all').click(); $('catalog').scrollIntoView({behavior:'smooth',block:'start'});
+    $('collection-title').focus({preventScroll:true});
+  };
   $('cart-x').onclick=close; $('cart').addEventListener('click',e=>{if(e.target.id==='cart')close();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('cart').hidden)close();});
   ['c-name','c-phone','c-note'].forEach(id=>$(id).addEventListener('input',render));
@@ -1377,14 +1423,28 @@ document.querySelectorAll('.chips button').forEach(b=>b.addEventListener('click'
   const sync=()=>{ if(!cnt) return; const n=cnt.textContent.trim()||'0'; tc.textContent=n; tc.dataset.n=n; };
   if(cnt){ sync(); new MutationObserver(sync).observe(cnt,{childList:true,characterData:true,subtree:true}); }
   $('tab-cart').addEventListener('click',()=>{ const f=$('cart-fab'); f&&f.click(); });
-  // подсветка текущего раздела
-  const tabs={home:tb.querySelector('[data-tab=home]'),catalog:tb.querySelector('[data-tab=catalog]'),order:tb.querySelector('[data-tab=order]')};
-  const mark=k=>Object.entries(tabs).forEach(([n,a])=>a.classList.toggle('cur',n===k));
+  // The selected catalogue filter determines whether Collection or Favorites is active.
+  const tabs={home:tb.querySelector('[data-tab=home]'),catalog:tb.querySelector('[data-tab=catalog]'),favorites:$('tab-fav')};
+  const mark=k=>Object.entries(tabs).forEach(([n,a])=>{
+    a.classList.toggle('cur',n===k);
+    if(n===k)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');
+  });
+  let inCatalog=false;
+  const updateTabs=()=>mark(inCatalog?($('f-fav').getAttribute('aria-pressed')==='true'?'favorites':'catalog'):'home');
   if('IntersectionObserver' in window){
-    const vis=new Map();
-    const io=new IntersectionObserver(es=>{ es.forEach(e=>vis.set(e.target.id,e.isIntersecting)); mark(vis.get('order')?'order':vis.get('catalog')?'catalog':'home'); },{rootMargin:'-45% 0px -45% 0px'});
-    ['catalog','order'].forEach(id=>{ const el=$(id); el&&io.observe(el); });
+    const io=new IntersectionObserver(es=>{inCatalog=es[0].isIntersecting;updateTabs();},{rootMargin:'-45% 0px -45% 0px'});
+    io.observe($('catalog'));
   }
+  document.addEventListener('bogem:filter',updateTabs);
+  function browse(filter){
+    $(filter==='fav'?'f-fav':'f-all').click();
+    inCatalog=true;updateTabs();
+    $('catalog').scrollIntoView({behavior:'smooth',block:'start'});
+    $('collection-title').focus({preventScroll:true});
+  }
+  $('tab-fav').addEventListener('click',()=>browse('fav'));
+  tabs.catalog.addEventListener('click',e=>{e.preventDefault();browse('all');});
+  $('fav-browse').addEventListener('click',()=>browse('all'));
   mark('home');
   // поиск по изделиям (название + описание + категория)
   const sh=$('search'), q=$('search-q'), res=$('search-res');
@@ -1437,6 +1497,8 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
     grid.querySelectorAll('.item').forEach(it=>{ const b=it.querySelector('.fav'); if(!b) return; const on=fav.includes(it.dataset.no); b.setAttribute('aria-pressed',String(on)); b.setAttribute('aria-label',on?'Убрать из избранного':'В избранное'); });
     const n=fav.filter(no=>{ const it=grid.querySelector('.item[data-no="'+no+'"]'); return it&&!it.classList.contains('off'); }).length;
     const c=$('fav-count'); if(c) c.textContent=n?' '+n:'';
+    const badge=$('tab-fav-count'); if(badge){badge.textContent=String(n);badge.dataset.n=String(n);}
+    const tab=$('tab-fav'); if(tab) tab.setAttribute('aria-label',n?'Избранное: '+n:'Избранное');
     if(cur){ const on=fav.includes(cur.dataset.no); $('pd-fav').setAttribute('aria-pressed',String(on)); $('pd-fav').setAttribute('aria-label',on?'Убрать из избранного':'В избранное'); }
     const f=$('f-fav'); if(refilter&&f&&f.getAttribute('aria-pressed')==='true') f.click();
   }
