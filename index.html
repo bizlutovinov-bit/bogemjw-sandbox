@@ -772,7 +772,27 @@ body{font-weight:400}
 .pd-media{align-self:start}
 .pd-gal img{object-fit:contain;aspect-ratio:3/4}
 .pd-photo-hint{margin:0;padding:12px 16px;font-size:12px;line-height:1.5;color:var(--ink-soft);text-align:center}
-.pd-dots{bottom:54px}
+.pd-stage{position:relative}
+.pd-dots{bottom:12px}
+.pd-photo-arrow,.pd-photo-count,.pd-thumbs{display:none}
+@media(min-width:901px){
+ .pd-media{position:sticky;top:0}
+ .pd-gal img{height:clamp(220px,calc(100vh - 370px),600px);height:clamp(220px,calc(100dvh - 370px),600px);aspect-ratio:auto}
+ .pd-dots{display:none}
+ .pd-photo-arrow{display:grid;place-items:center;position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--paper);color:var(--ink);box-shadow:0 3px 14px rgba(0,0,0,.14);cursor:pointer;z-index:1}
+ .pd-photo-arrow.prev{left:12px}.pd-photo-arrow.next{right:12px}
+ .pd-photo-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+ .pd-photo-arrow:hover:not(:disabled){color:var(--wine);border-color:var(--wine)}
+ .pd-photo-arrow:disabled{opacity:.38;cursor:default}
+ .pd-photo-count{display:block;position:absolute;right:14px;top:14px;padding:5px 10px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);color:var(--ink-soft);font-size:12px;font-variant-numeric:tabular-nums;pointer-events:none}
+ .pd-thumbs{display:flex;gap:8px;padding:12px 16px 4px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+ .pd-thumb{flex:0 0 56px;width:56px;height:72px;padding:3px;background:var(--paper);border:1px solid var(--rule);border-radius:4px;cursor:pointer;opacity:.68}
+ .pd-thumb img{display:block;width:100%;height:100%;object-fit:contain}
+ .pd-thumb:hover{opacity:1;border-color:var(--ink-soft)}
+ .pd-thumb[aria-pressed="true"]{opacity:1;border:2px solid var(--wine);padding:2px}
+ .pd-thumb:focus-visible,.pd-photo-arrow:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+ .pd-photo-hint{padding:8px 16px 12px}
+}
 .pd-info{gap:18px;padding:36px 32px}
 .pd-top{padding-right:32px;gap:10px}
 .pd-top .no{color:var(--ink-soft);font-size:12px;letter-spacing:.06em}
@@ -1515,8 +1535,14 @@ body{font-weight:400}
     </nav>
     <div class="pd-content">
       <div class="pd-media">
-        <div class="pd-gal" id="pd-gal" aria-label="Фотографии украшения"></div>
-        <div class="pd-dots" id="pd-dots" aria-hidden="true"></div>
+        <div class="pd-stage">
+          <div class="pd-gal" id="pd-gal" aria-label="Фотографии украшения"></div>
+          <div class="pd-dots" id="pd-dots" aria-hidden="true"></div>
+          <button class="pd-photo-arrow prev" id="pd-prev-photo" type="button" aria-label="Предыдущее фото украшения" aria-controls="pd-gal" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="pd-photo-arrow next" id="pd-next-photo" type="button" aria-label="Следующее фото украшения" aria-controls="pd-gal" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+          <span class="pd-photo-count" id="pd-photo-count" role="status" aria-live="polite" aria-atomic="true" hidden></span>
+        </div>
+        <div class="pd-thumbs" id="pd-thumbs" role="group" aria-label="Выбор фото украшения" hidden></div>
         <p class="pd-photo-hint">Нажмите на фото, чтобы рассмотреть детали</p>
       </div>
       <div class="pd-info">
@@ -1955,20 +1981,46 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   nextItem.addEventListener('click',()=>stepItem(1));
   function photos(it){ const p=(it.dataset.photos||it.dataset.localPhotos||'').split('|').filter(Boolean); if(p.length) return p; const im=it.querySelector('.ph img'); return im?[im.currentSrc||im.src]:[]; }
   function details(it){ return String(it.dataset.details||'').split(/\n|;/).map(x=>x.trim()).filter(Boolean).map(x=>{ const i=x.indexOf(':'); return i>0?[x.slice(0,i).trim(),x.slice(i+1).trim()]:['',x]; }); }
-  const gal=$('pd-gal'), dots=$('pd-dots');
-  function markDot(){ const i=Math.round(gal.scrollLeft/Math.max(1,gal.clientWidth)); [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); }
-  gal.addEventListener('scroll',markDot,{passive:true});
+  const gal=$('pd-gal'), dots=$('pd-dots'), thumbs=$('pd-thumbs');
+  const prevPhoto=$('pd-prev-photo'), nextPhoto=$('pd-next-photo'), photoCount=$('pd-photo-count');
+  let activePhoto=0;
+  function markPhoto(i){
+    const count=gal.children.length;
+    activePhoto=Math.max(0,Math.min(i,count-1));
+    [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===activePhoto));
+    [...gal.children].forEach((im,k)=>im.tabIndex=k===activePhoto?0:-1);
+    [...thumbs.children].forEach((b,k)=>b.setAttribute('aria-pressed',String(k===activePhoto)));
+    prevPhoto.disabled=activePhoto===0; nextPhoto.disabled=activePhoto>=count-1;
+    photoCount.textContent='Фото '+(activePhoto+1)+' из '+count;
+    const selected=thumbs.children[activePhoto];
+    if(selected&&thumbs.clientWidth){
+      const left=selected.offsetLeft-thumbs.offsetLeft;
+      if(left<thumbs.scrollLeft)thumbs.scrollLeft=left;
+      else if(left+selected.offsetWidth>thumbs.scrollLeft+thumbs.clientWidth)thumbs.scrollLeft=left+selected.offsetWidth-thumbs.clientWidth;
+    }
+  }
+  function showPhoto(i){markPhoto(i);gal.scrollTo({left:gal.clientWidth*activePhoto,behavior:'auto'});}
+  gal.addEventListener('scroll',()=>{if(gal.clientWidth)markPhoto(Math.round(gal.scrollLeft/gal.clientWidth));},{passive:true});
+  prevPhoto.addEventListener('click',()=>showPhoto(activePhoto-1));
+  nextPhoto.addEventListener('click',()=>showPhoto(activePhoto+1));
+  window.addEventListener('resize',()=>{if(!pd.hidden)showPhoto(activePhoto);});
   function syncAdd(){ if(!cur) return; const b=cur.querySelector('.add'), pa=$('pd-add');
     pa.hidden=window.bogemIsArchive(cur)||!b; $('pd-contact').hidden=!pa.hidden; const inC=!!(b&&b.classList.contains('in')); pa.classList.toggle('in',inC); pa.textContent=inC?'Открыть корзину ✓':'В корзину'; }
   function fill(){ const it=cur; if(!it) return;
     const ps=photos(it), title=it.dataset.title||'', price=+it.dataset.price||0, sold=window.bogemIsArchive(it), rep=it.classList.contains('repeat');
-    gal.innerHTML=''; dots.innerHTML='';
+    gal.innerHTML=''; dots.innerHTML=''; thumbs.innerHTML='';
+    [prevPhoto,nextPhoto,photoCount,thumbs].forEach(el=>el.hidden=ps.length<2);
     ps.forEach((src,i)=>{ const im=document.createElement('img'); im.src=src.replace('sz=w600','sz=w1200'); im.alt=title+(ps.length>1?' — фото '+(i+1):'');
       im.tabIndex=0; im.setAttribute('role','button'); im.setAttribute('aria-label','Увеличить фото '+(i+1)+': '+title);
       im.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();im.click();}});
       im.addEventListener('click',()=>{ if(window.bogemLB) bogemLB(ps.map(x=>x.replace('sz=w600','sz=w2000')),i,title); }); gal.appendChild(im);
-      if(ps.length>1) dots.appendChild(document.createElement('i')); });
-    gal.scrollLeft=0; markDot();
+      if(ps.length>1){
+        dots.appendChild(document.createElement('i'));
+        const b=document.createElement('button'); b.type='button'; b.className='pd-thumb'; b.setAttribute('aria-label','Показать фото '+(i+1)); b.setAttribute('aria-controls','pd-gal');
+        const preview=document.createElement('img'); preview.src=src.replace('sz=w600','sz=w160'); preview.alt=''; preview.loading='lazy'; b.appendChild(preview);
+        b.addEventListener('click',()=>showPhoto(i)); thumbs.appendChild(b);
+      } });
+    gal.scrollLeft=0; thumbs.scrollLeft=0; markPhoto(0);
     $('pd-no').textContent='№ '+String(it.dataset.no).padStart(2,'0');
     const st=$('pd-st'); st.className='pd-st'+(sold?' sold':rep?' rep':''); st.textContent=sold?'Нет в наличии':rep?'Можно повторить':'В наличии';
     pd.classList.toggle('is-archive',sold);
@@ -1998,6 +2050,9 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   pd.addEventListener('click',e=>{ if(e.target===pd) closeItem(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!pd.hidden&&!e.defaultPrevented&&$('lb').hidden&&!document.querySelector('dialog[open]')) closeItem(); });
   pd.addEventListener('keydown',e=>{
+    if(e.target.closest('.pd-media')&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key)&&$('lb').hidden&&!document.querySelector('dialog[open]')){
+      e.preventDefault(); showPhoto(e.key==='Home'?0:e.key==='End'?gal.children.length-1:activePhoto+(e.key==='ArrowLeft'?-1:1)); return;
+    }
     if(matchMedia('(min-width:901px)').matches&&['ArrowLeft','ArrowRight'].includes(e.key)&&$('lb').hidden&&!document.querySelector('dialog[open]')&&!e.target.closest('.pd-gal,input,textarea,select,[contenteditable]')){e.preventDefault();stepItem(e.key==='ArrowLeft'?-1:1);return;}
     if(e.key!=='Tab'||!$('lb').hidden||document.querySelector('dialog[open]')) return;
     const focusable=[...pd.querySelectorAll('button,a[href],summary,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
