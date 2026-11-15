@@ -1180,6 +1180,8 @@ body{font-weight:400}
 @media(min-width:701px){.shops{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}}
 /* 15.11: фото мастера в «Почему Bogem» — вертикальное, кадр 3:4 */
 #about .letter figure img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%}
+/* 15.11 Андрей: обложка обрезана без подбородка — кадр от верхнего края, шея не вытягивается */
+.cover figure img,.cover.wine-cover figure img{object-position:center top}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1270,7 +1272,7 @@ body{font-weight:400}
       </div>
     </div>
     <figure>
-      <img src="img/editorial/pearl-leather.webp" srcset="img/editorial/pearl-leather-small.webp 480w, img/editorial/pearl-leather.webp 960w" sizes="(max-width: 900px) 100vw, 48vw" width="960" height="1280" fetchpriority="high" loading="eager" decoding="async" alt="Жемчужное колье с золотистым медальоном и кожаная куртка">
+      <img src="img/editorial/cover-leather.webp" srcset="img/editorial/cover-leather-small.webp 480w, img/editorial/cover-leather.webp 960w" sizes="(max-width: 900px) 100vw, 48vw" width="960" height="1172" fetchpriority="high" loading="eager" decoding="async" alt="Жемчужное колье с золотистым медальоном и кожаная куртка">
       <figcaption><span>BOGEM JW</span>Жемчуг и кожа</figcaption>
     </figure>
   </div>
