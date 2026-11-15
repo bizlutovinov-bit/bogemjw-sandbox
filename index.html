@@ -1223,18 +1223,35 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
  .cart-checkout .send a,.cart-checkout .send button{min-height:44px;padding:8px 12px;font-size:14px;line-height:1.4}
 }
 
-/* Compact editorial actions, 16 November 2026. */
-#trend .credits li>a[data-buy]{
-  display:inline-flex;align-items:center;justify-content:center;
-  justify-self:start;width:fit-content;max-width:100%;min-height:44px;
-  padding:9px 16px;margin:0;background:transparent;
-  border:1px solid var(--wine);color:var(--wine);
-  font:500 14px/1.4 var(--f-body);letter-spacing:.02em;text-transform:none;
-  text-align:center;text-decoration:none;
+/* Editorial product rows, 16 November 2026. */
+#trend .credits li.has-photo{
+ grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto auto auto;
+ align-items:start;align-content:start;column-gap:18px;row-gap:4px;padding-block:18px;
 }
-#trend .credits li>a[data-buy]:hover{background:var(--paper-2);filter:none}
+#trend .credits li.has-photo>.credit-photo{
+ grid-column:1;grid-row:1 / 4;align-self:start;width:96px;height:128px;object-fit:cover;
+}
+#trend .credits li.has-photo>span{
+ grid-column:2;grid-row:1;font-size:16px;line-height:1.45;align-self:start;
+}
+#trend .credits li.has-photo>b{
+ grid-column:2;grid-row:2;font-size:22px;line-height:1.3;align-self:start;padding-top:4px;
+}
+#trend .credits li>a[data-buy]{
+ display:inline-flex;align-items:center;justify-content:flex-start;gap:10px;
+ justify-self:start;width:fit-content;max-width:100%;min-height:44px;
+ padding:6px 0;margin:0;border:0;background:transparent;color:var(--wine);
+ font:500 14px/1.4 var(--f-body);letter-spacing:0;text-transform:none;text-align:left;text-decoration:none;
+}
+#trend .credits li.has-photo>a[data-buy]{grid-column:2;grid-row:3;align-self:start}
+#trend .credits li>a[data-buy]:not([aria-disabled="true"])::after{content:"→";font-size:21px;font-weight:400;line-height:1}
+#trend .credits li>a[data-buy]:hover{background:transparent;filter:none;text-decoration:underline;text-underline-offset:4px}
 #trend .credits li>a[data-buy]:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
-#trend .credits li>a[data-buy][aria-disabled="true"]{border-color:var(--rule);color:var(--ink-soft);cursor:default}
+#trend .credits li>a[data-buy][aria-disabled="true"]{color:var(--ink-soft);cursor:default}
+@media(max-width:360px){
+ #trend .credits li.has-photo{grid-template-columns:80px minmax(0,1fr);column-gap:14px}
+ #trend .credits li.has-photo>.credit-photo{width:80px;height:112px}
+}
 
 </style>
 
