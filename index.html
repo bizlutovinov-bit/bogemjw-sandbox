@@ -985,6 +985,53 @@ body{font-weight:400}
  .wine-cover p{font-size:15px;line-height:1.5}
  .wine-cover .btn{min-height:44px;padding:11px 18px}
 }
+
+/* Desktop collection: readable cards with shared rows and full product names. */
+@media(min-width:901px){
+ #catalog .cat{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 24px}
+ #catalog .item{gap:10px;padding-bottom:12px}
+ #catalog .item .ph{aspect-ratio:3/4;flex:none;min-height:0}
+ #catalog .item .ph img{object-fit:contain}
+ #catalog .item h3{font-size:23px;line-height:1.25;min-height:2.5em;margin:4px 12px 0;overflow-wrap:anywhere}
+ #catalog .item>p{margin:0 12px;line-height:1.6;min-height:3.2em}
+ #catalog .item>.row{margin-inline:12px;min-height:34px;padding-top:4px;align-items:baseline}
+ #catalog .item>.add{width:calc(100% - 24px);margin-inline:12px;min-height:46px}
+ @supports(grid-template-rows:subgrid){
+  #catalog .cat{row-gap:10px}
+  #catalog .cat .item{display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:10px;margin-bottom:20px}
+  #catalog .item>.row{margin-top:0;align-self:end}
+ }
+ /* Tighter editorial spacing without hiding or shortening the stories. */
+ main>.page:not(#catalog){padding-block:44px}
+ #looks{padding-block:48px}
+ #contents .toc{gap:40px}
+ #contents .big{font-size:52px}
+ #contents .toc-list a{grid-template-columns:48px minmax(0,1fr) 64px;gap:16px;padding-block:10px}
+ #contents .toc-list b{font-size:36px}
+ #contents .toc-list img{width:64px;height:64px}
+ #trend .feature{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px}
+ #trend .big,#material .big,#looks .big,#about .big{font-size:clamp(40px,3.6vw,52px);margin-block:10px 16px}
+ #trend .cols{margin-top:20px;column-gap:24px}
+ #trend .pull{font-size:24px;padding-block:12px;margin-bottom:14px}
+ #trend .credits{margin-top:20px}
+ #trend .credits li{padding-block:10px}
+ #material .mat-head{margin-bottom:32px}
+ #material .triptych figure.up{margin-top:0}
+ #material .facts-box{margin-top:28px;padding-top:16px;border-top-width:1px}
+ #looks .looks-head{margin-bottom:24px}
+ #look{max-width:1180px;margin-inline:auto;padding-block:0;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+ #look .q{padding:36px 40px;gap:18px}
+ #look .folio{display:none}
+ #look .spread-title{font-size:clamp(36px,3.5vw,48px);line-height:1.1}
+ #look .spread-buy{margin-bottom:0}
+ #about .letter{grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr);gap:40px}
+ #about .cols{margin-top:20px;column-gap:28px}
+}
+@media(min-width:1440px){
+ #catalog>.wrap{max-width:1320px}
+ #catalog .cat{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1907,6 +1954,7 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 </script>
 </body>
 </html>
+
 
 
 
