@@ -452,7 +452,7 @@ section[id]{scroll-margin-top:64px}
 .cart-total small{display:block;font-family:var(--f-body);font-size:12px;color:var(--ink-soft)}
 .cart form{display:grid;gap:10px}
 .cart label{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);display:grid;gap:4px}
-.cart input,.cart textarea{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);text-transform:none;letter-spacing:0}
+.cart input,.cart textarea,.cart select{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);text-transform:none;letter-spacing:0}
 .cart textarea{min-height:64px;resize:vertical}
 .send{display:grid;gap:8px}
 .send button,.send a{display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:14px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none}
@@ -692,9 +692,9 @@ body{font-weight:400}
 .cart-total small{font-size:14px}
 .cart label{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink)}
 .cart form{gap:16px}
-.cart input,.cart textarea{font-size:16px;font-weight:400;line-height:1.5;min-height:48px;border-radius:2px;background:var(--paper)}
+.cart input,.cart textarea,.cart select{font-size:16px;font-weight:400;line-height:1.5;min-height:48px;border-radius:2px;background:var(--paper)}
 .cart input::placeholder,.cart textarea::placeholder{color:var(--ink-soft);opacity:1}
-.cart input:focus-visible,.cart textarea:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.cart input:focus-visible,.cart textarea:focus-visible,.cart select:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
 .send{gap:10px}
 .send button,.send a{min-height:48px;font-size:15px;line-height:1.4;letter-spacing:0;text-transform:none;font-weight:500;background:var(--wine-bg);border-color:var(--wine-bg);color:#fff6ea}
 .send .alt{background:transparent;border-color:var(--rule);color:var(--ink);font-weight:400}
@@ -889,7 +889,7 @@ body{font-weight:400}
 .cart-details summary{cursor:pointer;font-size:15px;line-height:1.5}
 .cart-details summary span{display:block;margin-left:18px;color:var(--ink-soft);font-size:12px}
 .cart-help{margin:14px 0;font-size:14px;line-height:1.55;color:var(--ink-soft)}
-.cart input,.cart textarea{width:100%;scroll-margin-block:16px}
+.cart input,.cart textarea,.cart select{width:100%;scroll-margin-block:16px}
 .cart-checkout{flex:none;padding:18px 24px max(18px,env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule);background:var(--paper);box-shadow:0 -6px 22px rgba(0,0,0,.04)}
 .cart-total{border:0;padding:0;gap:8px;align-items:center;font-size:22px}
 .cart-total>strong{font-weight:400;font-size:24px;text-align:right}
@@ -1189,6 +1189,11 @@ body{font-weight:400}
 img[src*="/majorca-portrait.webp"],img[src*="/majorca-earrings.webp"]{filter:brightness(1.07) contrast(1.015)}
 img[src*="/panther-sautoir-"],img[src*="/coral-set.webp"]{filter:brightness(1.045) contrast(1.015)}
 img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
+/* Delivery information uses the current light/dark palette. */
+.delivery-info{margin-top:28px;padding-top:22px;border-top:1px solid var(--rule)}
+.delivery-info h3{font-family:var(--f-display);font-size:26px;font-weight:400;margin:0 0 12px}
+.delivery-info p{font-size:16px;line-height:1.6;margin:0 0 12px;color:var(--ink-soft)}
+.cart select{min-width:0;max-width:100%;color-scheme:normal}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1469,6 +1474,7 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
         <li><b>02</b><div><span>Добавьте в корзину</span>Можно выбрать несколько изделий. Контакты, город и пожелания добавьте по желанию.</div></li>
         <li><b>03</b><div><span>Отправьте заказ</span>В корзине подготовьте сообщение, скопируйте его и отправьте мастеру в Instagram. Наличие, оплату и доставку обсудим в переписке.</div></li>
       </ol>
+      <div class="delivery-info"><h3>Доставка из Люберец</h3><p>Отправляем украшения службами СДЭК, Яндекс Доставка и Ozon. Стоимость и сроки зависят от города и выбранного способа доставки — согласуем их перед оплатой.</p><p>Укажите город и удобную службу в корзине. Пункт выдачи или адрес можно уточнить в переписке.</p></div>
       <a class="btn howto-cta" href="#catalog">Перейти к украшениям</a>
       </div>
     </div>
@@ -1514,12 +1520,15 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
  <button type="button" class="btn" id="cart-browse">Посмотреть коллекцию <span aria-hidden="true">→</span></button>
 </div>
     <details class="cart-details" id="cart-details">
-      <summary>Контакты и пожелания <span>по желанию</span></summary>
-      <p class="cart-help">Можно оставить здесь или обсудить в переписке.</p>
+      <summary>Доставка, контакты и пожелания <span>по желанию</span></summary>
+      <p class="cart-help">Отправляем из Люберец. Стоимость и сроки доставки согласуем перед оплатой. Все поля можно заполнить сейчас или уточнить в переписке.</p>
       <form id="cart-form" novalidate>
         <label for="c-name">Имя<input id="c-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" enterkeyhint="next" maxlength="100"></label>
         <label for="c-phone">Телефон<input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ваш номер для связи" enterkeyhint="next" maxlength="40"></label>
-        <label for="c-note">Пожелания<textarea id="c-note" name="note" rows="3" maxlength="1500" placeholder="Город доставки, размер или вопрос мастеру"></textarea></label>
+        <label for="c-city">Город получения<input id="c-city" name="city" autocomplete="address-level2" placeholder="Ваш город" maxlength="120" enterkeyhint="next"></label>
+        <label for="c-delivery">Служба доставки<select id="c-delivery" name="delivery"><option value="">Помогите выбрать</option><option value="СДЭК">СДЭК</option><option value="Яндекс Доставка">Яндекс Доставка</option><option value="Ozon">Ozon</option></select></label>
+        <label for="c-address">Пункт выдачи или адрес (необязательно)<input id="c-address" name="address" autocomplete="street-address" placeholder="Можно уточнить в переписке" maxlength="400" enterkeyhint="next"></label>
+        <label for="c-note">Пожелания<textarea id="c-note" name="note" rows="3" maxlength="1500" placeholder="Размер, упаковка или вопрос мастеру"></textarea></label>
       </form>
     </details>
     <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
@@ -1527,7 +1536,7 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
     </div>
     <div class="cart-checkout" id="cart-checkout">
       <div class="cart-total" id="cart-total-row"><span>Украшения<small id="cart-ask"></small></span><strong id="cart-total">0 ₽</strong></div>
-      <p class="cart-note" id="cart-note">Доставку и окончательную стоимость согласуем в переписке.</p>
+      <p class="cart-note" id="cart-note">Доставка рассчитывается отдельно. Стоимость и сроки согласуем перед оплатой.</p>
       <div class="send" id="send">
         <a id="send-wa" href="#" target="_blank" rel="noopener" hidden>Обсудить заказ в WhatsApp</a>
         <a id="send-tg" href="#" target="_blank" rel="noopener" hidden>Продолжить в Telegram</a>
@@ -1580,7 +1589,7 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
           </details>
           <details>
             <summary>Доставка и оплата</summary>
-            <div class="pd-section-body"><p>Доставка СДЭК, Яндекс Доставкой или Ozon по России и СНГ. Оплата — по договорённости с мастером.</p></div>
+            <div class="pd-section-body"><p>Отправляем украшения из Люберец службами СДЭК, Яндекс Доставка и Ozon.</p><p>Стоимость и сроки зависят от города и выбранного способа доставки. Уточним их перед оплатой. Способ оплаты согласуем с мастером.</p></div>
           </details>
         </div>
         <div class="pd-help"><p>Подойдёт ли длина? Как смотрится вживую?</p><button class="pd-question" id="pd-question" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 9h8M8 13h5"/></svg>Задать вопрос об украшении <span aria-hidden="true">→</span></button></div>
@@ -1790,7 +1799,8 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
     const lines=cart.map((id,i)=>{const x=byId[id];return (i+1)+'. '+x.title+' — '+(x.price?fmt(x.price):'цена по запросу')+' (№ '+x.no+(x.repeat?', повтор':'')+')';});
     const sum=cart.reduce((a,id)=>a+byId[id].price,0);
     const n=$('c-name').value.trim(), p=$('c-phone').value.trim(), c=$('c-note').value.trim();
-    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nУкрашения: '+(sum?fmt(sum):'стоимость уточняется')+(sum&&cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+'\nПодскажите, пожалуйста, наличие и стоимость доставки.'+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(c?'\nПожелания: '+c:'');
+    const city=$('c-city').value.trim(), delivery=$('c-delivery').value||'Помогите выбрать', address=$('c-address').value.trim();
+    return 'Здравствуйте! Хочу заказать в Bogem jw:\n'+lines.join('\n')+'\nУкрашения: '+(sum?fmt(sum):'стоимость уточняется')+(sum&&cart.some(id=>!byId[id].price)?' + изделия с ценой по запросу':'')+'\nПодскажите, пожалуйста, наличие и стоимость доставки.'+(n?'\nИмя: '+n:'')+(p?'\nТелефон: '+p:'')+(city?'\nГород получения: '+city:'')+'\nДоставка: '+delivery+(address?'\nПункт выдачи или адрес: '+address:'')+(c?'\nПожелания: '+c:'');
   }
   function updateLinks(){
     $('send-wa').hidden=!CFG.whatsapp;$('send-tg').hidden=!CFG.bot;
@@ -1838,12 +1848,13 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
     if($('cart').hidden||document.querySelector('dialog[open]'))return;
     if(e.key==='Escape'){e.preventDefault();close();return;}
     if(e.key!=='Tab')return;
-    const f=[...$('cart').querySelectorAll('button,a[href],input,textarea,summary')].filter(el=>!el.disabled&&el.getClientRects().length),first=f[0],end=f[f.length-1];
+    const f=[...$('cart').querySelectorAll('button,a[href],input,textarea,select,summary')].filter(el=>!el.disabled&&el.getClientRects().length),first=f[0],end=f[f.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();end.focus();}
     else if(!e.shiftKey&&document.activeElement===end){e.preventDefault();first.focus();}
   });
   $('cart-form').addEventListener('submit',e=>e.preventDefault());
-  ['c-name','c-phone','c-note'].forEach(id=>$(id).addEventListener('input',updateLinks));
+  ['c-name','c-phone','c-city','c-address','c-note'].forEach(id=>$(id).addEventListener('input',updateLinks));
+  $('c-delivery').addEventListener('change',updateLinks);
   $('copy-order').onclick=async()=>{
     window.bogemGoal&&bogemGoal('order_copy');const ok=await copy();
     if(ok){$('cart-msg').textContent='Заказ скопирован. Вставьте его в сообщение мастеру.';$('cart-msg').scrollIntoView({block:'nearest'});}
@@ -2250,7 +2261,7 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
    if(e.key!=='Tab'||e.defaultPrevented||document.querySelector('dialog[open]'))return;
    const panel=['lb','search','menu'].map(id=>document.getElementById(id)).find(el=>el&&!el.hidden);
    if(!panel)return;
-   const controls=[...panel.querySelectorAll('button,a[href],input,textarea,summary,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
+   const controls=[...panel.querySelectorAll('button,a[href],input,textarea,select,summary,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);
    const first=controls[0],last=controls[controls.length-1];if(!first)return;
    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
@@ -2339,6 +2350,7 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   render();document.addEventListener('bogem:catalog',render);
 })();
 </script>
+
 
 
 
