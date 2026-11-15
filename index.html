@@ -1743,7 +1743,7 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
       const cats=String(c[4]||'').toLowerCase().split(/[,;]\s*/).map(x=>CAT[x.trim()]).filter(Boolean);
       const phs=String(c[5]||'').split(/[\s,;]+/).map(drive).filter(Boolean), photo=phs[0]||'', st=String(c[6]||'').toLowerCase().trim(), avito=String(c[7]||'').replace(/[^\d]/g,''), det=String(c[8]||'').trim();
       let it=grid.querySelector('.item[data-no="'+no+'"]');
-      if(!it){ it=tpl.cloneNode(true); delete it.dataset.bound; it.querySelectorAll('[data-zoom]').forEach(x=>{delete x.dataset.zoom;}); it.classList.remove('sold','off','repeat','archived'); it.removeAttribute('data-local-photos'); it.querySelector('img').removeAttribute('src'); grid.appendChild(it); }
+      if(!it){ it=tpl.cloneNode(true); delete it.dataset.bound; delete it.dataset.rv; it.classList.remove('rv','in'); it.querySelectorAll('[data-zoom]').forEach(x=>{delete x.dataset.zoom;}); it.classList.remove('sold','off','repeat','archived'); it.removeAttribute('data-local-photos'); it.querySelector('img').removeAttribute('src'); grid.appendChild(it); }
       it.dataset.no=no; it.dataset.id=avito||('b'+no); it.dataset.title=title; it.dataset.price=price; if(cats.length) it.dataset.cat=cats.join(' ');
       it.querySelector('h3').textContent=title; it.querySelector('p').textContent=String(c[2]||'').trim(); it.querySelector('.no').textContent='№ '+String(no).padStart(2,'0');
       const pr=it.querySelector('.price'); pr.className='price'+(price?'':' ask'); pr.textContent=price?price.toLocaleString('ru-RU').replace(/\s/g,' ')+' ₽':'цена по запросу';
