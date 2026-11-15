@@ -1183,6 +1183,12 @@ body{font-weight:400}
 #about .letter figure img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%}
 /* 15.11 Андрей: обложка обрезана без подбородка — кадр от верхнего края, шея не вытягивается */
 .cover figure img,.cover.wine-cover figure img{object-position:center top}
+
+/* Gentle, non-destructive photo exposure correction; no hue/saturation changes.
+   Match exact verified assets so future owner photos are not auto-processed. */
+img[src*="/majorca-portrait.webp"],img[src*="/majorca-earrings.webp"]{filter:brightness(1.07) contrast(1.015)}
+img[src*="/panther-sautoir-"],img[src*="/coral-set.webp"]{filter:brightness(1.045) contrast(1.015)}
+img[src*="/black-agate-cross-portrait.webp"],img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
