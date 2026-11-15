@@ -1600,7 +1600,7 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
   collect();
   const lb=document.getElementById('lb'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cnt=document.getElementById('lb-count');
   let cur=0,last=null;
-  function show(n){cur=(n+list.length)%list.length;const p=list[cur];im.src=p.src.replace('sz=w1000','sz=w2000');im.alt=p.alt||'';cap.textContent=p.alt||'';const h=document.createElement('span');h.className='lb-hint';h.textContent=matchMedia('(hover:hover)').matches?'Колёсико или двойной клик — увеличить, тянуть — двигать':'Двойное касание или два пальца — увеличить';cap.appendChild(h);cnt.textContent=(cur+1)+' / '+list.length;resetZoom();}
+  function show(n){cur=(n+list.length)%list.length;const p=list[cur];im.src=p.src.replace('sz=w600','sz=w2000');im.alt=p.alt||'';cap.textContent=p.alt||'';const h=document.createElement('span');h.className='lb-hint';h.textContent=matchMedia('(hover:hover)').matches?'Колёсико или двойной клик — увеличить, тянуть — двигать':'Двойное касание или два пальца — увеличить';cap.appendChild(h);cnt.textContent=(cur+1)+' / '+list.length;resetZoom();}
   function open(p){collect();const k=p.src.slice(-60);const n=list.findIndex(x=>x.src.slice(-60)===k);last=document.activeElement;show(n<0?0:n);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lb-close').focus();}
   function close(){lb.hidden=true;const pd=document.getElementById('pd');document.body.style.overflow=(pd&&!pd.hidden)?'hidden':'';if(last)last.focus&&last.focus();}
   function bind(){ pics.forEach(p=>{ if(p.dataset.zoom) return; p.dataset.zoom='1'; p.classList.add('zoomable');p.tabIndex=0;p.setAttribute('role','button');p.setAttribute('aria-label','Увеличить фото: '+p.alt);p.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(p);});p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(p);}});}); }
@@ -1674,7 +1674,7 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
     '1KeLCDyJN0tPyRSom_VfuZXAGLkFZeLUF':'img/catalog/black-agate-cross-portrait.webp',
     '1SyiGprRpDEJ4G0rf9ePOHtUb7vXbpGfI':'img/catalog/black-agate-cross-detail.webp'
   };
-  const drive=u=>{u=String(u||'').trim(); const m=u.match(/(?:\/d\/|[?&]id=)([\w-]{20,})/); return m?(uprightPhotos[m[1]]||'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000'):(/^https:\/\//.test(u)?u:'');};
+  const drive=u=>{u=String(u||'').trim(); const m=u.match(/(?:\/d\/|[?&]id=)([\w-]{20,})/); return m?(uprightPhotos[m[1]]||'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w600'):(/^https:\/\//.test(u)?u:'');};
   const val=x=>x?(x.f!=null&&typeof x.v!=='number'?x.f:(x.v==null?'':x.v)):'';
   window.bogemCatalog=function(res){ try{
     const rows=(res&&res.table&&res.table.rows)||[]; if(!rows.length) return;
@@ -1963,10 +1963,10 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   function fill(){ const it=cur; if(!it) return;
     const ps=photos(it), title=it.dataset.title||'', price=+it.dataset.price||0, sold=window.bogemIsArchive(it), rep=it.classList.contains('repeat');
     gal.innerHTML=''; dots.innerHTML='';
-    ps.forEach((src,i)=>{ const im=document.createElement('img'); im.src=src.replace('sz=w1000','sz=w1600'); im.alt=title+(ps.length>1?' — фото '+(i+1):'');
+    ps.forEach((src,i)=>{ const im=document.createElement('img'); im.src=src.replace('sz=w600','sz=w1200'); im.alt=title+(ps.length>1?' — фото '+(i+1):'');
       im.tabIndex=0; im.setAttribute('role','button'); im.setAttribute('aria-label','Увеличить фото '+(i+1)+': '+title);
       im.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();im.click();}});
-      im.addEventListener('click',()=>{ if(window.bogemLB) bogemLB(ps.map(x=>x.replace('sz=w1000','sz=w2000')),i,title); }); gal.appendChild(im);
+      im.addEventListener('click',()=>{ if(window.bogemLB) bogemLB(ps.map(x=>x.replace('sz=w600','sz=w2000')),i,title); }); gal.appendChild(im);
       if(ps.length>1) dots.appendChild(document.createElement('i')); });
     gal.scrollLeft=0; markDot();
     $('pd-no').textContent='№ '+String(it.dataset.no).padStart(2,'0');
