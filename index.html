@@ -1178,6 +1178,8 @@ body{font-weight:400}
 
 /* 15.11: три канала связи (Instagram, Telegram, ВКонтакте) в один ряд на ПК */
 @media(min-width:701px){.shops{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}}
+/* 15.11: фото мастера в «Почему Bogem» — вертикальное, кадр 3:4 */
+#about .letter figure img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1268,8 +1270,8 @@ body{font-weight:400}
       </div>
     </div>
     <figure>
-      <img src="img/editorial/pearl-cover.webp" srcset="img/editorial/pearl-cover-small.webp 480w, img/editorial/pearl-cover.webp 960w" sizes="(max-width: 900px) 100vw, 48vw" width="960" height="1707" fetchpriority="high" loading="eager" decoding="async" alt="Жемчужные колье с золотистыми деталями в образе Bogem">
-      <figcaption><span>BOGEM JW</span>Жемчуг. Новый взгляд</figcaption>
+      <img src="img/editorial/pearl-leather.webp" srcset="img/editorial/pearl-leather-small.webp 480w, img/editorial/pearl-leather.webp 960w" sizes="(max-width: 900px) 100vw, 48vw" width="960" height="1280" fetchpriority="high" loading="eager" decoding="async" alt="Жемчужное колье с золотистым медальоном и кожаная куртка">
+      <figcaption><span>BOGEM JW</span>Жемчуг и кожа</figcaption>
     </figure>
   </div>
 
@@ -1340,7 +1342,7 @@ body{font-weight:400}
         <ol class="toc-list">
           <li><a href="#trend"><b>06</b><span><small>Тренд</small>Красный — новый чёрный</span><img src="img/98d4bd1234.jpg" alt=""></a></li>
           <li><a href="#material"><b>12</b><span><small>Материал месяца</small>Жемчуг «Майорка»</span><img src="img/9342c7cd66.jpg" alt=""></a></li>
-          <li><a href="#looks"><b>16</b><span><small>В кадре</small>Жизнь крупным планом</span><img loading="lazy" src="img/editorial/pearl-leather-small.webp" alt=""></a></li>
+          <li><a href="#looks"><b>16</b><span><small>В кадре</small>Жизнь крупным планом</span><img loading="lazy" src="img/editorial/pearl-cover-small.webp" alt=""></a></li>
           <li><a href="#look"><b>18</b><span><small>Образ недели</small>Чёрный агат и сетка</span><img src="img/78db82d46a.jpg" alt=""></a></li>
           <li><a href="#catalog"><b>24</b><span><small>Шопинг</small>Украшения текущей коллекции</span><img src="img/ebacc4b893.jpg" alt=""></a></li>
           <li><a href="#about"><b>32</b><span><small>Письмо редактора</small>Почему Bogem</span><img src="img/4bd62e6d1f.jpg" alt=""></a></li>
@@ -1404,7 +1406,7 @@ body{font-weight:400}
       <div class="folio dark"><span>Bogem jw · Ноябрь 2026</span><span>В кадре</span><span>стр. 16</span></div>
       <div class="looks-head"><h2 class="big light">Жизнь<br><i>крупным планом</i></h2><p class="lede light">Не нужен особый повод. Четыре образа, четыре способа заявить о себе.</p></div>
       <div class="looks-grid">
-        <figure><img src="img/editorial/pearl-leather.webp" srcset="img/editorial/pearl-leather-small.webp 480w, img/editorial/pearl-leather.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1280" loading="lazy" decoding="async" alt="Жемчужное колье с золотистым медальоном и кожаная куртка"><figcaption><span>Жемчуг и кожа</span><small>01 / образ</small></figcaption></figure>
+        <figure><img src="img/editorial/pearl-cover.webp" srcset="img/editorial/pearl-cover-small.webp 480w, img/editorial/pearl-cover.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1707" loading="lazy" decoding="async" alt="Жемчужные колье с золотистыми деталями"><figcaption><span>Жемчуг. Новый взгляд</span><small>01 / образ</small></figcaption></figure>
         <figure class="look-violet"><div class="look-photo"><img src="img/editorial/bracelet-violet-gloves.webp" srcset="img/editorial/bracelet-violet-gloves-small.webp 640w, img/editorial/bracelet-violet-gloves.webp 1600w" sizes="(max-width: 860px) 68vw, 34vw" width="1600" height="2616" loading="lazy" decoding="async" alt="Золотистый браслет с жемчужиной на фиолетовых перчатках"></div><figcaption><span>Золото на фиолетовом</span><small>02 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/pastel-necklace.webp" srcset="img/editorial/pastel-necklace-small.webp 480w, img/editorial/pastel-necklace.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1280" loading="lazy" decoding="async" alt="Колье в пастельных оттенках с белым топом"><figcaption><span>Нежный акцент</span><small>03 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/brooch-green.webp" srcset="img/editorial/brooch-green-small.webp 480w, img/editorial/brooch-green.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1750" loading="lazy" decoding="async" alt="Брошь-булавка с жемчужными подвесками на зелёном жакете"><figcaption><span>Деталь на жакете</span><small>04 / образ</small></figcaption></figure>
@@ -1431,7 +1433,7 @@ body{font-weight:400}
     <div class="wrap">
       <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Письмо редактора</span><span>стр. 32</span></div>
       <div class="letter">
-        <figure><img src="img/0f5cce7139.jpg" alt="Создательницы Bogem jw"></figure>
+        <figure><img src="img/editorial/master-cap.webp" srcset="img/editorial/master-cap-small.webp 500w, img/editorial/master-cap.webp 1000w" sizes="(max-width: 900px) 100vw, 30vw" width="1000" height="1775" loading="lazy" decoding="async" alt="Мастер Bogem jw в образе с чокером и крестом"></figure>
         <div>
           <span class="rubric">Письмо редактора</span>
           <h2 class="big">Почему <i>Bogem</i></h2>
