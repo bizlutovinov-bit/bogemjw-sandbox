@@ -1201,6 +1201,28 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
  #catalog .archive-link{justify-content:flex-end;gap:12px;margin:0 0 14px;padding:0;border:0;font-size:14px}
  #catalog .archive-link a{min-height:36px}
 }
+
+/* Editorial product photographs and a compact checkout, 15 November 2026. */
+#trend .credits li.has-photo{grid-template-columns:88px minmax(0,1fr) auto;align-items:center;column-gap:16px;row-gap:8px;padding-block:16px}
+#trend .credits .credit-photo{grid-column:1;grid-row:1 / 4;display:block;width:88px;height:110px;object-fit:cover;background:var(--paper-2)}
+#trend .credits .credit-photo[hidden]{display:none}
+#trend .credits li.has-photo>span{grid-column:2 / -1;font-size:16px;line-height:1.4}
+#trend .credits li.has-photo>b{grid-column:2;font-size:20px;white-space:normal}
+#trend .credits li.has-photo>a{grid-column:3;min-height:44px;display:flex;align-items:center;letter-spacing:.08em}
+.cart-body #copy-order{align-self:center;background:none;border:0;color:var(--ink);font:400 14px/1.4 var(--f-body);padding:10px;min-height:44px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.cart-body #cart-note{font-size:13px;line-height:1.5;color:var(--ink-soft);margin:0}
+@media(max-width:900px){
+ #trend .credits li.has-photo{grid-template-columns:80px minmax(0,1fr);column-gap:14px}
+ #trend .credits .credit-photo{width:80px;height:104px;grid-row:1 / 3;align-self:start}
+ #trend .credits li.has-photo>span,#trend .credits li.has-photo>b{grid-column:2}
+ #trend .credits li.has-photo>a{grid-column:2;margin:0;padding:8px 12px;font-size:13px;min-height:44px}
+ .cart-head{padding:16px 20px 12px}.cart-head h2{font-size:28px}
+ .cart-checkout{padding:10px 20px max(10px,env(safe-area-inset-bottom,0px))}
+ .cart-checkout .cart-total{font-size:20px;margin-bottom:8px}.cart-checkout .cart-total>strong{font-size:24px}
+ .cart-checkout .send{gap:6px}
+ .cart-checkout .send a,.cart-checkout .send button{min-height:44px;padding:8px 12px;font-size:14px;line-height:1.4}
+}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1390,7 +1412,7 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
           </div>
           <ul class="credits">
             <li><span>Колье из майорки «Бургунди» с крестом</span><b>5 400 ₽</b><a href="#item-1" data-buy="8318209944" data-product-no="1">Купить</a></li>
-            <li><span>Комплект из коралла: серьги, браслет, колье</span><b>1 500 ₽</b><a href="#item-9" data-buy="8511111998" data-product-no="9">Купить</a></li>
+            <li><span>Комбинированный сет из коралла: колье, браслет, серьги</span><b>6 700 ₽</b><a href="#item-23" data-buy="8511111998" data-product-no="23">Купить</a></li>
             <li><span>Колье из коралла и жемчуга</span><b>по запросу</b><a href="#item-11" data-buy="7796946167" data-product-no="11">Купить</a></li>
           </ul>
         </div>
@@ -1538,17 +1560,19 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
         <label for="c-note">Пожелания<textarea id="c-note" name="note" rows="3" maxlength="1500" placeholder="Размер, упаковка или вопрос мастеру"></textarea></label>
       </form>
     </details>
+      <p class="cart-note" id="cart-note">Доставка рассчитывается отдельно. Стоимость и сроки согласуем перед оплатой.</p>
+        <button id="copy-order" class="alt" type="button">Скопировать заказ</button>
     <button id="clear-cart" class="alt" type="button">Очистить корзину</button>
     <p class="cart-msg" id="cart-msg" aria-live="polite"></p>
     </div>
     <div class="cart-checkout" id="cart-checkout">
       <div class="cart-total" id="cart-total-row"><span>Украшения<small id="cart-ask"></small></span><strong id="cart-total">0 ₽</strong></div>
-      <p class="cart-note" id="cart-note">Доставка рассчитывается отдельно. Стоимость и сроки согласуем перед оплатой.</p>
+
       <div class="send" id="send">
         <a id="send-wa" href="#" target="_blank" rel="noopener" hidden>Обсудить заказ в WhatsApp</a>
         <a id="send-tg" href="#" target="_blank" rel="noopener" hidden>Продолжить в Telegram</a>
         <button id="send-ig" type="button"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="5" width="38" height="38" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="24" cy="24" r="8.5" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="35" cy="13" r="2.6" fill="currentColor"/></svg>Оформить через Instagram <span aria-hidden="true">→</span></button>
-        <button id="copy-order" class="alt" type="button">Скопировать заказ</button>
+
       </div>
     </div>
   </div>
@@ -1841,7 +1865,7 @@ window.bogemIsArchive=it=>!!it&&it.matches('.archived,.sold,.repeat');
     const sum=cart.reduce((a,id)=>a+byId[id].price,0), ask=cart.filter(id=>!byId[id].price).length;
     $('cart-total').textContent=sum?fmt(sum):'Стоимость уточняется';$('cart-ask').textContent=ask&&sum?'Ещё '+ask+' — по запросу':'';
     $('cart-empty').hidden=n>0;
-    ['cart-list','cart-details','clear-cart','cart-checkout'].forEach(id=>$(id).hidden=!n);
+    ['cart-list','cart-details','clear-cart','cart-checkout','cart-note','copy-order'].forEach(id=>$(id).hidden=!n);
     $('cart-msg').textContent='';updateLinks();
   }
   async function copy(){
@@ -2345,6 +2369,18 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
       const archived=!unavailable&&window.bogemIsArchive(it);
       const amount=it?Number(it.dataset.price)||0:0;
       const label=unavailable?'Сейчас недоступно':archived?'Нет в наличии':amount?amount.toLocaleString('ru-RU')+' ₽':'Цена по запросу';
+      const credit=a.closest('.credits li');
+      if(credit){
+        let photo=credit.querySelector('.credit-photo');
+        if(!photo){photo=document.createElement('img');photo.className='credit-photo';photo.loading='lazy';photo.decoding='async';photo.width=88;photo.height=110;credit.prepend(photo);}
+        const sourcePhoto=it?.querySelector('img');
+        const src=sourcePhoto?.getAttribute('src');
+        photo.hidden=unavailable||!src;
+        if(!photo.hidden){photo.src=src;photo.alt=it.dataset.title||sourcePhoto.alt||'Украшение';}
+        else photo.removeAttribute('src');
+        credit.classList.toggle('has-photo',!photo.hidden);
+        if(it?.dataset.title)credit.querySelector(':scope > span').textContent=it.dataset.title;
+      }
       const price=a.parentElement.querySelector('.caption-price')||(a.closest('.credits')&&a.parentElement.querySelector('b'));
       const caption=a.closest('.spread-buy')?.querySelector('span');
       if(price){price.hidden=false;price.textContent=label;}
@@ -2369,6 +2405,7 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
   render();document.addEventListener('bogem:catalog',render);
 })();
 </script>
+
 
 
 
