@@ -1088,6 +1088,13 @@ body{font-weight:400}
  #material .facts-box b{font-size:26px;line-height:1.2;margin-bottom:10px}
 }
 
+
+/* Frame the violet-glove photograph while preserving the full image for zoom. */
+.look-violet .look-photo{aspect-ratio:3/4;overflow:hidden}
+.looks-grid .look-violet img{height:100%;object-position:50% 68%;transform:scale(1.7);transform-origin:50% 48%}
+.look-violet figcaption small{flex-shrink:0;white-space:nowrap}
+.look-violet .look-photo:focus-within{outline:2px solid var(--wine);outline-offset:4px}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1287,7 +1294,7 @@ body{font-weight:400}
       <div class="looks-head"><h2 class="big light">Жизнь<br><i>крупным планом</i></h2><p class="lede light">Не нужен особый повод. Четыре образа, четыре способа заявить о себе.</p></div>
       <div class="looks-grid">
         <figure><img src="img/editorial/pearl-leather.webp" srcset="img/editorial/pearl-leather-small.webp 480w, img/editorial/pearl-leather.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1280" loading="lazy" decoding="async" alt="Жемчужное колье с золотистым медальоном и кожаная куртка"><figcaption><span>Жемчуг и кожа</span><small>01 / образ</small></figcaption></figure>
-        <figure><img src="img/editorial/golden-bracelet.webp" srcset="img/editorial/golden-bracelet-small.webp 480w, img/editorial/golden-bracelet.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1707" loading="lazy" decoding="async" alt="Золотистый браслет на руке в вечернем солнце"><figcaption><span>Золотой час</span><small>02 / образ</small></figcaption></figure>
+        <figure class="look-violet"><div class="look-photo"><img src="img/editorial/bracelet-violet-gloves.webp" srcset="img/editorial/bracelet-violet-gloves-small.webp 640w, img/editorial/bracelet-violet-gloves.webp 1600w" sizes="(max-width: 860px) 68vw, 34vw" width="1600" height="2616" loading="lazy" decoding="async" alt="Золотистый браслет с жемчужиной на фиолетовых перчатках"></div><figcaption><span>Золото на фиолетовом</span><small>02 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/pastel-necklace.webp" srcset="img/editorial/pastel-necklace-small.webp 480w, img/editorial/pastel-necklace.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1280" loading="lazy" decoding="async" alt="Колье в пастельных оттенках с белым топом"><figcaption><span>Нежный акцент</span><small>03 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/brooch-green.webp" srcset="img/editorial/brooch-green-small.webp 480w, img/editorial/brooch-green.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1750" loading="lazy" decoding="async" alt="Брошь-булавка с жемчужными подвесками на зелёном жакете"><figcaption><span>Деталь на жакете</span><small>04 / образ</small></figcaption></figure>
       </div>
