@@ -1272,6 +1272,26 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
 .sj-actions{display:flex;gap:8px 24px;flex-wrap:wrap;align-items:center}
 @media(max-width:760px){.social-journal .sj-grid{grid-template-columns:1fr;gap:4px}.social-journal .sj-card{padding:18px 0}.sj-card h3,.sj-archive h3{font-size:27px}}
 
+
+/* Instagram Reels, added to the editorial frame without autoplay. */
+.looks-reels{margin-top:clamp(34px,5vw,64px);padding-top:20px;border-top:1px solid rgba(242,225,196,.22)}
+.looks-reels-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}
+.looks-reels-head small{color:#cbb994;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.looks-reels-head h3{font-family:var(--f-display);font-size:clamp(24px,3vw,38px);font-weight:400;margin:7px 0 0}
+.looks-reels-head p{max-width:360px;margin:0;color:rgba(255,255,255,.72);font-size:14px;line-height:1.55}
+.looks-reels-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.look-reel{margin:0;min-width:0}
+.look-reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#130e10;border:1px solid rgba(203,185,148,.55)}
+.look-reel figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:10px}
+.look-reel figcaption span{font-family:var(--f-display);font-size:20px}
+.look-reel figcaption small{flex-shrink:0;color:#cbb994;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:640px){
+ .looks-reels-head{align-items:flex-start;flex-direction:column;gap:8px}
+ .looks-reels-head p{font-size:13px}
+ .looks-reels-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:2px 0 12px;scrollbar-width:thin}
+ .look-reel{flex:0 0 min(78vw,340px);scroll-snap-align:start}
+ .look-reel figcaption span{font-size:20px}
+}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1513,6 +1533,14 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
         <figure class="look-violet"><div class="look-photo"><img src="img/editorial/bracelet-violet-gloves.webp" srcset="img/editorial/bracelet-violet-gloves-small.webp 640w, img/editorial/bracelet-violet-gloves.webp 1600w" sizes="(max-width: 860px) 68vw, 34vw" width="1600" height="2616" loading="lazy" decoding="async" alt="Золотистый браслет с жемчужиной на фиолетовых перчатках"></div><figcaption><span>Золото на фиолетовом</span><small>02 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/pastel-necklace.webp" srcset="img/editorial/pastel-necklace-small.webp 480w, img/editorial/pastel-necklace.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1280" loading="lazy" decoding="async" alt="Колье в пастельных оттенках с белым топом"><figcaption><span>Нежный акцент</span><small>03 / образ</small></figcaption></figure>
         <figure><img src="img/editorial/brooch-green-detail.webp" srcset="img/editorial/brooch-green-detail.webp 480w, img/editorial/brooch-green-detail.webp 960w" sizes="(max-width: 860px) 46vw, 23vw" width="960" height="1750" loading="lazy" decoding="async" alt="Брошь-булавка с жемчужными подвесками на зелёном жакете"><figcaption><span>Деталь на жакете</span><small>04 / образ</small></figcaption></figure>
+      </div>
+      <div class="looks-reels">
+        <div class="looks-reels-head"><div><small>BOGEM · REELS</small><h3>Украшения в движении</h3></div><p>Живые кадры из Instagram — на человеке и в движении.</p></div>
+        <div class="looks-reels-grid">
+          <figure class="look-reel"><video controls playsinline preload="none" poster="img/editorial/reels/coral-necklace.jpg" aria-label="Короткое видео: коралловое колье на модели"><source src="img/editorial/reels/coral-necklace.mp4" type="video/mp4">Ваш браузер не поддерживает видео.</video><figcaption><span>Коралл в образе</span><small>01 / reel</small></figcaption></figure>
+          <figure class="look-reel"><video controls playsinline preload="none" poster="img/editorial/reels/green-set.jpg" aria-label="Короткое видео: комплект с зелёными акцентами"><source src="img/editorial/reels/green-set.mp4" type="video/mp4">Ваш браузер не поддерживает видео.</video><figcaption><span>Зелёные акценты</span><small>02 / reel</small></figcaption></figure>
+          <figure class="look-reel"><video controls playsinline preload="none" poster="img/editorial/reels/lips-pendant.jpg" aria-label="Короткое видео: фирменная подвеска Bogem"><source src="img/editorial/reels/lips-pendant.mp4" type="video/mp4">Ваш браузер не поддерживает видео.</video><figcaption><span>Фирменная деталь</span><small>03 / reel</small></figcaption></figure>
+        </div>
       </div>
     </div>
   </section>
