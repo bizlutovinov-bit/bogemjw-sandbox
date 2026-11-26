@@ -2407,6 +2407,24 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 </script>
 <script>/* 15.11 Андрей: ссылки «наверх» (href="#") — браузер сам плавно прокручивает наверх, после прокрутки убираем # из адреса (раньше нельзя — прервёт прокрутку) */addEventListener('hashchange',()=>{if(!location.href.endsWith('#'))return;const f=()=>{if(location.href.endsWith('#'))history.replaceState(history.state,'',location.pathname+location.search);};addEventListener('scrollend',f,{once:true});setTimeout(f,1500);});</script>
 <script>document.getElementById('sj-repeat').addEventListener('click',()=>{if(typeof window.bogemMessage==='function')window.bogemMessage({title:'Обсудить изготовление',text:'Здравствуйте! Мне понравилось колье из прошлой коллекции: гематит, изумрудный эрклез и струящиеся цепи. Можно обсудить возможность повторения или похожего украшения?\nhttps://www.instagram.com/bogem_twins_jewelry/reel/DcoUsm5t8E1/'});});</script>
+<script>
+/* Reels: warm up nearby clips, never autoplay or preload all media. */
+(function(){
+  const clips=Array.from(document.querySelectorAll('.look-reel video'));
+  if(!clips.length)return;
+  clips.forEach(v=>v.addEventListener('play',()=>clips.forEach(other=>{if(other!==v)other.pause();})));
+  if(!('IntersectionObserver' in window)||navigator.connection?.saveData)return;
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const v=entry.target;
+      if(v.networkState===0||v.readyState===0){v.preload='metadata';}
+      observer.unobserve(v);
+    });
+  },{rootMargin:'280px 80px',threshold:0});
+  clips.forEach(v=>observer.observe(v));
+})();
+</script>
 </body>
 </html>
 
