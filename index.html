@@ -1253,6 +1253,19 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
  #trend .credits li.has-photo>.credit-photo{width:80px;height:112px}
 }
 
+
+/* Bogem journal: original social stories, no external media embeds. */
+.social-journal{padding-block:clamp(42px,6vw,76px)}
+.social-journal .sj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:26px}
+.social-journal .sj-card,.sj-archive{border-top:1px solid var(--rule);padding:22px 0;min-width:0}
+.sj-card h3,.sj-archive h3{font:400 clamp(24px,2.4vw,34px)/1.15 var(--f-display);margin:12px 0}
+.sj-card p,.sj-archive p{font:400 16px/1.6 var(--f-body);color:var(--ink-soft);margin:0 0 12px}
+.sj-kicker{font:500 11px/1.5 var(--f-body);text-transform:uppercase;letter-spacing:.12em;color:var(--wine)}
+.sj-link,.sj-request{display:inline-flex;align-items:center;min-height:44px;color:var(--wine);font:500 14px/1.4 var(--f-body);text-decoration:underline;text-underline-offset:4px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.sj-archive{margin-top:28px;border-bottom:1px solid var(--rule)}
+.sj-actions{display:flex;gap:8px 24px;flex-wrap:wrap;align-items:center}
+@media(max-width:760px){.social-journal .sj-grid{grid-template-columns:1fr;gap:4px}.social-journal .sj-card{padding:18px 0}.sj-card h3,.sj-archive h3{font-size:27px}}
+
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1399,6 +1412,12 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
         <h3>Помните украшение<br>из наших образов?</h3>
         <div><p>Архив будет пополняться прошлыми работами. Уже сейчас можно прислать мастеру фото или ссылку на понравившийся образ и обсудить изготовление.</p><button class="archive-request" type="button" id="archive-idea">Обсудить свою идею <span aria-hidden="true">&nbsp;→</span></button></div>
       </div>
+      <article class="sj-archive" aria-labelledby="sj-sold-title">
+<span class="sj-kicker">Из прошлых коллекций · Продано</span>
+<h3 id="sj-sold-title">Гематит и изумрудный эрклез</h3>
+<p>Колье со струящимися цепями из осенней публикации Bogem. Возможность повторения, материалы, стоимость и сроки уточнит мастер.</p>
+<div class="sj-actions"><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/DcoUsm5t8E1/" target="_blank" rel="noopener noreferrer">Посмотреть оригинальное видео в Instagram ↗</a><button class="sj-request" type="button" id="sj-repeat">Обсудить изготовление →</button></div>
+</article>
       <div class="archive-footer"><span id="archive-count" role="status" aria-live="polite"></span><a href="#catalog" id="archive-current">Перейти к текущей коллекции <span aria-hidden="true">&nbsp;→</span></a></div>
     </div>
   </section>
@@ -1502,6 +1521,15 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
 
 
   <!-- ПИСЬМО РЕДАКТОРА -->
+  <section id="bogem-journal" class="page social-journal" aria-labelledby="sj-title"><div class="wrap">
+<span class="rubric">За пределами каталога</span>
+<h2 class="big" id="sj-title">Мир <i>Bogem</i></h2>
+<p class="lede">Украшения в движении, живые образы и истории из нашей мастерской. Оригинальные публикации бренда.</p>
+<div class="sj-grid">
+<article class="sj-card"><span class="sj-kicker">Видео · Стиль</span><h3>Один акцент — разные образы</h3><p>Ролик с вариантами носки украшения. Вдохновение для собственного образа.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Df17ZMgtZoz/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article>
+<article class="sj-card"><span class="sj-kicker">Видео · В кадре</span><h3>Мои образы за неделю</h3><p>Украшения Bogem в повседневных сочетаниях — глазами дизайнера.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Dc6ZOgMtR0O/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article>
+<article class="sj-card"><span class="sj-kicker">Истории покупателей</span><h3>Отзывы о Bogem</h3><p>Отзывы покупателей в актуальных историях нашего профиля.</p><a class="sj-link" href="https://www.instagram.com/stories/highlights/17930765933134033/" target="_blank" rel="noopener noreferrer">Читать отзывы в Instagram ↗</a></article>
+</div></div></section>
   <section id="about" class="page tint">
     <div class="wrap">
       <div class="folio"><span>Bogem jw · Ноябрь 2026</span><span>Письмо редактора</span><span>стр. 32</span></div>
@@ -1564,7 +1592,7 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
     </div>
   </div>
 </section>
-<footer>© Bogem jw · журнал украшений ручной работы · <a href="kolye/" class="foot-link">Колье</a> · <a href="sergi/" class="foot-link">Серьги</a> · <a href="braslety/" class="foot-link">Браслеты</a> · <a href="komplekty/" class="foot-link">Комплекты</a> · <a href="dostavka/" class="foot-link">Доставка и оплата</a> · <a href="uhod/" class="foot-link">Уход за украшениями</a> · <a href="#archive" class="foot-link">Архив коллекций</a> · <a href="https://bogemjw.ru/privacy.html" class="foot-link">Политика конфиденциальности</a></footer>
+<footer><a href="#bogem-journal" class="foot-link">Мир Bogem</a> · © Bogem jw · журнал украшений ручной работы · <a href="kolye/" class="foot-link">Колье</a> · <a href="sergi/" class="foot-link">Серьги</a> · <a href="braslety/" class="foot-link">Браслеты</a> · <a href="komplekty/" class="foot-link">Комплекты</a> · <a href="dostavka/" class="foot-link">Доставка и оплата</a> · <a href="uhod/" class="foot-link">Уход за украшениями</a> · <a href="#archive" class="foot-link">Архив коллекций</a> · <a href="https://bogemjw.ru/privacy.html" class="foot-link">Политика конфиденциальности</a></footer>
 <div class="cookie" id="cookie" hidden role="region" aria-label="Уведомление о cookies"><p>Сайт использует cookies и сервис Яндекс Метрика, чтобы понимать, что вам нравится. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="https://bogemjw.ru/privacy.html">политикой конфиденциальности</a>.</p><button type="button" id="cookie-ok">Хорошо</button></div>
 <button class="cart-fab" id="cart-fab" type="button" aria-label="Открыть корзину">Корзина <b id="cart-count">0</b></button>
 <div class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-label="Корзина">
@@ -2336,6 +2364,7 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 })();
 </script>
 <script>/* 15.11 Андрей: ссылки «наверх» (href="#") — браузер сам плавно прокручивает наверх, после прокрутки убираем # из адреса (раньше нельзя — прервёт прокрутку) */addEventListener('hashchange',()=>{if(!location.href.endsWith('#'))return;const f=()=>{if(location.href.endsWith('#'))history.replaceState(history.state,'',location.pathname+location.search);};addEventListener('scrollend',f,{once:true});setTimeout(f,1500);});</script>
+<script>document.getElementById('sj-repeat').addEventListener('click',()=>{if(typeof window.bogemMessage==='function')window.bogemMessage({title:'Обсудить изготовление',text:'Здравствуйте! Мне понравилось колье из прошлой коллекции: гематит, изумрудный эрклез и струящиеся цепи. Можно обсудить возможность повторения или похожего украшения?\nhttps://www.instagram.com/bogem_twins_jewelry/reel/DcoUsm5t8E1/'});});</script>
 </body>
 </html>
 
