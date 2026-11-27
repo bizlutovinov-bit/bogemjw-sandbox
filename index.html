@@ -1295,6 +1295,22 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
 
 /* Verified customer review excerpts, sandbox 27 November 2026 */
 .sj-review-list{display:grid;gap:12px;margin:16px 0}.sj-review{margin:0;padding:18px 16px;border:1px solid var(--rule);border-left:2px solid var(--wine);border-radius:2px}.sj-review blockquote{margin:0 0 12px;font:400 17px/1.55 var(--f-body);color:var(--ink)}.sj-review figcaption{font:400 12px/1.5 var(--f-body);color:var(--ink-soft)}.sj-card .sj-review-note{font-size:12px;line-height:1.5}
+
+/* Compact editorial layout — reversible, only journal sections */
+#contents,#trend,#material,#about,#howto{padding-block:clamp(32px,4vw,56px)}
+#looks{padding-block:clamp(32px,4.5vw,64px)}
+#looks .looks-head{margin-bottom:24px}
+#looks .looks-reels{margin-top:clamp(24px,3.5vw,44px)}
+#bogem-journal{padding-block:clamp(32px,4vw,56px)}
+#bogem-journal .sj-compact{display:block;margin-top:18px}
+#bogem-journal .sj-compact>.sj-card{padding:16px 0 8px}
+#bogem-journal .sj-review-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:12px 0}
+#bogem-journal .sj-link{margin-right:18px}
+#bogem-journal .sj-more{border-top:1px solid var(--rule);margin-top:10px}
+#bogem-journal .sj-more summary{cursor:pointer;min-height:44px;padding:13px 0;color:var(--wine);font-weight:500}
+#bogem-journal .sj-more summary:focus-visible{outline:2px solid var(--wine);outline-offset:4px}
+#bogem-journal .sj-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media(max-width:760px){#bogem-journal .sj-review-list,#bogem-journal .sj-more-grid{grid-template-columns:1fr;gap:10px}#bogem-journal .sj-review{padding:12px 14px}#bogem-journal .sj-more-grid .sj-card{padding:12px 0}#bogem-journal .sj-link{margin-right:10px}}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -1569,10 +1585,9 @@ img[src*="/black-agate-cross-closeup.webp"]{filter:brightness(1.035)}
 <span class="rubric">За пределами каталога</span>
 <h2 class="big" id="sj-title">Мир <i>Bogem</i></h2>
 <p class="lede">Украшения в движении, живые образы и истории из нашей мастерской. Оригинальные публикации бренда.</p>
-<div class="sj-grid">
-<article class="sj-card"><span class="sj-kicker">Видео · Стиль</span><h3>Один акцент — разные образы</h3><p>Ролик с вариантами носки украшения. Вдохновение для собственного образа.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Df17ZMgtZoz/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article>
-<article class="sj-card"><span class="sj-kicker">Видео · В кадре</span><h3>Мои образы за неделю</h3><p>Украшения Bogem в повседневных сочетаниях — глазами дизайнера.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Dc6ZOgMtR0O/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article>
+<div class="sj-grid sj-compact">
 <article class="sj-card"><span class="sj-kicker">Истории покупателей</span><h3>Отзывы о Bogem</h3><div class="sj-review-list" aria-label="Отзывы покупателей"><figure class="sj-review"><blockquote>«Огромное спасибо за такую красоту🥰🥰🥰 Я безумно довольна покупкой🤩🤩🤩 Украшение просто невероятное💕💕💕»</blockquote><figcaption>Колье-чокер из натуральных камней · октябрь 2025</figcaption></figure><figure class="sj-review"><blockquote>«КАЧЕСТВО СУПЕР РЕАЛЬНО»</blockquote><figcaption>Украшение с бабочкой · август 2022</figcaption></figure></div><a class="sj-link" href="otzyvy/">Все отзывы и фотографии →</a><a class="sj-link" href="https://www.instagram.com/stories/highlights/17930765933134033/" target="_blank" rel="noopener noreferrer">Читать отзывы в Instagram ↗</a></article>
+<details class="sj-more"><summary>Ещё истории и образы Bogem</summary><div class="sj-more-grid"><article class="sj-card"><span class="sj-kicker">Видео · Стиль</span><h3>Один акцент — разные образы</h3><p>Ролик с вариантами носки украшения. Вдохновение для собственного образа.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Df17ZMgtZoz/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article><article class="sj-card"><span class="sj-kicker">Видео · В кадре</span><h3>Мои образы за неделю</h3><p>Украшения Bogem в повседневных сочетаниях — глазами дизайнера.</p><a class="sj-link" href="https://www.instagram.com/bogem_twins_jewelry/reel/Dc6ZOgMtR0O/" target="_blank" rel="noopener noreferrer">Смотреть Reels ↗</a></article></div></details>
 </div></div></section>
   <section id="about" class="page tint">
     <div class="wrap">
