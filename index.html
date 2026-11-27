@@ -1347,6 +1347,13 @@ body{margin:0}
 @media(min-width:901px){.bar nav{gap:clamp(10px,1.2vw,20px)}.bar nav a{letter-spacing:.06em}}
 @media(min-width:901px) and (max-width:1240px){#bar-cart .t{display:none}}
 @media(min-width:901px) and (max-width:1060px){.bar nav a[href="uhod/"],.bar nav a[href="#archive"]{display:none}}
+
+/* 27.11 (Андрей 7257): окно сообщения — выбор канала: Telegram, Instagram, почта */
+.message-where{margin:6px 0 0;font-size:14px;color:var(--ink)}
+.message-channels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.message-channels .btn{min-height:48px;padding:10px 8px;font-size:14px}
+.message-mail-hint{margin:2px 0 0;font-size:12px;line-height:1.45;color:var(--ink-soft)}
+@media(max-width:380px){.message-channels{grid-template-columns:1fr}}
 </style>
 
 <div class="announce"><div class="wrap"><div class="theme" role="group" aria-label="Оформление"><span>Оформление</span><button id="t-light" type="button" data-t="light" aria-pressed="false">Светлая</button><button id="t-dark" type="button" data-t="dark" aria-pressed="false">Тёмная</button><button id="t-sys" type="button" data-t="system" aria-pressed="true">Системная</button></div><span>Ручная работа</span><b>✦</b><span>Доставка по России и СНГ</span><b>✦</b><span>СДЭК · Яндекс Доставка · Ozon</span></div></div>
@@ -2341,19 +2348,22 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
 
 <dialog id="message-dialog" class="message-dialog" aria-labelledby="message-title" aria-describedby="message-help">
  <div class="message-head"><h2 id="message-title">Спросить мастера</h2><button class="cart-x" id="message-close" type="button" aria-label="Закрыть сообщение" autofocus>×</button></div>
- <p id="message-help">Скопируйте текст, откройте Instagram и вставьте его в Direct.</p>
+ <p id="message-help">Скопируйте текст и отправьте мастеру в Telegram, Instagram или на почту — мастер ответит лично.</p>
  <label for="message-text">Ваше сообщение <span>можно дополнить</span></label>
  <textarea id="message-text" rows="7" spellcheck="true"></textarea>
- <p id="message-status" role="status" aria-live="polite">Сообщение готово. Отправить его нужно в Instagram.</p>
- <div class="message-actions"><button class="btn" id="message-copy" type="button">1. Скопировать сообщение</button><a class="btn line" id="message-go" href="https://ig.me/m/bogem_twins_jewelry" data-external-confirmed target="_blank" rel="noopener noreferrer">2. Открыть Instagram <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+ <p id="message-status" role="status" aria-live="polite">Сообщение готово. Скопируйте и выберите, куда отправить.</p>
+ <div class="message-actions"><button class="btn" id="message-copy" type="button">1. Скопировать сообщение</button><p class="message-where">2. Отправьте мастеру, где вам удобно:</p><div class="message-channels"><a class="btn line" id="message-tg" href="https://t.me/bogem_orders_bot" data-external-confirmed target="_blank" rel="noopener noreferrer">Telegram <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="btn line" id="message-go" href="https://ig.me/m/bogem_twins_jewelry" data-external-confirmed target="_blank" rel="noopener noreferrer">Instagram <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="btn line" id="message-mail" href="mailto:hello@bogemjw.ru" data-external-confirmed>Почта <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div><p class="message-mail-hint">Почта откроется сразу с текстом — копировать не нужно. Адрес: hello@bogemjw.ru</p></div>
 </dialog>
 <script>
 (function(){
  const $=id=>document.getElementById(id), dialog=$('message-dialog'), field=$('message-text'), copy=$('message-copy');
+ // 27.11 (Андрей 7255/7257): кроме Instagram — Telegram (бот заказов пересылает мастеру) и почта с готовым текстом; ВК не читают — не даём
+ const setMail=()=>{const m=$('message-mail');if(m)m.href='mailto:hello@bogemjw.ru?subject='+encodeURIComponent('Bogem jw: '+$('message-title').textContent)+'&body='+encodeURIComponent(field.value);};
  window.bogemMessage=({title,text})=>{
    $('message-title').textContent=title;field.value=text;
    copy.textContent='1. Скопировать сообщение';
-   $('message-status').textContent='Сообщение готово. Отправить его нужно в Instagram.';
+   $('message-status').textContent='Сообщение готово. Скопируйте и выберите, куда отправить.';
+   setMail();
    dialog.showModal();
  };
  $('message-close').onclick=()=>dialog.close();
@@ -2364,9 +2374,9 @@ document.querySelectorAll('a[data-buy]').forEach(a=>a.addEventListener('click',e
      field.focus();field.select();try{ok=document.execCommand('copy');}catch(_){}
    }
    copy.textContent=ok?'Скопировано ✓':'Скопировать ещё раз';
-   $('message-status').textContent=ok?'Теперь откройте Instagram и вставьте текст в сообщение.':'Выделите текст выше и выберите «Скопировать» в меню телефона.';
+   $('message-status').textContent=ok?'Теперь откройте Telegram или Instagram и вставьте текст в сообщение.':'Выделите текст выше и выберите «Скопировать» в меню телефона.';
  };
- field.addEventListener('input',()=>{copy.textContent='1. Скопировать сообщение';$('message-status').textContent='Текст изменён. Скопируйте его перед отправкой.';});
+ field.addEventListener('input',()=>{setMail();copy.textContent='1. Скопировать сообщение';$('message-status').textContent='Текст изменён. Скопируйте его перед отправкой.';});
 })();
 </script>
 
